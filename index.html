@@ -103,7 +103,8 @@
   }
 
   .sommaire{list-style:none;margin:6px 0 0}
-  .sommaire li{margin:0 0 10px}
+  .sommaire li{margin:0 0 10px;padding:0;border-bottom:none}
+  .sommaire li::before{display:none}
   .lien{display:block;text-decoration:none;color:var(--encre);
     background:var(--papier);border:2px solid var(--sable);border-left:7px solid var(--lagune);
     border-radius:14px;padding:14px 16px;transition:border-color .15s,transform .15s}
