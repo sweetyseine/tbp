@@ -101,6 +101,15 @@
     .carte{padding:30px 24px 26px;border-radius:18px}
     h1{font-size:1.5rem}
   }
+
+  .sommaire{list-style:none;margin:6px 0 0}
+  .sommaire li{margin:0 0 10px}
+  .lien{display:block;text-decoration:none;color:var(--encre);
+    background:var(--papier);border:2px solid var(--sable);border-left:7px solid var(--lagune);
+    border-radius:14px;padding:14px 16px;transition:border-color .15s,transform .15s}
+  .lien:hover,.lien:focus{border-color:var(--lagune);transform:translateX(2px)}
+  .lien .t{display:block;font-weight:700;font-size:17px}
+  .lien .s{display:block;font-size:14px;color:#4a6472;margin-top:3px}
 </style>
 </head>
 <body>
@@ -117,19 +126,19 @@
     <h1>Mathématiques en terminale bac pro</h1>
     <p class="intro">Vos cours, les corrigés des exercices et les documents à imprimer seront réunis ici, classés par chapitre et par séance.</p>
 
-    <div class="attente">
-      <p><strong>Le site ouvre bientôt.</strong> Gardez l'adresse : c'est celle du QR code collé sur votre fiche de règles, elle ne changera pas.</p>
-    </div>
-
     <section class="aVenir">
-      <h2>Ce que vous trouverez sur ce site</h2>
-      <ul>
-        <li>Le cours de chaque séance</li>
-        <li>Le corrigé des exercices, publié après la correction en classe</li>
-        <li>La fiche de cours à imprimer</li>
-        <li>Les vidéos et les animations</li>
+      <h2>Chapitre 1 &middot; Statistiques à deux variables</h2>
+      <ul class="sommaire">
+        <li><a class="lien" href="activite1.html">
+          <span class="t">Activité A &middot; Les véhicules hybrides</span>
+          <span class="s">Séquence 1, séance 2 &middot; le code est donné en classe</span>
+        </a></li>
       </ul>
     </section>
+
+    <div class="attente">
+      <p>Gardez l'adresse : c'est celle du QR code collé sur votre fiche de règles, elle ne changera pas.</p>
+    </div>
 
     <footer>Mme Talbaut — Terminale bac pro</footer>
   </main>
