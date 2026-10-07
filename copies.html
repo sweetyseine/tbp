@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mes copies numériques corrigées - Terminale bac pro - Mme Talbaut</title>
+<style>
+  :root{--encre:#12303f;--papier:#f7f4ec;--craie:#ffffff;--carmin:#b8503c;--lagune:#2b7a78;--sable:#e4dccb}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--papier);color:var(--encre);
+    line-height:1.6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .carte{background:var(--craie);border-radius:22px;max-width:620px;width:100%;padding:40px 38px 34px;
+    box-shadow:0 18px 50px rgba(18,48,63,.13);border-top:7px solid var(--lagune)}
+  .retour{display:inline-block;margin-bottom:18px;color:var(--lagune);font-weight:600;font-size:.92rem}
+  h1{font-size:1.85rem;line-height:1.25;font-weight:700;letter-spacing:-.015em;margin-bottom:14px}
+  footer{margin-top:26px;font-size:.83rem;color:#5d7481}
+  @media (max-width:520px){.carte{padding:30px 20px 26px;border-radius:18px}h1{font-size:1.5rem}}
+  .cp-z{border:none!important;padding:0!important;--cpc:#2b7a78}
+
+.cp-z{background:#fff;border:2.5px solid #22323b;border-radius:18px;padding:20px 22px;max-width:560px;margin-top:18px}
+.cp-m:empty{display:none}
+.cp-z p{margin:0 0 10px;font-size:16px}
+.cp-f{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0}
+.cp-f input{font:inherit;font-size:22px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  border:2.5px solid #22323b;border-radius:12px;padding:9px 14px;width:200px;max-width:100%}
+.cp-f button{font:inherit;font-weight:800;font-size:17px;color:#fff;background:var(--cpc);border:2.5px solid var(--cpc);
+  border-radius:12px;padding:10px 18px;cursor:pointer}
+.cp-f button:disabled{opacity:.55;cursor:default}
+.cp-m{font-weight:700;margin:12px 0 0!important;min-height:1.4em}
+.cp-m.non{color:#8a1c3c}.cp-m.oui{color:#2f6b34}
+.cp-t{font-family:"Bricolage Grotesque","Segoe UI",sans-serif;font-weight:800;font-size:19px;line-height:1.3;margin:0 0 10px}
+.cp-l{margin:0;padding-left:22px}
+.cp-l li{margin:0 0 4px;font-size:15.5px}
+
+</style>
+</head>
+<body>
+  <main class="carte">
+    <a class="retour" href="index.html">&larr; Retour à l’accueil</a>
+    <h1>Mes copies numériques corrigées</h1>
+<div class="cp-z"><h2 class="cp-t">Toutes vos copies corrigées dans votre dossier personnel</h2><ul class="cp-l"><li>Une copie arrive dans le dossier après la correction.</li><li>Ne donnez votre code à personne : il ouvre votre dossier.</li></ul><div class="cp-f"><input id="cpcode" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="12" aria-label="Votre code" placeholder="CODE"><button id="cpok" type="button">Ouvrir mes copies</button></div><p class="cp-m" id="cpm" role="status"></p></div>
+    <footer>Mme Talbaut - Terminale bac pro</footer>
+  </main>
+
+<script>
+(function(){
+var D = {"023b357af639ef1699c5":{"s":"vLdSUnYNZ9PAJj1QacWdKg==","i":"betPubQ39RY2YAh5","d":"+XTxiC4uMe38OzDQ7PoPed73IzaA72xGmQsIlsGikK/ACtmCB0Lo+ki0x2S7lMyP3/68ZapcRaiek9V/2YpMGYk8mzl17+7/LuW6T/4=","n":60000},"07a8ee42e3e0b922d35f":{"s":"BZAK5+/hlY0bZrGUlcgy4A==","i":"3vBly+iEKKboC6Au","d":"y6rbg/N9U0pjK7noW8Ctg4dlHisC8K+12+6jfZwAv/F9polXHnbeTBddqOmEVI0KCj1O7X0SYz3E19hkFXFBFQeKxGaowtA3IViRsHM=","n":60000},"0a9d5c4518977d39348f":{"s":"w2Png/EbSEkb+/Q4Xy4Xhg==","i":"WE5Mzx1/kBQyw8iU","d":"CjdcyrQpYqRACKiHzNXfKcthHVE7XwSvjvRnHPo5xZLJEaIvClXVd4C3wIVB96fIWLSPSEIQ+y2gGxsiV7iGXj0epKzzTp+aPPsPqFI=","n":60000},"1b6af964bfb4f5103beb":{"s":"cMQLIayxX8jRPRsI6Gn/dw==","i":"KtbekBdRKFO4Gx7W","d":"1E3HYlL5L95ecHU71fT82wAYyn6B+4NtOpE34Su2YifbBuRmSAVpx1sUJ4sPQjwM6nDej6BKJzcxXWhjbJevB23j+87tXaXKjZC1mlU=","n":60000},"28eef7b4f200b0128f46":{"s":"pocO1xubr/QJLBCEs/xpQQ==","i":"qmMp/fVgNHeTJ+Tx","d":"1YokqZM/7UQHE2M9mYxXLTSc6Ys5DLkwadEjUZSzsZrKkZVgvrkcjx8OFjXdos+vUOpNYLttPHkyYAhlHqHR6B5kijst3DkK+JblyjA=","n":60000},"2b765c2715f45f2f44e7":{"s":"usOHF4M7iCvT40QkmGo2yg==","i":"Rit3zSKTzZgHcdgs","d":"XoMjtTnfKOKy0DFKzIMyeybqAvY5v8gxDrP7W+XFEB68uKbZ2IbJJAKSOD+In4mKtB46pb5g/vPx4T/C2QkoJ+WAJ8qJEbcN7w7agl0=","n":60000},"2e797183933c235db169":{"s":"IVes7BiVpnXRiRWEz4gXHg==","i":"n/OfJFHsJpl4bmMG","d":"QtZhO12JfwwMdmBD41CZC0OeqbEuC7cvkvz7L+9Sa2crtv2lB6mc07zQsIinAOqXxpBza4O4tLO5Qtd3HeET5xYDTWpiNe61DQc1J2s=","n":60000},"34da0f230e58f0c48329":{"s":"VtNo/jNtZjc7aUrX0GnmYA==","i":"ALqHJF0CDbVdR9j9","d":"QVq/UOd1YN6GBHuanxLeT9H/Jwi8eIBTh8wL5jQuwzxfZ4f55yWvT5BF+RHh96Zx6yMTmrh+bFT55UqYlonjyr7i/WG82jvnDh0rS7Y=","n":60000},"3969cda59af72f29a7a9":{"s":"0R9kDTa4ugXrsVrvOKilew==","i":"SMBN50hSbjshCrJr","d":"YhitZ86iY6t4IFDCcjFk7bAOK/z1L0VXqA0FVremyy0D33e+VAxbuYgosrkvHwgxs3MuIr/GYb4XPtE5UhzUVeObltVIr6FpScf/gqI=","n":60000},"3c7de8d42db818514a85":{"s":"mMP8DQqwev6VgjsomHTvRA==","i":"1jzd6MD2MbZlJnGi","d":"9XqcxRGuMqFH8Q6/BRkFeff1qG7gUQLSn8XGSMl/fJBHEqLZ+Zs72jX2gB8Y6J7RAh2A2O6keMzVdZO/XLgpSDIHcxRFMSR3jfLgL3E=","n":60000},"41f4cded28755f8f0bdb":{"s":"2gHk9oT7egO85RvciWtFzQ==","i":"9viydHf9W/HyuOau","d":"5PPkzb29kyOFYjSulv55vnKFsgEhvjCxeWsO9+s0JFpo6OfxstDOm0eqRUwX0+vSXROAnU3+caRloaLIaJcrzUak2dHssCjyY/Qxny0=","n":60000},"4cfa2eef02c047ca71ba":{"s":"kHg7VAjjnkKG5kDkngjZIg==","i":"AbMGlx7n8Ec9D1Yv","d":"ekVFAIV5zvK06d6d79DD0mg4PBDzX2jkXeiTVzTCu+jlCrlrJH4d1Hyo2iJ7z6IVa5sbPv+O/RskmYvwJJEtoMgn0j7aa4VOpOXQOs8=","n":60000},"54776542b7b3d3a7f98b":{"s":"8kMq9xmkFWYQS7k86ii+wg==","i":"7lC3VEGAWJ6+AexG","d":"S4gO9onflFvbrida/U217ZrKmlIaa0bA+tYtDZqIrFmVU+VCfH2gYpMg/B+/ojf8Udcn2P5t+TD1EjW53TFaKpd3udGySE9ykcSTFDA=","n":60000},"7437655f7c45b238e33a":{"s":"oLGk0a7I+21BgWvseKXAAw==","i":"6S7t+AG/m+KYZbV6","d":"PT1TEYt7VkGdAGamIuRlQmTmHVhlVCDp+sbrITfZQ9l49zA490J9RuJafk4fDJH37ryGUUdx67pybLdCSEkNuMboN0vqnmUMb8MWkgw=","n":60000},"84f6e4cb44d401f7392a":{"s":"j7H1xgULZX6Ll08u4Dr8Sg==","i":"hTqX0HSQbPse69Aa","d":"Tiif6vV8SaV6wXB370WHlkXNQ2R54Qa0Oyz1v6VYreQ6fSnMKfh406X+ADeTCmlpbUzARTtvCN37fiRlVCcdK+bIF73Gzi91vjy/mgA=","n":60000},"9649fa020f1693038b3b":{"s":"FExeZv89CR9aj902340UtA==","i":"WKvGe0t4ZhxfLy0X","d":"KJLDCiJuyrcDmXJzGiSHrqqhyzCdi7D2qfcI6QKozW1snpjy52Rk6tb1E/eVmbJHxC3Bfwuy2A86LqJltk8fajVM6F3ANV0d9FaPs2Y=","n":60000},"9988085ae6ccd37f6cbf":{"s":"Qe30K/j4oSHU3G9SLfyTxQ==","i":"Ymy9+p5WMh8+KPfj","d":"/eT3Zozo80ZxWckymjgJlZmZ7IvaJ1YDXeRzFPT4bavMN0+B9YZnL9gjqQOP+WeslbJqcO7DxRH4NoP8GG8cYCoeE1nxcPUSZxSjQro=","n":60000},"9d3f2e191179d56dd492":{"s":"FBSO/EqlzLaBSPM+DMWF/g==","i":"v6osnabH26/LPK8P","d":"yW/KVZxBUW/MI2FSdmZ2iHEgFAF38mU+bXmOEIsYRo2RoRYjPax+3YvHmD8VA9NIzgUqaHJVadYgB11fJ3PEN7CKVX/BHygffp64kbg=","n":60000},"9ebf9eb2266fefaf470a":{"s":"ThZh7nZeR2UvZ4UA0gmPAg==","i":"YEnFWzY67eAOmEOB","d":"9fiAgsf2OH2icHzx/2tlEKTPLPCmAPHHLKPaCvyv1I0N06ANf+BOeoR1gsyPQZNARJNC+dKMJVQ4CV0Ic306zZRbeFH9Vs5zpnAJPpI=","n":60000},"a231e1e49da885c3e533":{"s":"OzuwCDNnXOk1slQuqk4KPw==","i":"nXprOAv2NYWAc+c+","d":"hPmaBCfXzlIOXDEoVZMXYP2vNqeZSy2haxwJvfRTzPbLKZwitCBj5d4zHP0ps/nZfQy+brBexSHncq/sxDhDepjWvra046lrsnrdZXc=","n":60000},"a83dbb88d894628dc762":{"s":"4IibiQ4ymWOoSCPasEh8aA==","i":"FIPexnFfAlAJXoVl","d":"wNk1QrXSsCIZ3l63C5kS+UPvf4NFEEwsTCxF4DdXYKSoXRds91Aw+StrTUdklC+EaarBy07ezAjFxlQWcJTWZ3laBVuI+gv1Lfoa1vU=","n":60000},"b15f1d768c434af14ea8":{"s":"YYsYoN8ij+Ql4nIHjEy5CA==","i":"9L6jjAqKEhbrg76O","d":"MWCj43RI9xBTIDlwR+w6OhKHNlIeCrR2i1loM05HGzX13C2Ty5TTY4pM1vXolm5nlyXLWjbpQazw5j4ENjw/aOvgP1EXhxegUMTOwSY=","n":60000},"b583ebf4d14e5eacc793":{"s":"HTkhG4uRihkU+iffdb0OcA==","i":"7Ci0spRDwgbH6Rty","d":"2bXKcdIYVKAQjBImrdp23WY17HKGiT19u5a2LhUtdj6JwmYZkT4RjvzGQBGQooQ4xm4SAkKc+sXE5KuVdxMCE8h64YbuWZcQ8NqSqvM=","n":60000},"bd010f12ff0d04d3e2c4":{"s":"oneVkAXSlQjgFiV64YL/kg==","i":"5OxjsF7GGHT/Rn4r","d":"SXs2vuXfQ7lFGrcaPFmAR4uvrrwkymqrGxhzoDpWeCRW0eT/194jQ5conZEYnZJ3NqRou00xesLfpFCTsZqVqMod+pXXSQaa6YM+xp4=","n":60000},"cad661b4797f9159ff7a":{"s":"0pvZo06KegWCJEY3rrUbjQ==","i":"Ag+Fwd8FmyIW/hoC","d":"L/vK7mg9IrS0vXjE7kmTBI6EcjQswzN/8FslI2rj/R/2hKBUlNTRMEe73SaBfjUqt15wZrwpI1kVdjR65gP9D29BSeExottAApFUnsk=","n":60000},"d42cdcc070967dab9d14":{"s":"H5JOFTJcu1ngPSIFe/4eAQ==","i":"gy5anHPUrh7f+6ZS","d":"EBoN7OHIrRPliqfDp/W7P1ZNrhoQb6rRvkU9+CH5pT9WX3+ZTxh2bMfteFbUinaTu0o3Cf7TAocklmHodmOflYfwJenG8z9IrBzqTb0=","n":60000},"da70e1aeb45462939423":{"s":"gdqZN51HwWxwLiw7AS2PlA==","i":"jZs27OvIHIQIVk5+","d":"Ue7HhvouLFQlLmbptnYNlBSnFTSz//NTgWvFWA60YqomiNCXZW8i3nPSFnIu7hyluLWsXaOi4aNugmM1OGB0EBWAoLVIQcg1bIhD9Qk=","n":60000},"e8b20e508524c62efb8e":{"s":"A8KSDLYSgp/rEwoTwnX2LA==","i":"I/6/WOEuvrgxt9HO","d":"bqMmC+hUxerNBjTCkNXEeKCJqyL7frJX/b1LT6Bhs5SBxIA/Wls6jQs4QDlBrwKIuKuojBYvsdtHeY84EYU+qkyDvCFsYAuhOjoz/M4=","n":60000}}, CL = "TMCVA2";
+var $ = function(s){ return document.querySelector(s); };
+function b64(s){ return Uint8Array.from(atob(s), function(c){ return c.charCodeAt(0); }); }
+function hex(b){ return Array.prototype.map.call(new Uint8Array(b), function(x){ return ("0" + x.toString(16)).slice(-2); }).join(""); }
+function dire(t, cl){ $("#cpm").className = "cp-m " + (cl || ""); $("#cpm").textContent = t; }
+async function ouvrir(){
+  var code = $("#cpcode").value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+  if (!code) { dire("Tapez votre code.", "non"); return; }
+  if (!window.crypto || !crypto.subtle) { dire("Ce navigateur ne peut pas ouvrir le dossier. Essayez avec un autre.", "non"); return; }
+  $("#cpok").disabled = true; dire("Vérification…");
+  try {
+    var e = hex(await crypto.subtle.digest("SHA-256", new TextEncoder().encode("copies|" + CL + "|" + code))).slice(0, 20);
+    var o = D[e];
+    if (!o) { dire("Ce code n’est pas reconnu. Vérifiez-le sur votre étiquette.", "non"); $("#cpok").disabled = false; return; }
+    var mat = await crypto.subtle.importKey("raw", new TextEncoder().encode(code), "PBKDF2", false, ["deriveKey"]);
+    var cle = await crypto.subtle.deriveKey({name: "PBKDF2", salt: b64(o.s), iterations: o.n, hash: "SHA-256"},
+                                            mat, {name: "AES-GCM", length: 256}, false, ["decrypt"]);
+    var lien = new TextDecoder().decode(await crypto.subtle.decrypt({name: "AES-GCM", iv: b64(o.i)}, cle, b64(o.d)));
+    dire("Code reconnu : votre dossier s’ouvre…", "oui");
+    location.href = lien;
+  } catch (x) {
+    dire("Le dossier n’a pas pu s’ouvrir. Réessayez.", "non"); $("#cpok").disabled = false;
+  }
+}
+$("#cpok").onclick = ouvrir;
+$("#cpcode").onkeydown = function(ev){ if (ev.key === "Enter") ouvrir(); };
+})();
+</script>
+
+</body>
+</html>
