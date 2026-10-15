@@ -1,21 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mes copies numériques corrigées - Terminale bac pro - Mme Talbaut</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mes copies numériques corrigées - Terminale bac pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--encre:#12303f;--papier:#f7f4ec;--craie:#ffffff;--carmin:#b8503c;--lagune:#2b7a78;--sable:#e4dccb}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--papier);color:var(--encre);
-    line-height:1.6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-  .carte{background:var(--craie);border-radius:22px;max-width:620px;width:100%;padding:40px 38px 34px;
-    box-shadow:0 18px 50px rgba(18,48,63,.13);border-top:7px solid var(--lagune)}
-  .retour{display:inline-block;margin-bottom:18px;color:var(--lagune);font-weight:600;font-size:.92rem}
-  h1{font-size:1.85rem;line-height:1.25;font-weight:700;letter-spacing:-.015em;margin-bottom:14px}
-  footer{margin-top:26px;font-size:.83rem;color:#5d7481}
-  @media (max-width:520px){.carte{padding:30px 20px 26px;border-radius:18px}h1{font-size:1.5rem}}
-  .cp-z{border:none!important;padding:0!important;--cpc:#2b7a78}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  color:#0d1a22;background:#f6f4fb;line-height:1.55}
+a{color:inherit}
+.bar{background:#fff;border-bottom:2.5px solid #22323b}
+.bar .in{max-width:1000px;margin:0 auto;padding:12px 20px;display:flex;
+  align-items:center;gap:14px;flex-wrap:wrap}
+.bar .lg{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:18px;
+  text-decoration:none}
+.bar .fil{font-size:15px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bar .fil a{color:#00778a;font-weight:600}
+.bar .qui{margin-left:auto;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
+  font-size:14px;white-space:nowrap}
+main{max-width:1000px;margin:0 auto;padding:30px 20px 60px}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:34px;
+  letter-spacing:-.02em;margin:0 0 6px}
+.kick{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:#00778a;font-weight:700;margin:0 0 8px}
+.sub{font-size:17px;margin:0 0 30px}
+.carte{display:block;background:#fff;border:2.5px solid #22323b;border-radius:18px;
+  padding:20px 24px;text-decoration:none;box-shadow:0 14px 30px -24px rgba(13,26,34,.7)}
+.carte:hover{border-color:var(--c);box-shadow:0 18px 34px -22px rgba(13,26,34,.55)}
+.carte h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px;
+  margin:0 0 4px;color:var(--c)}
+.carte p{margin:0;font-size:15.5px}
+.gr{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center;
+  margin:0 0 34px}
+.hero svg{width:100%;height:auto;max-width:100%;display:block}
+.doc{background:#fff;border:2.5px solid #22323b;border-radius:18px;padding:22px 24px;
+  margin:0 0 18px}
+.doc h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;
+  margin:0 0 6px;color:var(--c)}
+.doc p{margin:0 0 16px;font-size:15.5px}
+.bt{display:inline-flex;align-items:center;gap:9px;font-family:"Bricolage Grotesque",sans-serif;
+  font-weight:800;font-size:16px;text-decoration:none;color:#fff;background:var(--c);
+  border-radius:12px;padding:11px 20px;margin:0 10px 10px 0}
+.bt.sec{background:#fff;color:var(--c);border:2.5px solid var(--c)}
+.bt:hover{filter:brightness(1.08)}
+.vide{background:#fff;border:2.5px dashed #22323b;border-radius:18px;padding:20px 24px;
+  font-size:15.5px}
+.vide h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px;
+  margin:0 0 4px;color:#5a6b74}
+.vide p{margin:0}
+.gr.ch3{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.carte.ch{padding:16px 16px 18px}
+.carte .ill{display:block;width:100%;height:auto;border:2.5px solid #22323b;
+  border-radius:12px;margin:0 0 12px}
+.carte.ch .no{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;font-weight:700;color:#5a6b74;margin:0 0 2px}
+.carte.ch h2{font-size:19px;line-height:1.2;margin:0 0 4px}
+.carte.ch p{font-size:14.5px}
+.carte.ch.off{border-style:dashed;box-shadow:none;background:#fbfbfd}
+.carte.ch.off .ill{filter:grayscale(1);opacity:.45}
+.carte.ch.off h2{color:#5a6b74}
+.carte.ch.off p{color:#5a6b74}
+.carte.dis{padding:16px 16px 18px}
+.carte.dis h2{margin:0 0 6px}
+footer.pied{border-top:2.5px solid #22323b;background:#fff}
+footer.pied .in{max-width:1000px;margin:0 auto;padding:14px 20px;display:flex;
+  flex-wrap:wrap;gap:6px 16px;align-items:center;
+  font-family:"Bricolage Grotesque",sans-serif;font-size:14px}
+footer.pied .sep{color:#00778a;font-weight:800}
+footer.pied b{font-weight:800}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr}
+  h1{font-size:27px}
+  .bar .qui{margin-left:0;width:100%}}
 
 .cp-z{background:#fff;border:2.5px solid #22323b;border-radius:18px;padding:20px 22px;max-width:560px;margin-top:18px}
 .cp-m:empty{display:none}
@@ -31,20 +91,18 @@
 .cp-t{font-family:"Bricolage Grotesque","Segoe UI",sans-serif;font-weight:800;font-size:19px;line-height:1.3;margin:0 0 10px}
 .cp-l{margin:0;padding-left:22px}
 .cp-l li{margin:0 0 4px;font-size:15.5px}
-
-</style>
+.cp-z{--cpc:#00778a}</style>
 </head>
 <body>
-  <main class="carte">
-    <a class="retour" href="index.html">&larr; Retour à l’accueil</a>
-    <h1>Mes copies numériques corrigées</h1>
-<div class="cp-z"><h2 class="cp-t">Toutes vos copies corrigées dans votre dossier personnel</h2><ul class="cp-l"><li>Une copie arrive dans le dossier après la correction.</li><li>Ne donnez votre code à personne : il ouvre votre dossier.</li></ul><div class="cp-f"><input id="cpcode" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="12" aria-label="Votre code" placeholder="CODE"><button id="cpok" type="button">Ouvrir mes copies</button></div><p class="cp-m" id="cpm" role="status"></p></div>
-    <footer>Mme Talbaut - Terminale bac pro</footer>
-  </main>
+<header class="bar"><div class="in"><a class="lg" href="index.html">Terminale bac pro</a><nav class="fil"><span class="sep">&rsaquo;</span><span>Mes copies numériques corrigées</span></nav><span class="qui">Mme Talbaut</span></div></header>
+<main>
+<p class="kick">Mes copies numériques corrigées</p><h1>Mes copies numériques corrigées</h1><div class="cp-z"><h2 class="cp-t">Toutes vos copies corrigées dans votre dossier personnel</h2><ul class="cp-l"><li>Une copie arrive dans le dossier après la correction.</li><li>Ne donnez votre code à personne : il ouvre votre dossier.</li></ul><div class="cp-f"><input id="cpcode" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="12" aria-label="Votre code" placeholder="CODE"><button id="cpok" type="button">Ouvrir mes copies</button></div><p class="cp-m" id="cpm" role="status"></p></div>
+</main>
+<footer class="pied"><div class="in"><span>Copies numériques corrigées terminale bac pro</span><span class="sep">&middot;</span><b>Mme Talbaut</b><span class="sep">&middot;</span><span>LP Max Joséphine, Cayenne</span></div></footer>
 
 <script>
 (function(){
-var D = {"023b357af639ef1699c5":{"s":"vLdSUnYNZ9PAJj1QacWdKg==","i":"betPubQ39RY2YAh5","d":"+XTxiC4uMe38OzDQ7PoPed73IzaA72xGmQsIlsGikK/ACtmCB0Lo+ki0x2S7lMyP3/68ZapcRaiek9V/2YpMGYk8mzl17+7/LuW6T/4=","n":60000},"07a8ee42e3e0b922d35f":{"s":"BZAK5+/hlY0bZrGUlcgy4A==","i":"3vBly+iEKKboC6Au","d":"y6rbg/N9U0pjK7noW8Ctg4dlHisC8K+12+6jfZwAv/F9polXHnbeTBddqOmEVI0KCj1O7X0SYz3E19hkFXFBFQeKxGaowtA3IViRsHM=","n":60000},"0a9d5c4518977d39348f":{"s":"w2Png/EbSEkb+/Q4Xy4Xhg==","i":"WE5Mzx1/kBQyw8iU","d":"CjdcyrQpYqRACKiHzNXfKcthHVE7XwSvjvRnHPo5xZLJEaIvClXVd4C3wIVB96fIWLSPSEIQ+y2gGxsiV7iGXj0epKzzTp+aPPsPqFI=","n":60000},"1b6af964bfb4f5103beb":{"s":"cMQLIayxX8jRPRsI6Gn/dw==","i":"KtbekBdRKFO4Gx7W","d":"1E3HYlL5L95ecHU71fT82wAYyn6B+4NtOpE34Su2YifbBuRmSAVpx1sUJ4sPQjwM6nDej6BKJzcxXWhjbJevB23j+87tXaXKjZC1mlU=","n":60000},"28eef7b4f200b0128f46":{"s":"pocO1xubr/QJLBCEs/xpQQ==","i":"qmMp/fVgNHeTJ+Tx","d":"1YokqZM/7UQHE2M9mYxXLTSc6Ys5DLkwadEjUZSzsZrKkZVgvrkcjx8OFjXdos+vUOpNYLttPHkyYAhlHqHR6B5kijst3DkK+JblyjA=","n":60000},"2b765c2715f45f2f44e7":{"s":"usOHF4M7iCvT40QkmGo2yg==","i":"Rit3zSKTzZgHcdgs","d":"XoMjtTnfKOKy0DFKzIMyeybqAvY5v8gxDrP7W+XFEB68uKbZ2IbJJAKSOD+In4mKtB46pb5g/vPx4T/C2QkoJ+WAJ8qJEbcN7w7agl0=","n":60000},"2e797183933c235db169":{"s":"IVes7BiVpnXRiRWEz4gXHg==","i":"n/OfJFHsJpl4bmMG","d":"QtZhO12JfwwMdmBD41CZC0OeqbEuC7cvkvz7L+9Sa2crtv2lB6mc07zQsIinAOqXxpBza4O4tLO5Qtd3HeET5xYDTWpiNe61DQc1J2s=","n":60000},"34da0f230e58f0c48329":{"s":"VtNo/jNtZjc7aUrX0GnmYA==","i":"ALqHJF0CDbVdR9j9","d":"QVq/UOd1YN6GBHuanxLeT9H/Jwi8eIBTh8wL5jQuwzxfZ4f55yWvT5BF+RHh96Zx6yMTmrh+bFT55UqYlonjyr7i/WG82jvnDh0rS7Y=","n":60000},"3969cda59af72f29a7a9":{"s":"0R9kDTa4ugXrsVrvOKilew==","i":"SMBN50hSbjshCrJr","d":"YhitZ86iY6t4IFDCcjFk7bAOK/z1L0VXqA0FVremyy0D33e+VAxbuYgosrkvHwgxs3MuIr/GYb4XPtE5UhzUVeObltVIr6FpScf/gqI=","n":60000},"3c7de8d42db818514a85":{"s":"mMP8DQqwev6VgjsomHTvRA==","i":"1jzd6MD2MbZlJnGi","d":"9XqcxRGuMqFH8Q6/BRkFeff1qG7gUQLSn8XGSMl/fJBHEqLZ+Zs72jX2gB8Y6J7RAh2A2O6keMzVdZO/XLgpSDIHcxRFMSR3jfLgL3E=","n":60000},"41f4cded28755f8f0bdb":{"s":"2gHk9oT7egO85RvciWtFzQ==","i":"9viydHf9W/HyuOau","d":"5PPkzb29kyOFYjSulv55vnKFsgEhvjCxeWsO9+s0JFpo6OfxstDOm0eqRUwX0+vSXROAnU3+caRloaLIaJcrzUak2dHssCjyY/Qxny0=","n":60000},"4cfa2eef02c047ca71ba":{"s":"kHg7VAjjnkKG5kDkngjZIg==","i":"AbMGlx7n8Ec9D1Yv","d":"ekVFAIV5zvK06d6d79DD0mg4PBDzX2jkXeiTVzTCu+jlCrlrJH4d1Hyo2iJ7z6IVa5sbPv+O/RskmYvwJJEtoMgn0j7aa4VOpOXQOs8=","n":60000},"54776542b7b3d3a7f98b":{"s":"8kMq9xmkFWYQS7k86ii+wg==","i":"7lC3VEGAWJ6+AexG","d":"S4gO9onflFvbrida/U217ZrKmlIaa0bA+tYtDZqIrFmVU+VCfH2gYpMg/B+/ojf8Udcn2P5t+TD1EjW53TFaKpd3udGySE9ykcSTFDA=","n":60000},"7437655f7c45b238e33a":{"s":"oLGk0a7I+21BgWvseKXAAw==","i":"6S7t+AG/m+KYZbV6","d":"PT1TEYt7VkGdAGamIuRlQmTmHVhlVCDp+sbrITfZQ9l49zA490J9RuJafk4fDJH37ryGUUdx67pybLdCSEkNuMboN0vqnmUMb8MWkgw=","n":60000},"84f6e4cb44d401f7392a":{"s":"j7H1xgULZX6Ll08u4Dr8Sg==","i":"hTqX0HSQbPse69Aa","d":"Tiif6vV8SaV6wXB370WHlkXNQ2R54Qa0Oyz1v6VYreQ6fSnMKfh406X+ADeTCmlpbUzARTtvCN37fiRlVCcdK+bIF73Gzi91vjy/mgA=","n":60000},"9649fa020f1693038b3b":{"s":"FExeZv89CR9aj902340UtA==","i":"WKvGe0t4ZhxfLy0X","d":"KJLDCiJuyrcDmXJzGiSHrqqhyzCdi7D2qfcI6QKozW1snpjy52Rk6tb1E/eVmbJHxC3Bfwuy2A86LqJltk8fajVM6F3ANV0d9FaPs2Y=","n":60000},"9988085ae6ccd37f6cbf":{"s":"Qe30K/j4oSHU3G9SLfyTxQ==","i":"Ymy9+p5WMh8+KPfj","d":"/eT3Zozo80ZxWckymjgJlZmZ7IvaJ1YDXeRzFPT4bavMN0+B9YZnL9gjqQOP+WeslbJqcO7DxRH4NoP8GG8cYCoeE1nxcPUSZxSjQro=","n":60000},"9d3f2e191179d56dd492":{"s":"FBSO/EqlzLaBSPM+DMWF/g==","i":"v6osnabH26/LPK8P","d":"yW/KVZxBUW/MI2FSdmZ2iHEgFAF38mU+bXmOEIsYRo2RoRYjPax+3YvHmD8VA9NIzgUqaHJVadYgB11fJ3PEN7CKVX/BHygffp64kbg=","n":60000},"9ebf9eb2266fefaf470a":{"s":"ThZh7nZeR2UvZ4UA0gmPAg==","i":"YEnFWzY67eAOmEOB","d":"9fiAgsf2OH2icHzx/2tlEKTPLPCmAPHHLKPaCvyv1I0N06ANf+BOeoR1gsyPQZNARJNC+dKMJVQ4CV0Ic306zZRbeFH9Vs5zpnAJPpI=","n":60000},"a231e1e49da885c3e533":{"s":"OzuwCDNnXOk1slQuqk4KPw==","i":"nXprOAv2NYWAc+c+","d":"hPmaBCfXzlIOXDEoVZMXYP2vNqeZSy2haxwJvfRTzPbLKZwitCBj5d4zHP0ps/nZfQy+brBexSHncq/sxDhDepjWvra046lrsnrdZXc=","n":60000},"a83dbb88d894628dc762":{"s":"4IibiQ4ymWOoSCPasEh8aA==","i":"FIPexnFfAlAJXoVl","d":"wNk1QrXSsCIZ3l63C5kS+UPvf4NFEEwsTCxF4DdXYKSoXRds91Aw+StrTUdklC+EaarBy07ezAjFxlQWcJTWZ3laBVuI+gv1Lfoa1vU=","n":60000},"b15f1d768c434af14ea8":{"s":"YYsYoN8ij+Ql4nIHjEy5CA==","i":"9L6jjAqKEhbrg76O","d":"MWCj43RI9xBTIDlwR+w6OhKHNlIeCrR2i1loM05HGzX13C2Ty5TTY4pM1vXolm5nlyXLWjbpQazw5j4ENjw/aOvgP1EXhxegUMTOwSY=","n":60000},"b583ebf4d14e5eacc793":{"s":"HTkhG4uRihkU+iffdb0OcA==","i":"7Ci0spRDwgbH6Rty","d":"2bXKcdIYVKAQjBImrdp23WY17HKGiT19u5a2LhUtdj6JwmYZkT4RjvzGQBGQooQ4xm4SAkKc+sXE5KuVdxMCE8h64YbuWZcQ8NqSqvM=","n":60000},"bd010f12ff0d04d3e2c4":{"s":"oneVkAXSlQjgFiV64YL/kg==","i":"5OxjsF7GGHT/Rn4r","d":"SXs2vuXfQ7lFGrcaPFmAR4uvrrwkymqrGxhzoDpWeCRW0eT/194jQ5conZEYnZJ3NqRou00xesLfpFCTsZqVqMod+pXXSQaa6YM+xp4=","n":60000},"cad661b4797f9159ff7a":{"s":"0pvZo06KegWCJEY3rrUbjQ==","i":"Ag+Fwd8FmyIW/hoC","d":"L/vK7mg9IrS0vXjE7kmTBI6EcjQswzN/8FslI2rj/R/2hKBUlNTRMEe73SaBfjUqt15wZrwpI1kVdjR65gP9D29BSeExottAApFUnsk=","n":60000},"d42cdcc070967dab9d14":{"s":"H5JOFTJcu1ngPSIFe/4eAQ==","i":"gy5anHPUrh7f+6ZS","d":"EBoN7OHIrRPliqfDp/W7P1ZNrhoQb6rRvkU9+CH5pT9WX3+ZTxh2bMfteFbUinaTu0o3Cf7TAocklmHodmOflYfwJenG8z9IrBzqTb0=","n":60000},"da70e1aeb45462939423":{"s":"gdqZN51HwWxwLiw7AS2PlA==","i":"jZs27OvIHIQIVk5+","d":"Ue7HhvouLFQlLmbptnYNlBSnFTSz//NTgWvFWA60YqomiNCXZW8i3nPSFnIu7hyluLWsXaOi4aNugmM1OGB0EBWAoLVIQcg1bIhD9Qk=","n":60000},"e8b20e508524c62efb8e":{"s":"A8KSDLYSgp/rEwoTwnX2LA==","i":"I/6/WOEuvrgxt9HO","d":"bqMmC+hUxerNBjTCkNXEeKCJqyL7frJX/b1LT6Bhs5SBxIA/Wls6jQs4QDlBrwKIuKuojBYvsdtHeY84EYU+qkyDvCFsYAuhOjoz/M4=","n":60000}}, CL = "TMCVA2";
+var D = {"023b357af639ef1699c5":{"s":"/SmkpMVviVdvLgfI9v7Ieg==","i":"CpPYDhv9PZNy+27N","d":"8+tGwXJ5FoPi+Aktg22V83cC+yLU3wtRJUTQ4BMsujogazdJ+je/7NKia8Kt5xgFC3XfJArHR+yrzz1tuac1p6/snM3AZYvpJ8SaAuc=","n":60000},"07a8ee42e3e0b922d35f":{"s":"8cy3k24R4eaxF0mmSOf4qg==","i":"O7Kf3uY+gLRCRAec","d":"aVFuz8SYPGUmtG0K3WYpZwXwKg9Ixk6GiLvIuzAmopbivYrpDgoQvafYk0+eHCbuwvenwLNxfovb98BzfoRz6N206ZQUrzv+hQOU/bw=","n":60000},"0a9d5c4518977d39348f":{"s":"SW6Fe0v95CPt4zWf0DR6wA==","i":"s5B4FPFT8JMWEbst","d":"8MPcexFQgfjp233ubwLEsruLl3Yj9cNw26pzCMveKiqe08ZO5DPvD86Ly0QcqRZG3rF45ALLoTMNPLnGoRckxYwyRbd3B6MDeQFCTp4=","n":60000},"1b6af964bfb4f5103beb":{"s":"JpOxTVgfhNTT/gi1azSHLA==","i":"vW4DNcXu24hRlljC","d":"uQjKAXSTcz9z6TqpFPEMpq0VvF79QO1/oRhwcCW6s2qlWwS44AyZrM7BYwwfTq7GsXEy08yfRnPUU2rloNtwQs4WXuZJjuRTOeFBZNM=","n":60000},"28eef7b4f200b0128f46":{"s":"LB2Bm1NE1et77+nlIpdE1g==","i":"EDM2qW1990F5Ygux","d":"lPBN1AhaBLgz7e9XRmVKSKNmLmUFe5YpRcKli79kcrWto4UrbZFA0NU/NH24rSWzC4+RkUoi/1/6J9aubhcZ+ORVowanuPsFJtf1CWg=","n":60000},"2b765c2715f45f2f44e7":{"s":"r1SUyVlDrKI7fRKBhTGrnw==","i":"PvxnwxIjyeir4KgD","d":"ASCf+xh3NuhJKTjwnMTdmVZdeFXyHiyxW90SxnoJoGDqUfYLGZ/w3QaqWdVslzoEh3m29BMhq86y3ncmxZ+q2eznIA87hBIHDXQgPOM=","n":60000},"2e797183933c235db169":{"s":"SfDjMkT/uAYaF0HOBJ7gxQ==","i":"pSLWiOdEC4/ySKOS","d":"nJsjHUwgpVv0BWvwmoh3GibIwj7Ca/ZtJD/R7eBuNjcAKLkifG+avj+fyEAWq09dvRoZBCLLUJIyOvOrFJIigZGZxkHjk+oMLBIF6AA=","n":60000},"34da0f230e58f0c48329":{"s":"g/lj5Bl5VZGVAn5TlV04nw==","i":"7XsT8p1WqP/+HGKf","d":"ftMH888oFp/UuOU5Ov6mJv36VrGUhdc3z65CRmxtWD5M+hVLVDcMGMcgpgXSUEZCxMLaEeoHiLE3Z+7K1M8XuVB7FzhgO9bk/8hMArE=","n":60000},"3969cda59af72f29a7a9":{"s":"ucANyYKfqB7K1BNk7vxdNg==","i":"1jYwtLvx0zwlDDxd","d":"ALjwKUGcHq8DDqOB87hJPKIT03uDYgNLOQa4FoYPd7zmQISpVcgEw+xO77o9FHL3Gl4mqeN4apTu/YDXfP3mySaIZwCUQj1KzTlMLaA=","n":60000},"3c7de8d42db818514a85":{"s":"URlGu+SuL+qSnr156RLMog==","i":"kN7DAFIOdh0qGP0q","d":"t7zoLzUSu+6B8OLSURu/HQTSOqB8UoEbIoLFqCNC54ccx5kpks19ITyo4Y9JtNAGceJb8ZcOj9yDxksSMSzq7kVmGP/T9oNP8mJK0N8=","n":60000},"41f4cded28755f8f0bdb":{"s":"v54/JLZp6Uj53SPrGKVOLQ==","i":"mTkSUc8CZSmiR/4Y","d":"1yjv/GjqPLlHOMKL8NDcDp2FazcDGdNmjd8YNms+tK5XAcedtqO/+7sw8LSTNrKBxFGfnCkuYa98DnSG4UJg7rM1nPLKY8hJfILit0Q=","n":60000},"4cfa2eef02c047ca71ba":{"s":"P5OKDvikM7azegM5gQ41Ag==","i":"UB8/xO17o9KBiwlt","d":"Pj0OeN0LuSmFvbuREIm9JNgZVi2y6TQnEgrK4QZOa270msfDV8YOnZ8+zD9sWDUKuqhfc2oszuj7/ZVspO94Bcdql7GVTkPkYwe8iTI=","n":60000},"54776542b7b3d3a7f98b":{"s":"QCo6jSy+r5ph/3taw4PpBA==","i":"kqV2NNoKrRp73EnD","d":"W8pdU/0UHRKKcYb+P6hDxtdhPOBVIFsQ8KwF5uUo1EIRzrm25RA/2lVyB43Kl5tx+BNRvEP1x0TeMaWwg8CDZ/wlyT+sbLNRvtV4mdA=","n":60000},"7437655f7c45b238e33a":{"s":"QvuRtyUwOWzMtj40YQ9xYw==","i":"PKCpi/zIN7AldYdO","d":"ZExe4cq1nw9xYpBGEURlOLfZKkrBM6pBrmi3lFuVxfunO5ubm0BtYs5DD49atsl0c96yl18lWc4KRyh61XDdOSML8zNnfp4f25e3NYY=","n":60000},"84f6e4cb44d401f7392a":{"s":"pf0tohjgYyKSyqd4f30Rqw==","i":"RFYlwz0Q5wgndk8B","d":"6PFmQdoNnrvEkbz5KEUAPl5a/CvKkuUadKLnime0OCeKa/mgNh9UeMUiaFc21bJAEoH5oTZhFPV3NXd4vQ3f5H/dTfeh09Nzczta/Ng=","n":60000},"9649fa020f1693038b3b":{"s":"3ijfy8ruwSxAIwVz4je6DA==","i":"hQtoK+cyRf0xeTGk","d":"f6xOniBWA6PgMlb/mqVo0lRgIlPReT91VYiC5Sa1OFy9N73/ukESpSDocOxdhf1dXzvmjzDYa+pF5gysINziT1uphs6xQuuJk61z35o=","n":60000},"9988085ae6ccd37f6cbf":{"s":"wlgIAYwWB68iPMAYxMi1rQ==","i":"9ntyGsSnGOalCbB0","d":"WGcXE/H2ot2h39kNIV4AudqVCYlT8PrFWbiC6TS5oTR+A7IcJsKbrkNdxq1V4b9z3wPq9rsePex8m5cRt0T5LARVfAdYlNJdAASuCkw=","n":60000},"9d3f2e191179d56dd492":{"s":"TI3cKA98VneaU3yUxJv2ow==","i":"8wGQmb8INSTJakKK","d":"+dZcqVrdX0lKnSrQQtTIRcwCcNdEGPa3m5fo4bWlyfE1k/pzpXdgJoexWpbs/hACELkIQ6LN5GkizfiK48NwLMPSqBsYhL/JPhCdj84=","n":60000},"9ebf9eb2266fefaf470a":{"s":"9ohLpozJrrrA7OxXUocglw==","i":"Noq3dCHo6i2np853","d":"GyCCndoUGtjo6arwM7VNAXwGc9uhpgL+wJrjeTE1DXYP0InWmOALKJaYBObckxAFnYgJX+xZvvvjSPty2CC6LHeVbTN39PpJ/WejTyw=","n":60000},"a231e1e49da885c3e533":{"s":"GDaADIEe2pljyKaaoYQf8g==","i":"mF1W7caC5tBYbPXB","d":"s7rj26KT+lEKS3+hpctvueEGkNj8+bg7UWr/cYuwnqD1JXAGw8C0Q/1+WxQJH1VuKwX/0ipSGVORC1Md4Qlbf9ih6nOx3/4FJrDFPN8=","n":60000},"a83dbb88d894628dc762":{"s":"UhoLh1ZGGIQVpSWDha0GFw==","i":"5MgeWh8j67QBP/np","d":"VHuFYnlGiDyjmOMqzGpKd5somH5A+govGeepUu9466GgyFvRrSS6zm1CrnFICT4Qt22HnGcShEdWgXYyBdJrkcg33kJv8907we2OXvA=","n":60000},"b15f1d768c434af14ea8":{"s":"eUHhFNm6kC/fXxbTgrFjSA==","i":"62MaM8XBMyF7Ttkg","d":"eE8dK9Bu1VexPdT332rIrb+XWQhnhd/52JLyyJuCBl4f55yoPTx3ORTjqwfoOyVA2EaNXqIMezjdugT3IlwHBkhyqy2VVwKVFNjc4hc=","n":60000},"b583ebf4d14e5eacc793":{"s":"TRIa4yz8o3HhBvA36dlB5A==","i":"5ZloNdRxkUdkTNHF","d":"RqQGQOl09aUFYnSkJUH5iGvNjif6N2iP8a8msT33Lj+RYG14OzwT3L07pyfktRLeIj8mSSZ95xqhRc6la71rgVOxxKFzxNyfkhpxAdk=","n":60000},"bd010f12ff0d04d3e2c4":{"s":"Z5Rkf5vws1fRisnIZQDQkA==","i":"iWT9yqPNt5ry+b2s","d":"l7HIukR4HmsCoKIKwBLIL33QFeCswSG8riYSWWkUuHkA34b17gZGD1ounGwsZx4dRoFUaZj4VEQw4etvwSpHqbt+ejhx0nOPzdEDHmM=","n":60000},"cad661b4797f9159ff7a":{"s":"/3WA0LZttXkWadYdKDTXNQ==","i":"2yXkpwxcPnDpOo9j","d":"t5oGh1a1zMfDGLyU4vyVI46OdSF7/v/U+caTEZOCxZp70ETmVObSzJvgrvUt2o2suRjWrRY6H/PB23aKoWEe8INmKfo5Ojqen2pHJ/Q=","n":60000},"d42cdcc070967dab9d14":{"s":"cfc3kg27x3EWf7m1ISIxWQ==","i":"TvQfl+hRJkG0Jg6C","d":"xa4oMTWVMI6k7xZFQmwMQzQJA1iHWRU8RAz7/z1aQGQeBhUx8zRR0z03H8KtKsFawDXiOpibtxqYF0JOYCd32JCLXSNnMnrEZ+KQsQ4=","n":60000},"da70e1aeb45462939423":{"s":"21sSM1InMu5sdn6NGMrFsQ==","i":"6yEN14Ia7DWnN6Sb","d":"CEHyJDAk105/J6As8fnUN3sSCbosU7PcPCXN7Szd088il1zNpticzCMBuJzadrR9YvwAcTso5+g8mhmoclPKY7zOlp9U5EZ8Jn5BEOA=","n":60000},"e8b20e508524c62efb8e":{"s":"IkTSOkZYDTJgfRClzqJ/ng==","i":"ujA9pKz0AhfrP5HT","d":"bWbBjtqnmaDExFG4LkyWF0aiXB8qCaj8CwWlzS4NDITmXvqe9B1694zzr2FHuIYSgtpCJpNyIil3A6ihadABWWLjMfJTD1dCLMLNRsU=","n":60000}}, CL = "TMCVA2";
 var $ = function(s){ return document.querySelector(s); };
 function b64(s){ return Uint8Array.from(atob(s), function(c){ return c.charCodeAt(0); }); }
 function hex(b){ return Array.prototype.map.call(new Uint8Array(b), function(x){ return ("0" + x.toString(16)).slice(-2); }).join(""); }
@@ -72,6 +130,5 @@ $("#cpok").onclick = ouvrir;
 $("#cpcode").onkeydown = function(ev){ if (ev.key === "Enter") ouvrir(); };
 })();
 </script>
-
 </body>
 </html>
