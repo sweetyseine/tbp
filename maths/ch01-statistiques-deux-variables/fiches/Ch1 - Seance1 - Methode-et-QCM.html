@@ -1,0 +1,2055 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapitre 1 - Méthode et QCM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Mono:wght@400;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f4;--card:#fff;--ink:#0d1a22;--ink2:#0d1a22;--mut:#0d1a22;
+  --line:#9fb0bb;--line2:#5d707b;--cy:#00A5BF;--cy-d:#00778a;--cy-l:#e2f6fa;
+  --vi:#7C4BD8;--or:#FFB627;--ve:#2f7f2f;--r:16px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;font-size:16.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;font-weight:700;
+  letter-spacing:-.02em;margin:0}
+.wrap{max-width:940px;margin:0 auto;padding:0 20px 120px}
+
+.tete{background:linear-gradient(150deg,#dcf2f8 0%,#e8e3fb 58%,#fdeee6 100%);
+  border-radius:0 0 24px 24px;padding:30px 34px 26px;margin:0 0 24px}
+.tete .kick{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--mut);margin:0 0 10px}
+.tete h1{font-size:clamp(24px,3.4vw,36px);line-height:1.08;margin:0 0 6px}
+.tete .sub{font-size:17px;color:var(--cy-d);font-weight:600;margin:0}
+.ident{display:flex;gap:14px;flex-wrap:wrap;margin:22px 0 0}
+.ident>div{flex:1 1 200px}
+.ident label{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--mut);margin:0 0 5px 10px}
+.ident input{width:100%;font:inherit;font-size:17px;padding:11px 14px;border:2px solid #fff;
+  border-radius:12px;background:rgba(255,255,255,.75);color:var(--ink)}
+.ident input:focus{outline:none;border-color:var(--cy);background:#fff}
+/* page du code : le nom reconnu, et de quoi en changer */
+#idw .qui{margin:0 0 16px;font-size:15.5px;color:var(--ink)}
+#idw .qui b{font-weight:700}
+#idw .qui button{font:inherit;font-size:14px;font-weight:600;color:var(--cy-d);
+  background:none;border:0;border-bottom:1.5px solid var(--cy-d);padding:0 0 1px;
+  margin-left:6px;cursor:pointer}
+#idw .qui button:hover{color:var(--ink)}
+
+/* changer d'eleve sur un poste partage, ou reprendre un nom mal saisi */
+.pasmoi{flex:0 0 auto;align-self:flex-end;font:inherit;font-size:13.5px;font-weight:600;
+  color:var(--cy-d);background:none;border:0;border-bottom:1.5px solid var(--cy-d);
+  padding:0 0 2px;margin:0 0 12px;cursor:pointer}
+.pasmoi:hover{color:var(--ink)}
+@media print{.pasmoi{display:none}}
+
+.cons{background:var(--card);border-radius:var(--r);padding:18px 22px;margin:0 0 22px;
+  box-shadow:0 1px 2px rgba(13,26,34,.05),0 10px 30px -18px rgba(13,26,34,.4);
+  border-left:5px solid var(--or)}
+.cons h3{font-size:16px;margin:0 0 8px}
+.cons ol{margin:0;padding-left:20px;font-size:15px;color:var(--ink2)}
+.cons li{margin:0 0 5px}
+
+/* l'etiquette d'une zone de reponse : Calculs, Phrase reponse */
+.zlb{margin:14px 0 4px;font-size:13.5px;font-weight:700;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--cy-d)}
+
+/* les touches du clavier, dessinees */
+.tch{display:inline-flex;align-items:center;gap:5px;vertical-align:-2px;margin:0 2px}
+.tch .k{display:inline-flex;align-items:center;justify-content:center;
+  min-width:26px;height:26px;padding:0 7px;border-radius:6px;
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;
+  color:var(--ink);background:linear-gradient(#fff,#eef3f6);
+  border:1px solid #9fb2bd;border-bottom-width:3px;border-bottom-color:#7d95a3;
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset}
+.tch .pl{font-size:12px;color:var(--ink2);font-weight:600}
+.tch .k svg{display:block}
+
+.exo{background:var(--card);border-radius:var(--r);margin:0 0 20px;overflow:hidden;
+  box-shadow:0 1px 2px rgba(13,26,34,.05),0 10px 30px -18px rgba(13,26,34,.4)}
+.exo-h{display:flex;align-items:center;gap:12px;padding:15px 24px;background:#fbfdfe;
+  border-bottom:1px solid var(--line);flex-wrap:wrap}
+.exo-t{flex:1 1 auto;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:17px}
+.etat{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;background:#eef3f6;color:var(--mut);border-radius:20px;padding:4px 12px}
+.etat.ok{background:#eaf8ea;color:var(--ve)}
+.exo-c{padding:22px 24px 6px}
+.exo-f{padding:16px 24px 20px;border-top:1px solid var(--line);display:flex;
+  align-items:center;gap:14px;flex-wrap:wrap}
+.env{border:0;background:var(--cy-d);color:#fff;border-radius:12px;padding:11px 20px;
+  font:inherit;font-weight:700;font-size:15px;cursor:pointer;transition:.16s}
+.env:hover{background:#006373;transform:translateY(-1px)}
+.note-env{font-size:13.5px;color:var(--ve);flex:1 1 200px}
+
+.sit{background:linear-gradient(120deg,#efe8fd,#f7f3fe);border-radius:12px;padding:15px 18px;margin:0 0 16px}
+.sit .lb{display:block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.15em;
+  text-transform:uppercase;color:#5b32ab;margin:0 0 5px}
+.sit p{margin:0 0 10px;font-size:15.5px}
+.sit p:last-child{margin:0}
+p.pb{margin:14px 0 0;background:var(--cy-l);border-left:4px solid var(--cy);
+  border-radius:10px;padding:10px 14px;font-size:15.5px}
+p.en{margin:0 0 12px}
+.serie{font-family:"IBM Plex Mono",monospace;font-size:14.5px;background:#f5f8fa;border-radius:12px;
+  padding:13px 17px;color:var(--ink2);line-height:1.85;margin:0 0 14px}
+.cmp{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  background:#efe8fd;color:#5b32ab;border-radius:20px;padding:2px 9px;margin-right:7px;display:inline-block}
+.crit,.ccf{background:#fff8ea;border:1px solid #f0dcb0;border-radius:12px;padding:14px 18px;margin:0 0 14px}
+.crit>b,.ccf>b{display:block;color:#8a5c05;font-weight:700;margin-bottom:8px}
+.crit ol,.crit ul,.ccf ul{margin:0;padding-left:20px}
+.crit li,.ccf li{margin:0 0 5px;font-size:15px}
+.dbl{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:0 0 14px}
+.dlb{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.15em;
+  text-transform:uppercase;background:#8FBE1F;color:#2c3d05;border-radius:20px;padding:3px 11px;
+  margin-bottom:8px;font-weight:600}
+pre.code{font-family:"IBM Plex Mono",monospace;font-size:13.5px;line-height:1.75;background:#132734;
+  color:#e6f1f5;border-radius:12px;padding:15px 18px;overflow-x:auto;margin:12px 0;white-space:pre}
+.alerte{display:none}
+
+.q{margin:0 0 20px;padding:0 0 18px;border-bottom:1px dashed var(--line2)}
+.q:last-child{border-bottom:0}
+.q-h{display:flex;align-items:flex-start;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.q-n{flex:1 1 300px;font-weight:600;font-size:16px;line-height:1.4}
+.q-n .qn{color:var(--cy-d);font-weight:700}
+.coef{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;
+  background:#eef3f6;color:var(--ink2);border-radius:20px;padding:3px 10px;white-space:nowrap}
+textarea{width:100%;font:inherit;font-size:16px;padding:12px 15px;border:2px solid var(--line2);
+  border-radius:12px;background:#fbfdfe;resize:vertical;color:var(--ink);line-height:1.6}
+textarea:focus{outline:none;border-color:var(--cy);background:#fff;box-shadow:0 0 0 4px var(--cy-l)}
+textarea.plein{border-color:var(--cy)}
+
+.tw{overflow-x:auto;overflow-y:hidden;margin:0 0 14px;border:1.5px solid #bcdbe7;border-radius:18px;
+  background:#fff;box-shadow:0 3px 14px -8px rgba(13,26,34,.35)}
+table{border-collapse:separate;border-spacing:0;width:100%;background:#fff;font-size:15px}
+th,td{border-bottom:1px solid #cfe2ea;border-right:1px solid #dceaf1;padding:10px 13px;text-align:left}
+th:last-child,td:last-child{border-right:0}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+thead th{background:linear-gradient(180deg,#e3f4fa,#d2ecf5);font-family:"IBM Plex Mono",monospace;
+  font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:#0c4a58;font-weight:700;
+  border-bottom:2px solid #9ed2e3;border-right-color:#b6d9e6}
+tbody tr:nth-child(even){background:#f5fbfd}
+tbody th{background:#eef6fa;color:#123a46;font-weight:700;border-right-color:#cbe3ec}
+tbody tr:nth-child(even) th{background:#e8f2f7}
+table.num td,table.num th:not(:first-child){text-align:center}
+td.v{background:#fff8e6;padding:0}
+input.tc{width:100%;min-width:74px;font:inherit;font-size:16px;text-align:center;padding:12px 6px;
+  border:1px dashed #c79320;border-radius:8px;background:transparent;color:var(--ink)}
+input.tc:focus{outline:2px solid var(--cy);outline-offset:-2px;background:var(--cy-l);border-color:transparent}
+input.tc.plein{background:#f2fbfd;font-weight:600;border-style:solid;border-color:#9ed2e3}
+
+.zone{border:2.5px dashed var(--line2);border-radius:12px;background:#fbfdfe;padding:26px 20px;
+  text-align:center;cursor:pointer;transition:.18s;min-height:110px;display:grid;
+  place-content:center;gap:6px}
+.zone:hover,.zone:focus{border-color:var(--cy);background:var(--cy-l);outline:none}
+.zone p{margin:0;font-size:15px;color:var(--ink2)}
+.zone .rappel{font-size:13px;color:var(--mut)}
+.zone.pleine{padding:10px;border-style:solid;border-color:var(--cy);background:#fff;display:block}
+.zone img{max-width:100%;border-radius:8px;display:block;margin:0 auto;cursor:zoom-in}
+
+/* coup de pouce : le rappel technique, sous la question qui le demande */
+.cdp{background:linear-gradient(140deg,#eafaf0,#f5fdf8);border:1px solid #7fbf9b;
+  border-left:5px solid #1f7a4d;border-radius:12px;padding:11px 16px;margin:10px 0 8px}
+.cdp .lb{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;
+  letter-spacing:.15em;text-transform:uppercase;background:#1f7a4d;color:#fff;
+  border-radius:20px;padding:3px 11px;margin-bottom:7px}
+.cdp p{margin:0;font-size:15.5px;color:var(--ink)}
+
+.aide{background:linear-gradient(140deg,#eafaf0,#f5fdf8);border:1px solid #c8e9d6;
+  border-radius:var(--r);padding:18px 22px;margin:0 0 20px}
+.aide .lb{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;
+  letter-spacing:.15em;text-transform:uppercase;background:#1f7a4d;color:#fff;
+  border-radius:20px;padding:3px 11px;margin-bottom:9px}
+.aide h3{font-size:17px;margin:0 0 10px}
+.aide ul{margin:0;padding-left:20px}
+.aide .fx,.aide code{font-family:"IBM Plex Mono",monospace;font-size:14px;background:#1f7a4d;
+  color:#fff;border-radius:6px;padding:2px 9px;display:inline-block}
+.rsg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:9px}
+.rs{background:#fff;border:1px solid #d5ecdf;border-radius:11px;padding:11px 13px}
+.rs b{display:block;font-size:14.5px}
+.rs span{font-size:13px;color:var(--mut)}
+
+svg.gr{width:100%;height:auto;display:block;max-width:460px;margin:0 auto 14px}
+.q4{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 14px}
+.q4 .it{background:#fbfdfe;border:1px solid var(--line2);border-radius:12px;padding:12px}
+.q4 .hd{display:flex;align-items:center;gap:9px;margin-bottom:6px}
+.q4 .l{font-weight:700;color:var(--cy-d)}
+.q4 .z{flex:1 1 auto;height:26px;border-bottom:1.5px solid var(--line2)}
+
+.auto{position:fixed;right:16px;bottom:16px;background:rgba(13,26,34,.86);color:#fff;
+  border-radius:12px;padding:8px 14px;font-size:12.5px;z-index:60}
+.loupe{position:fixed;inset:0;background:rgba(13,26,34,.9);z-index:200;display:none;
+  place-items:center;padding:30px;cursor:zoom-out}
+.loupe.on{display:grid}
+.loupe img{max-width:100%;max-height:100%;border-radius:10px}
+@media(max-width:760px){.q4,.dbl{grid-template-columns:1fr}}
+.avf{display:none!important}
+.outn{margin:14px 0 0;background:#fbfdfe;border:1px solid #5f9fb4;border-radius:14px;padding:12px 18px 14px}
+.outn>.et{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;
+  text-transform:uppercase;font-weight:700;color:#00778a;margin-bottom:6px}
+.outn ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.outn li{margin:0}
+.outn a{display:inline-block;text-decoration:none;font-size:14.5px;font-weight:600;color:#00778a;
+  background:#e2f6fa;border:1px solid #7fc9d9;border-radius:20px;padding:6px 14px}
+.outn a:hover{background:#00778a;color:#fff;border-color:#00778a}
+.prop{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.prop li{background:#f4f8fa;border:1px solid #cfdae1;border-radius:10px;padding:8px 12px;font-size:15px}
+.prop li b{color:#00778a;margin-right:6px}
+@media(max-width:640px){.prop{grid-template-columns:1fr}}
+/* Un QCM se clique : la reponse se choisit, elle ne se recopie pas. */
+.chx{list-style:none;margin:12px 0 2px;padding:0;display:grid;
+  grid-template-columns:1fr 1fr;gap:8px}
+.chx li{margin:0}
+.ch-e{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font:inherit;
+  font-size:16px;font-weight:600;cursor:pointer;background:#f4f8fa;
+  border:1.6px solid #cfdae1;border-radius:10px;padding:10px 14px;
+  /* sans couleur explicite, le navigateur d'un telephone rend le bouton en
+     gris pale et la proposition devient illisible */
+  color:var(--ink);-webkit-text-fill-color:var(--ink)}
+.ch-e span{color:var(--ink);-webkit-text-fill-color:var(--ink)}
+.ch-e:hover{border-color:#00A5BF;background:#eaf7fb}
+.ch-e b{display:inline-grid;place-items:center;width:28px;height:28px;flex:none;
+  border-radius:8px;background:#e2eaef;color:#00778a;-webkit-text-fill-color:#00778a;
+  font-size:15px}
+.ch-e.on{border-color:#00A5BF;background:#e2f6fa;box-shadow:inset 0 0 0 1.4px #00A5BF}
+.ch-e.on b{background:#00778a;color:#fff;-webkit-text-fill-color:#fff}
+@media(max-width:640px){.chx{grid-template-columns:1fr}}
+/* Des figures a choisir : la figure est dans le bouton. */
+.chx.figs{grid-template-columns:1fr 1fr;gap:12px}
+.ch-e.fig{flex-direction:column;align-items:stretch;gap:8px;padding:12px}
+.ch-e.fig b{align-self:flex-start}
+.ch-e.fig span{display:block}
+.ch-e.fig svg{display:block;width:100%;height:auto}
+@media(max-width:640px){.chx.figs{grid-template-columns:1fr}}
+/* Ce que l'activite travaille : capacites a gauche, connaissances a droite. */
+.refx{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 18px}
+.rx{background:#f4f8fa;border:1.6px solid #7fc9d9;border-left:7px solid #00A5BF;
+  border-radius:14px;padding:12px 16px 13px}
+.rx.kk{border-color:#c3aef0;border-left-color:#7C4BD8}
+.rx>.lb{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.11em;
+  text-transform:uppercase;color:#00778a;background:#e2f6fa;border-radius:20px;
+  padding:3px 11px;margin:0 0 9px}
+.rx.kk>.lb{color:#4b2a94;background:#efe9fc}
+.rx ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.rx li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.rx .cc{flex:none;display:inline-grid;place-items:center;min-width:28px;height:22px;
+  border-radius:7px;background:#00778a;color:#fff;font-size:12px;font-weight:700;
+  font-family:"IBM Plex Mono",monospace;margin-top:1px}
+.rx.kk .cc{background:#7C4BD8}
+@media(max-width:760px){.refx{grid-template-columns:1fr}}
+.exo.verrou .exo-f{display:none}
+.vbx{padding:22px 4px 8px;text-align:center}
+.vbx .vt{margin:0 0 14px;font-size:16px;color:#0d1a22}
+.vin{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.vin input{width:150px;font:inherit;font-size:22px;letter-spacing:.22em;text-align:center;
+  text-transform:uppercase;padding:10px 12px;border:2px solid #cfdae1;border-radius:12px;background:#fbfdfe}
+.vin input:focus{outline:none;border-color:#00A5BF;background:#fff}
+.vin button{font:inherit;font-weight:700;font-size:16px;padding:10px 22px;border:0;border-radius:12px;
+  background:#00778a;color:#fff;cursor:pointer}
+.vin button:hover{filter:brightness(1.1)}
+.vbx .vm{margin:12px 0 0;color:#a5281b;font-weight:600;min-height:20px}
+.exo.verrou .exo-h .exo-t:before{content:"\1F512  ";font-size:15px}
+.cslg{margin:14px 0 0;background:#f2f8fb;border:1px solid #5f9fb4;border-left:5px solid #00A5BF;border-radius:12px;padding:12px 18px;font-size:15.5px;color:#0d1a22}
+.cslg b{color:#00778a}
+.cslg ul{margin:6px 0 0;padding-left:20px}
+.cslg li{margin:3px 0}
+.prop-pied{max-width:1000px;margin:30px auto 0;padding:16px 22px 34px;border-top:1px solid #b9c8d1}
+.prop-pied .crs{margin:0 0 4px;font-size:15px;color:#2E5266;font-weight:700}
+.barre-b .col-b{display:flex;flex-direction:column;gap:2px;min-width:0}
+.barre-b .msg-s{font-size:13px;color:#2f7d32;font-weight:700;max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.barre-b .dos{display:flex;align-items:baseline;gap:8px;font-size:12px;color:#0d1a22;white-space:nowrap}
+#nomDossier{max-width:230px;overflow:hidden;text-overflow:ellipsis}
+#bDossier{border:0;background:none;padding:0;font:inherit;font-size:12px;color:#00778a;text-decoration:underline;cursor:pointer}
+.barre-b .auto{position:static;background:none;color:#0d1a22;padding:0;z-index:auto;white-space:nowrap}
+.barre-b{position:fixed;right:16px;bottom:14px;z-index:70;display:flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.95);border:1px solid #b9c8d1;border-radius:12px;padding:8px 12px;
+  box-shadow:0 6px 22px -10px rgba(13,26,34,.45)}
+#bSauver{font:inherit;font-size:15px;font-weight:700;border:0;border-radius:9px;padding:9px 16px;
+  background:#2E5266;color:#fff;cursor:pointer}
+#bSauver:hover{background:#1e3a49}
+#bSauver:disabled{opacity:.5;cursor:default}
+body:not(.identifie) .barre-b{display:none}
+body.copie .barre-b{display:none}
+@media print{.barre-b{display:none}}
+.note-env.encours{color:#8a5c05;font-weight:600}
+.note-env.ok{color:#2f7d32;font-weight:700}
+.note-env.att{color:#0d1a22;line-height:1.5}
+.note-env .lien-depot{display:inline-block;margin-top:6px;padding:8px 16px;border-radius:9px;background:#00778a;color:#fff;font-weight:700;text-decoration:none}
+.note-env .lien-depot:hover{background:#005d6c}
+.prop-pied .src{margin:0;font-size:13px;color:#0d1a22;font-weight:600}
+.prop-pied .adp{margin:3px 0 0;font-size:12px;color:#0d1a22}
+@media print{.env,.auto,.exo-f{display:none}}
+
+/* ---------- écran d'identification ---------- */
+body:not(.identifie) .tete,body:not(.identifie) .wrap,body:not(.identifie) .auto,
+body:not(.identifie) .prop-pied{display:none}
+body.identifie #idw{display:none}
+#idw{position:fixed;inset:0;background:linear-gradient(150deg,#dcf1f7,#f3eefd 55%,#fde3de);
+  display:flex;align-items:center;justify-content:center;padding:22px;z-index:50}
+#idw .bx{background:#fff;border:1px solid #b9c8d1;border-radius:20px;max-width:620px;width:100%;
+  padding:30px 34px;box-shadow:0 24px 60px -28px rgba(13,26,34,.5)}
+#idw h2{margin:0 0 4px;font-family:"Bricolage Grotesque",sans-serif;font-size:25px;color:#0d1a22}
+#idw .sst{margin:0 0 20px;color:#0d1a22;font-size:16px}
+#idw label{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:#00778a;font-weight:600;margin:0 0 6px}
+#idw .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#idw input{width:100%;font:inherit;font-size:18px;padding:11px 14px;border:2px solid #cfdae1;
+  border-radius:12px;background:#fbfdfe;color:#0d1a22}
+#idw input:focus{outline:none;border-color:#00A5BF;background:#fff}
+#idw button.pr{margin-top:18px;font:inherit;font-weight:700;font-size:16px;padding:12px 24px;
+  border:0;border-radius:12px;background:#00778a;color:#fff;cursor:pointer}
+#idw button.pr:hover{filter:brightness(1.1)}
+#idw .ch{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+#idw .ch button{font:inherit;font-weight:600;font-size:15px;padding:10px 18px;border:2px solid #00A5BF;
+  border-radius:12px;background:#fff;color:#00778a;cursor:pointer}
+#idw .ch button:hover{background:#e2f6fa}
+#idw .ch button.no{border-color:#cfdae1;color:#0d1a22}
+#idw .msg{margin-top:16px;font-size:16px;color:#0d1a22;background:#fff6e6;border-left:4px solid #FFB627;
+  border-radius:12px;padding:12px 16px}
+#idw .msg.err{background:#fdecea;border-left-color:#FF6B5B}
+#idw .et{display:none}
+#idw .et.on{display:block}
+.nom-fixe input,#nom[readonly],#prenom[readonly]{background:#eef3f6;font-weight:700}
+
+/* Le titre d'un relevé et son décompte : sans ces règles, « … ont été
+   ramassées » et « 20 valeurs » se collaient l'un à l'autre. Elles
+   n'existaient que dans la feuille de style du manuel. */
+.rlv-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 6px}
+.rlv-h b{font-size:14.5px;color:#3c5410}
+.rlv-h span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:#5d707b}
+
+/* l'exercice d'association : les quatre figures, chacune avec sa ligne */
+.asg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px}
+.asi{border:1px solid var(--line2);border-radius:14px;padding:12px 14px;background:#fff;
+  position:relative}
+.asi .asl{position:absolute;top:10px;left:12px;font-family:"IBM Plex Mono",monospace;
+  font-weight:700;font-size:13px;color:var(--cy-d)}
+.asi svg,.asi .gr{width:100%;height:auto;max-height:150px;display:block;margin:6px auto 8px}
+@media(max-width:760px){.asg{grid-template-columns:1fr}}
+
+/* ══════ présentation commune à la fiche de l'élève et à celle du professeur ══════
+   Ces règles ont d'abord été écrites pour le corrigé, puis validées, puis
+   ramenées ici : les deux fiches doivent se ressembler. Le 14/09/2026. */
+
+/* Objectif, Situation, Document : chacun son cadre, son onglet, sa couleur.
+   Empilés sous deux étiquettes de 9,5 px dans un seul bloc, on ne voyait plus
+   où l'un finissait ni que c'était un titre. */
+.ong{position:relative;border-radius:0 14px 14px 14px;padding:15px 20px 14px;
+  margin:34px 0 16px;border:1px solid}
+.ong>.lb{position:absolute;top:-25px;left:-1px;display:inline-block;
+  font-family:"Bricolage Grotesque","Segoe UI",sans-serif;font-weight:700;
+  font-size:14px;letter-spacing:.02em;color:#fff;background:none;
+  border-radius:10px 10px 0 0;padding:5px 18px 4px;margin:0}
+.ong p{margin:0 0 9px;font-size:16px}
+.ong p:last-child{margin:0}
+.ong.obj{background:#f4f0fe;border-color:#7c4bd8}
+.ong.obj>.lb{background:#7c4bd8}
+.ong.situ{background:#eaf7fb;border-color:#00778a}
+.ong.situ>.lb{background:#00778a}
+.ong.docu{background:#f4f7f9;border-color:#2E5266}
+.ong.docu>.lb{background:#2E5266}
+.ong.docu .dtit{font-family:"Bricolage Grotesque","Segoe UI",sans-serif;font-weight:700;
+  font-size:16px;color:#2E5266;margin:0 0 10px}
+.ong.docu .tw{margin:0}
+.exo-c>.ong:first-child{margin-top:28px}
+
+/* Le mode d'emploi de l'envoi se lit JUSTE AU-DESSUS du bouton qu'il décrit,
+   sur toute la largeur : en tête du fichier, loin de lui, personne ne le
+   lisait, et à côté de lui il était à l'étroit. */
+.exo-f{display:block;padding-top:26px}
+.note-env{display:block;margin:10px 0 0}
+.env{display:block;margin:14px 0 0}
+.aenv{position:relative;margin:0;
+  background:#f4f7f9;border:1px solid #2E5266;border-radius:0 14px 14px 14px;
+  padding:14px 18px 12px}
+.aenv>.lb{position:absolute;top:-25px;left:-1px;display:inline-block;
+  font-family:"Bricolage Grotesque","Segoe UI",sans-serif;font-weight:700;font-size:13px;
+  color:#fff;background:#2E5266;border-radius:10px 10px 0 0;padding:5px 15px 4px}
+.aenv ol{margin:0;padding-left:20px}
+.aenv li{margin:0 0 7px;font-size:14.5px;line-height:1.5}
+.aenv li:last-child{margin-bottom:0}
+
+/* ══════ la calculatrice ══════
+   Pour les petits calculs d'une fiche : quatre opérations, le pourcentage, et
+   rien d'autre. Elle s'ouvre par un bouton en bas à gauche et se range d'un
+   clic. Elle n'écrit dans aucune réponse : l'élève recopie son calcul. */
+.calc-b{position:fixed;left:16px;bottom:16px;z-index:55;font:inherit;font-size:14.5px;
+  font-weight:700;cursor:pointer;background:#fff;color:#2E5266;border:1px solid #b9c8d1;
+  border-radius:24px;padding:10px 20px;box-shadow:0 4px 16px -6px rgba(13,26,34,.4)}
+.calc-b:hover{background:#eef3f6}
+.calc-b.on{background:#2E5266;color:#fff;border-color:#2E5266}
+.calc{position:fixed;left:16px;bottom:64px;z-index:56;width:264px;background:#fff;
+  border:1px solid #b9c8d1;border-radius:18px;padding:12px;
+  box-shadow:0 14px 40px -12px rgba(13,26,34,.5)}
+.calc-h{display:flex;align-items:center;justify-content:space-between;
+  font-family:"Bricolage Grotesque","Segoe UI",sans-serif;font-weight:700;font-size:14px;
+  color:#2E5266;margin:0 2px 8px}
+.calc-h button{border:0;background:none;font-size:20px;line-height:1;cursor:pointer;
+  color:#55666f;padding:0 4px}
+.calc-e{display:block;background:#f4f7f9;border:1px solid #cfd9df;border-radius:12px;
+  padding:12px 14px;text-align:right;font-family:"IBM Plex Mono",monospace;
+  font-size:24px;font-weight:600;color:#0d1a22;margin:0 0 10px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.calc-t{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.calc-t button{font:inherit;font-size:17px;font-weight:600;cursor:pointer;
+  background:#f4f7f9;color:#0d1a22;border:1px solid #dbe4e9;border-radius:12px;
+  padding:11px 0;transition:.12s}
+.calc-t button:hover{background:#e6edf1}
+.calc-t button.frappe{background:#bfe3ec;transform:scale(.94)}
+.calc-t button.o.frappe{background:#9fd6e3}
+.calc-t button.e.frappe{background:#005d6c}
+.calc-a{margin:9px 2px 0;font-size:11.5px;color:#6b7d88;text-align:center}
+/* Le titre d'un tableau : un tableau sans titre ne dit pas ce qu'il montre. */
+p.ttab{font-family:"Bricolage Grotesque","Segoe UI",sans-serif;font-weight:700;
+  font-size:16px;color:#2E5266;margin:0 0 8px}
+p.ttab + .tw{margin-top:0}
+
+/* La zone de réponse grandit avec la réponse : pas de barre de défilement
+   dans un petit cadre, l'élève relit tout ce qu'il a écrit. */
+textarea[data-r]{overflow-y:hidden;resize:vertical}
+.calc-t button.o{background:#e6f5f9;color:#00778a;border-color:#a9d7e3}
+.calc-t button.g{background:#f0f2f4;color:#55666f;font-size:15px}
+.calc-t button.e{background:#00778a;color:#fff;border-color:#00778a}
+.calc-t button.l{grid-column:span 2}
+@media print{.calc,.calc-b{display:none!important}}
+
+/* La consigne de travail, en tête du fichier : même onglet, même bordure que
+   Objectif, Situation et Document. Son cadre à filet orange ne ressemblait à
+   rien d'autre dans la page. */
+.ong.cons{background:#fffaf0;border-color:#c98a10;box-shadow:none;padding:15px 20px 14px}
+.ong.cons>.lb{background:#c98a10}
+.cons-t{font-family:"Bricolage Grotesque","Segoe UI",sans-serif;font-weight:700;
+  font-size:16px;color:#7a5205;margin:0 0 8px}
+.ong.cons ul{margin:0;padding-left:20px}
+.ong.cons li{margin:0 0 7px;font-size:16px;color:var(--ink)}
+.ong.cons li:last-child{margin-bottom:0}
+
+/* La compétence s'écrit en bleu, gras, italique, devant la question - règle
+   absolue 2, celle du document papier. Elle était une pastille en petites
+   capitales monospace : deux écritures pour la même chose. */
+.cmp{font-family:inherit;font-size:inherit;font-style:italic;font-weight:700;
+  color:#1B6CA8;background:none;text-transform:none;letter-spacing:0;
+  border-radius:0;padding:0;margin-right:4px;display:inline}
+.cmp::after{content:"."}
+
+/* Les titres de bloc se lisent : ils s'écrivaient en 9,5 px alors qu'ils
+   annoncent ce qui suit. */
+.aide .lb{font-size:12.5px;font-weight:700;letter-spacing:.09em;padding:4px 13px;
+  margin-bottom:10px}
+.aide h3{font-size:19px}
+p.pb{font-size:16.5px;margin:22px 0 4px}
+p.pb b{font-size:16.5px}
+
+/* De l'air entre les encadrés : tout se touchait, la question collait à ce qui
+   la précédait et on ne voyait plus où l'un finissait. */
+/* Le trait pointillé entre deux questions ressemblait à une ligne d'écriture
+   alors qu'on écrit dans l'encadré : il ne servait à rien et trompait. C'est
+   l'espace qui sépare les questions. */
+.q{margin:0 0 4px;padding:16px 0 10px;border-bottom:0}
+.q:first-child{padding-top:6px}
+.q>.q-h{margin:0 0 11px}
+.exo-c>.tw,.exo-c>figure{margin:20px 0}
+
+/* ================= constructeur de diagramme ================= */
+.cgr{background:#fff;border:2px solid #5d9db6;border-radius:18px;padding:16px 18px 18px;margin:12px 0}
+.cgr-hd{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 10px}
+.cgr-hd .et{background:#0c4a58;color:#fff;border-radius:20px;padding:4px 13px;
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:700}
+.cgr-ai{font-size:13.5px;color:var(--mut)}
+.cgr .tw{margin:0 0 12px}
+.cgr-c0{background:#eef6fa;text-align:left!important;white-space:nowrap}
+/* Les titres que l'élève écrit : celui du graphique, et le nom de chaque axe. */
+.cgr-ti{display:grid;gap:10px;margin:12px 0 0}
+.cgr-tb th.cgr-c0{padding:6px}
+.cgr-tb th.cgr-c0 input.gax{width:100%;min-width:190px;font:inherit;font-size:15px;
+  font-weight:700;text-align:left;border:1px dashed #c79320;border-radius:9px;
+  background:#fff8e6;padding:8px 10px;color:#0d1a22}
+.cgr-tb th.cgr-c0 input.gax::placeholder{font-weight:400;font-style:italic;color:#8a99a3}
+.cgr-tb th.cgr-c0 input.gax:focus{outline:2px solid var(--cy);outline-offset:-2px;background:#fff}
+.cgr-tb th.cgr-c0 input.gax.plein{background:#f2fbfd;border-style:solid;border-color:#9ed2e3}
+.cgr-ax{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+/* display:grid l'emporte sur l'attribut hidden : il faut le dire. */
+.cgr-ax[hidden]{display:none}
+.cgr-ti label{display:block}
+.cgr-ti label span{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;
+  letter-spacing:.11em;text-transform:uppercase;color:#55666f;margin:0 0 4px}
+input.gti{width:100%;border:1px dashed #c79320;border-radius:10px;background:#fff8e6;
+  padding:9px 12px;font:inherit;font-size:15px;color:#0d1a22}
+/* Dans le tableau, le nom de la ligne reprend ce qui est écrit dans le champ
+   de l'axe des ordonnées, à la place de l'ancien « Valeur ». */
+.ylabm{display:block;font-weight:700;text-align:left;min-width:170px}
+.ylabm.vide{font-weight:400;font-style:italic;color:#8a99a3}
+input.gti:focus{outline:2px solid var(--cy);outline-offset:-2px;background:#fff}
+input.gti.plein{background:#f2fbfd;border-style:solid;border-color:#9ed2e3}
+.cgr.fige input.gti{pointer-events:none;background:#f2fbfd;border-style:solid;border-color:#9ed2e3}
+@media(max-width:620px){.cgr-ax{grid-template-columns:1fr}}
+
+input.gv{width:100%;min-width:64px;border:1px dashed #c79320;border-radius:8px;background:#fff8e6;
+  font:inherit;font-size:16px;font-weight:600;text-align:center;padding:9px 4px;color:var(--ink)}
+input.gv:focus{outline:2px solid var(--cy);outline-offset:-2px;background:#fff}
+input.gv.plein{background:#f2fbfd;border-style:solid;border-color:#9ed2e3}
+.cgr-tb td{padding:6px}
+.cgr-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 12px}
+.gt{border:1.5px solid var(--line2);background:#fff;color:var(--ink2);border-radius:11px;
+  padding:8px 15px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;transition:.16s}
+.gt:hover{border-color:var(--cy);color:var(--cy-d);background:var(--cy-l)}
+.gt.on{background:var(--cy);border-color:var(--cy);color:#fff}
+.cgr-msg{font-size:13px;color:var(--mut);margin-left:auto}
+.cgr-vue{min-height:120px;display:grid;place-items:center;background:#f7fbfd;border-radius:14px;
+  padding:10px}
+.cgr-vide{margin:0;font-size:13.5px;color:var(--mut);text-align:center;max-width:38ch}
+.cgr-vide.pb{color:#a4370f;font-weight:600}
+.cgr-vue svg{max-width:100%;height:auto}
+.cgr.fige input.gv{pointer-events:none;background:#f2fbfd;border-style:solid;border-color:#9ed2e3}
+.cgr.fige .gt{pointer-events:none}
+.cgr.fige .cgr-ai{display:none}
+@media(max-width:620px){.cgr-bar{gap:6px}.gt{padding:7px 11px;font-size:12.5px}}
+
+/* fichier d'une seule seance : aucune pagination a afficher */
+.pgnav{display:none}
+/* le bandeau fixe d'enregistrement ne doit jamais couvrir une reponse */
+body{padding-bottom:96px}
+@media print{body{padding-bottom:0}}
+
+.cdp-t{margin:10px 0 12px;border:1.6px solid #FFB627;border-left:7px solid #FFB627;
+  border-radius:14px;background:#fff8e6;padding:0 18px}
+.cdp-t>summary{cursor:pointer;list-style:none;font-weight:700;color:#8a5c05;
+  padding:12px 0;font-size:15.5px}
+.cdp-t>summary::-webkit-details-marker{display:none}
+.cdp-t>summary:before{content:"?";display:inline-grid;place-items:center;width:24px;height:24px;
+  border-radius:8px;background:#FFB627;color:#fff;margin-right:9px;vertical-align:-5px}
+.cdp-t[open]>summary:before{content:"✕"}
+.cdp-t .pt{margin:0 0 10px;font-size:14.5px;color:#8a5c05}
+.cdp-l{margin:0 0 14px;padding-left:22px}
+.cdp-l li{margin:0 0 14px;font-size:15px}
+.cdp-l img{display:block;width:100%;max-width:340px;height:auto;margin:8px 0 0;
+  border:2px solid #2E5266;border-radius:10px}
+.cdp-l .tp{font-family:"IBM Plex Mono",Consolas,monospace;background:#0d1a22;color:#ffd98a;
+  border-radius:7px;padding:2px 8px}
+@media print{.cdp-t{display:none}}
+
+/* Le bouton qui ouvre une fiche tuto dans un nouvel onglet. La fiche est
+   dans la page, elle ne se telecharge pas : le bouton la sert a l'onglet.
+   Elle ne s'imprime pas. */
+.tw-b{margin:12px 0 14px}
+.tw-o{display:inline-flex;align-items:center;gap:10px;font:inherit;font-size:15px;
+  font-weight:700;cursor:pointer;color:#00778a;-webkit-text-fill-color:#00778a;
+  background:#f4fbfd;border:1.6px solid #7fc9d9;border-left:7px solid #00A5BF;
+  border-radius:14px;padding:12px 18px;text-align:left}
+.tw-o:hover{background:#e2f6fa;border-color:#00A5BF}
+.tw-o:before{content:"?";flex:none;display:inline-grid;place-items:center;
+  width:24px;height:24px;border-radius:8px;background:#00A5BF;color:#fff;
+  -webkit-text-fill-color:#fff;font-weight:800}
+.tw-o:after{content:"\2197";font-size:17px;opacity:.75}
+@media print{.tw-b{display:none}}
+
+/* Sur un telephone, le corps d'un exercice doit pouvoir se retrecir. Sans
+   cela, chaque bloc garde sa largeur naturelle : la fiche sort de l'ecran a
+   droite et rien ne defile - la derniere colonne des tableaux et la colonne
+   « quotient » des divisions sont perdues pour l'eleve.
+   (A l'impression, la mise en page ne change pas.) */
+@media screen{
+  .q-n{min-width:0}
+  .calcs{overflow-x:auto}
+}
+/* Un tableau large se lit quand meme sur un telephone : le titre de la
+   premiere colonne passe a la ligne et les colonnes se resserrent. */
+@media screen and (max-width:620px){
+  .tw table.num th:first-child{white-space:normal}
+  .tw.ajuste table.num td{padding-left:12px;padding-right:12px}
+}
+@media screen and (max-width:430px){
+  .tw.ajuste table.num td{padding-left:6px;padding-right:6px}
+}
+
+/* Les divisions s'ajustent a la place : les cases ou l'eleve ecrit prennent
+   la largeur disponible au lieu de garder une taille fixe qui sort du cadre.
+   Sans cela, sur un telephone, la colonne « quotient » etait hors de l'ecran.
+   (A l'impression, rien ne change.) */
+@media screen and (max-width:620px){
+  .calcs,.deux .calcs,.calcs.cadree,.calcs.avecnotes,.calcs.nuls,
+  .grp.fus>.calcs.cadree{
+    grid-template-columns:minmax(0,1fr) 16px minmax(0,1fr) 16px minmax(0,1fr);
+    justify-content:stretch;width:auto;gap:7px 5px;padding-left:10px;padding-right:10px}
+  .calcs .cl,.calcs .nt{grid-column:1 / -1}
+  .calcs .n,.calcs .donne,.calcs .ct{width:auto;min-width:0}
+  .calcs .n input.ec,.calcs input.ec,.calcs .case{width:100%;min-width:0}
+}
+/* Sur tablette, la grille des divisions vit dans une colonne etroite : elle
+   prend la meme forme que sur telephone - l'etiquette et la remarque sur
+   leur propre ligne, les cases a la largeur disponible. */
+@media screen and (min-width:621px) and (max-width:1000px){
+  .deux .calcs,.grp.fus>.calcs,.deux .calcs.cadree,.deux .calcs.avecnotes,
+  .grp.fus>.calcs.cadree,.grp.fus>.calcs.avecnotes{
+    grid-template-columns:minmax(0,1fr) 16px minmax(0,1fr) 16px minmax(0,1fr);
+    justify-content:stretch;width:auto;gap:7px 6px}
+  .deux .calcs>.cadre,.grp.fus>.calcs>.cadre{display:none}
+  .deux .calcs .cl,.deux .calcs .nt,
+  .grp.fus>.calcs .cl,.grp.fus>.calcs .nt{grid-column:1 / -1;white-space:normal}
+  .deux .calcs .n,.deux .calcs .donne,.deux .calcs .ct,
+  .grp.fus>.calcs .n,.grp.fus>.calcs .donne,.grp.fus>.calcs .ct{width:auto;min-width:0}
+  .deux .calcs input.ec,.deux .calcs .case,
+  .grp.fus>.calcs input.ec,.grp.fus>.calcs .case{width:100%;min-width:0}
+}
+/* Un document mis en deux colonnes garde ses dessins et ses tableaux a sa
+   largeur : sur telephone, ils prennent celle de l'ecran. */
+@media screen{
+  .dbl>*,.q4>*{min-width:0}
+  .dbl svg,.q4 svg,.docu svg{max-width:100%;height:auto}
+}
+</style>
+<style>.aenv>p.aenv-i{margin:0 0 6px;font-weight:600}</style><style>.ong.cons{display:none!important}section.exo>.exo-h .etat{display:none!important}section.exo svg.gr{max-width:min(100%,460px)!important;margin:0 auto 14px!important}section.exo .tw thead th{text-align:center!important}section.retp .aide{border:0;margin:0;padding:0;background:none;box-shadow:none}section.retp .aide>.lb,section.retp .aide>h3,section.retp .ret>h4{display:none}section.retp .ret{background:linear-gradient(180deg,#effafc,#ffffff 62%);border:1px solid #7fb8c8;border-radius:18px;padding:18px 20px;margin:0}section.retp .ret>.et{display:inline-flex;align-items:center;background:#00A5BF;color:#fff;border-radius:20px;padding:5px 14px;margin:0 0 10px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}section.retp .ret p{margin:0 0 9px}section.retp .dgs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:16px}section.retp .dg{background:#fff;border:1px solid #7fb8c8;border-radius:12px;padding:16px 18px;min-width:0}section.retp .dg>p{font-size:14.5px;margin:0 0 10px}section.retp .dg .fig{background:#fafcfd;border-radius:10px;padding:8px 6px 4px}section.retp>.exo-f{display:none}section.retp .rmq{margin-top:16px;background:#fff;border:1px solid #7fb8c8;border-radius:12px;padding:14px 18px;font-size:15px}section.retp .rmq b{color:#00778a}section.retp .rmq ul{margin:6px 0 0;padding-left:18px}section.retp .ret .q{margin:16px 0 0}section.retp .ret .q>p{margin:0 0 6px}section.retp .ret .q .n{font-weight:700;color:#00778a}section.retp .ret .cs{font-weight:700}section.retp .sol{background:#f2fbf4;border-left:4px solid #8FBE1F;border-radius:12px;padding:11px 16px;margin:8px 0;color:#2c5c1a}section.retp .sol ul{margin:6px 0 0;padding-left:18px}@media (max-width:760px){section.retp .dgs{grid-template-columns:1fr}}</style><style>
+section.retp .voc{display:flex;flex-direction:column;gap:8px;margin:0 0 6px}
+section.retp .voc .it{background:#fff;border:1px solid #7fb8c8;border-radius:10px;padding:9px 14px}
+section.retp .voc .it>b{display:inline;color:#00778a;font-family:"Bricolage Grotesque",sans-serif;font-size:15.6px}
+section.retp .voc .it>b::after{content:"\00a0"}
+section.retp .voc .it>p{display:inline;margin:0;font-size:15.4px}
+section.retp .voc .it>p.ttab{display:block;margin:12px 0 6px}
+section.retp .voc .it>.tw{margin:0 0 4px}
+section.retp .exm{background:#fff;border:2px solid #2E5266;border-radius:14px;padding:18px 20px;margin:18px 0 0}
+section.retp .exm>.et{display:inline-flex;align-items:center;background:#2E5266;color:#fff;border-radius:20px;
+  padding:4px 12px;margin:0 0 10px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase}
+section.retp .exm svg{max-width:min(100%,460px);height:auto;display:block;margin:10px auto}
+section.retp .ex-g{display:flex;gap:22px;align-items:center}
+section.retp .ex-g>svg{flex:0 0 52%;max-width:52%!important;margin:0!important}
+section.retp .ex-t p{margin:0 0 10px}
+b.nb{white-space:nowrap}
+@media (max-width:760px){section.retp .ex-g{flex-direction:column;align-items:stretch}section.retp .ex-g>svg{max-width:100%!important;flex-basis:auto}}
+section.retp .ret .lb2{display:inline-flex;align-items:center;background:#00A5BF;color:#fff;border-radius:20px;
+  padding:5px 14px;margin:0 0 10px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase}
+p.ttab{font-family:"Bricolage Grotesque","Segoe UI",sans-serif;font-weight:700;font-size:15.5px;
+  text-align:center;margin:14px 0 6px;color:#0d1a22}
+p.ttab + .tw{margin-top:0}
+/* les capacités seules, sur toute la largeur, cadre à trait égal comme les
+   autres cadres (pas de bord gauche épais) */
+.refx{grid-template-columns:1fr!important;margin:16px 0 6px!important}
+.rx{border:1.5px solid #00778a!important;border-radius:14px!important}
+/* de l'air entre les cadres : l'étiquette du cadre suivant ne touche pas le précédent */
+.ong{margin-top:52px!important}
+.exo-c>.ong:first-child{margin-top:36px!important}
+/* l'étiquette d'un cadre (Objectif, Situation, Document) posée sur le
+   bord du cadre, sans le recouvrir, quelle que soit sa hauteur */
+.ong>.lb{top:auto!important;bottom:100%!important;max-width:calc(100% + 2px);white-space:normal}
+/* les en-têtes de ligne d'un tableau, centrés comme ceux des colonnes (15/10/2026) */
+.tw tbody th{text-align:center!important}
+/* un coup de pouce : le cadre prend la largeur de son texte, pas toute la
+   largeur de la page (Mme Talbaut, 19/10/2026) */
+.cdp-t{width:fit-content;max-width:100%;box-sizing:border-box}
+/* la barre du bas attend que l'élève ait écrit son nom */
+body:not(.identifie) .ap-bas{display:none}
+/* le dessin de la situation, à droite du texte (Activité A) */
+.ong.situ .situ-g{display:flex;gap:18px;align-items:center}
+.ong.situ .situ-g>p{flex:1;margin:0}
+.ong.situ .situ-g>svg{flex:none;width:250px;height:auto}
+@media (max-width:640px){.ong.situ .situ-g{flex-direction:column}.ong.situ .situ-g>svg{width:100%;max-width:280px}}
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══ habillage du site (28/09/2026) ═══ */
+body{background:#f4f3f8}
+header.tete{display:none}
+.sban{display:flex;align-items:stretch;border:3.5px solid #12202a;border-radius:18px;
+  overflow:hidden;background:var(--c);color:#fff;margin:22px 0 0;
+  box-shadow:0 14px 30px -24px rgba(13,26,34,.75)}
+.sban .n{flex:none;width:104px;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;background:rgba(255,255,255,.2);line-height:1.05;padding:10px 0}
+.sban .n .lib{font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:800;letter-spacing:.14em}
+.sban .n .chiffre{font-family:"Bricolage Grotesque",sans-serif;font-size:32px;font-weight:800}
+.sban .t{flex:1;min-width:0;padding:12px 18px}
+.sban .fil{margin:0 0 6px;font-size:13.5px;font-weight:600;color:rgba(255,255,255,.92)}
+.sban .t1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:21px;
+  line-height:1.2;margin:0;text-transform:uppercase}
+/* les onglets, un par exercice (modèle AP 2) */
+.ap-fil{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
+.ap-fil .ap-ft{font-family:"Source Sans 3","Segoe UI",sans-serif;font-weight:600;font-size:14px;
+  color:#2E5266;background:#fff;border:1.6px solid #2E5266;border-radius:20px;padding:6px 14px;cursor:pointer}
+.ap-fil .ap-ft:hover{background:#eef4f7}
+.ap-fil .ap-ft.on{color:#fff;background:#2E5266;border-color:#2E5266}
+section.exo.ecp:not(.on){display:none}
+.ecp-cache{display:none!important}
+/* la carte de l'exercice, comme sur le site */
+section.exo{background:#fff;border:3.5px solid #12202a!important;border-radius:18px!important;
+  overflow:hidden;box-shadow:0 14px 30px -24px rgba(13,26,34,.75)}
+section.exo>.exo-h{background:var(--f,#eef4f6);border-bottom:3px solid #12202a;padding:14px 22px}
+section.exo>.exo-h .exo-t{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;
+  font-size:19px;color:#12202a}
+/* les tableaux : traits foncés, en-têtes dans la police du texte */
+.tw{border:2px solid #22323b!important}
+table th,table td{border-color:#22323b!important}
+thead th,.tw thead th{font-family:"Source Sans 3","Segoe UI",sans-serif!important;font-weight:700!important;
+  text-transform:none!important;letter-spacing:0!important;font-size:15px!important;color:#0d1a22!important;
+  white-space:normal!important}
+.ong{border-color:#2E5266}
+/* la barre du bas, sur toute la largeur (modèle AP 2) : plus rien ne flotte */
+.ap-bas{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;align-items:center;
+  justify-content:space-between;gap:12px;padding:8px 18px;background:rgba(255,255,255,.97);
+  border-top:2px solid #2E5266;box-shadow:0 -5px 18px -12px rgba(13,26,34,.45)}
+.ap-bas .ap-bg,.ap-bas .ap-bd{display:flex;align-items:center;gap:10px}
+.ap-bas .ap-bi{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;color:#2E5266}
+.ap-bas .ap-nb{font-family:"Source Sans 3",sans-serif;font-weight:700;font-size:15px;color:#fff;
+  background:#2E5266;border:0;border-radius:20px;padding:9px 18px;cursor:pointer}
+.ap-bas .ap-nb[disabled]{background:#8fa3ae;cursor:default}
+.ap-bas #bCalc,.ap-bas .calc-b{position:static!important;right:auto!important;left:auto!important;
+  bottom:auto!important;top:auto!important;box-shadow:none!important;transform:none!important;
+  background:#00778a;color:#fff;border:0;border-radius:20px;padding:9px 18px;font-weight:700}
+.ap-bas .barre-b{position:static!important;right:auto!important;bottom:auto!important;
+  box-shadow:none!important;border:0!important;background:none!important;padding:0!important;
+  display:flex;align-items:center;gap:8px}
+body{padding-bottom:70px}
+/* ═══ comme la version prof (30/09/2026) ═══ */
+.bar{background:#fff;border-bottom:2.5px solid #22323b}
+.bar .in{max-width:1000px;margin:0 auto;padding:12px 20px;display:flex;
+  align-items:center;gap:14px;flex-wrap:wrap}
+.bar .lg{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:18px;
+  text-decoration:none;color:#0d1a22}
+.bar .fil{font-size:15px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bar .qui{margin-left:auto;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
+  font-size:14px;white-space:nowrap}
+footer.prop-pied{display:none}
+footer.pied{border-top:2.5px solid #22323b;background:#fff;margin-top:40px}
+footer.pied .in{max-width:1000px;margin:0 auto;padding:14px 20px;display:flex;
+  flex-wrap:wrap;gap:6px 16px;align-items:center;
+  font-family:"Bricolage Grotesque",sans-serif;font-size:14px}
+footer.pied .sep{color:#2b7a78;font-weight:800}
+footer.pied b{font-weight:800}
+.wrap{max-width:1000px!important}
+/* le titre de l'exercice : sa pastille, puis son titre court */
+section.exo>.exo-h .exo-t .ex-n{display:inline-block;background:var(--c,#2E5266);color:#fff;
+  border-radius:8px;padding:2px 10px;margin-right:10px;font-size:16px}
+section.exo .exo-c>p.en:first-child{font-size:17px}
+/* une galerie de dessins : sur une ligne quand l'écran le permet */
+.gal-l{display:flex!important;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.gal .pic{background:#fff;border:2px solid #22323b;border-radius:14px;padding:10px 8px 6px}
+/* les tableaux à remplir : traits foncés, cases blanches */
+table.fill{border-collapse:collapse}
+table.fill th,table.fill td{border:1.5px solid #22323b!important;vertical-align:middle}
+table.fill thead th{text-align:center!important;background:#e3eef3}
+table.fill tbody th{text-align:center!important;background:#f3f7f9}
+table.fill td.v{background:#fff!important}
+table.fill input.tc{background:#fff!important;border:0!important;border-radius:0!important}
+table.fill input.tc:focus{outline:2px solid #00778a;outline-offset:-2px}
+/* un document qui porte un tableau prend toute la largeur : le tableau ne défile pas */
+.dbl:has(.tw){grid-template-columns:1fr!important}
+.tw thead:not(:has(th:not(:empty))){display:none}
+/* au vidéoprojecteur ou sur grand écran, tout grossit */
+@media (min-width:1250px){body{zoom:1.2}}
+@media (min-width:1500px){body{zoom:1.45}}
+@media (min-width:2200px){body{zoom:1.8}}
+/* sur téléphone (01/10/2026) : la barre du bas sur deux rangées, sinon
+   Précédent et Suivant sortaient de l'écran */
+@media (max-width:640px){
+  .ap-bas{flex-wrap:wrap;gap:6px 8px;padding:6px 8px;justify-content:space-between}
+  .ap-bas .ap-bi{white-space:nowrap}
+  .ap-bas .ap-bd{width:100%;justify-content:space-between;gap:6px}
+  .ap-bas .ap-nb,.ap-bas #bCalc,.ap-bas .calc-b,.ap-bas #bSauver{padding:7px 11px!important;
+    font-size:13.5px!important;white-space:nowrap}
+  .ap-bas .dos{display:none!important}
+  body{padding-bottom:116px}
+  .sban .n{width:72px}
+}
+@media print{.ap-fil,.ap-bas{display:none!important}section.exo.ecp{display:block!important}
+  .ecp-cache{display:block!important}}
+</style>
+<style>section.exo{--f:#f8eeec;--c:#b8503c}</style></head>
+<body>
+<script>
+(function(){
+"use strict";
+var VER = {"s1-1/Ex. 1": {"*": {"s": "dGJwX2NoMDF8czEtMS9FeC4gMQ==", "i": "7vF0X9Zcm0ODrdyy", "d": "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", "n": 60000}}, "s1-1/Ex. 1#ret": {"*": {"s": "dGJwX2NoMDF8czEtMS9FeC4gMSNyZXQ=", "i": "GGPZqnOM/eYT2IHd", "d": "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", "n": 60000}}}, IDC = "ver_tbp_ch01_s1-1";
+if(!VER || !Object.keys(VER).length) return;
+var b64 = function(t){ var b=atob(t), a=new Uint8Array(b.length);
+  for(var i=0;i<b.length;i++) a[i]=b.charCodeAt(i); return a; };
+
+async function ouvrir(o, code){
+  var mat = await crypto.subtle.importKey("raw", new TextEncoder().encode(code), "PBKDF2", false, ["deriveKey"]);
+  var cle = await crypto.subtle.deriveKey(
+      {name:"PBKDF2", salt:b64(o.s), iterations:o.n, hash:"SHA-256"},
+      mat, {name:"AES-GCM", length:256}, false, ["decrypt"]);
+  var clair = await crypto.subtle.decrypt({name:"AES-GCM", iv:b64(o.i)}, cle, b64(o.d));
+  return new TextDecoder().decode(clair);
+}
+
+function poser(sec, html){
+  var c = sec.querySelector(".exo-c");
+  c.innerHTML = html;
+  /* Un <script> arrive par innerHTML ne s'execute pas. Les boutons des fiches
+     tuto vivent dans l'exercice chiffre : sans cette relance, ils ne repondent
+     a rien. Les gabarits type="text/html" restent des donnees. */
+  Array.prototype.forEach.call(c.querySelectorAll("script"), function(s){
+    if(s.type && s.type !== "text/javascript" && s.type !== "application/javascript") return;
+    var n = document.createElement("script");
+    n.textContent = s.textContent;
+    s.parentNode.replaceChild(n, s);
+  });
+  sec.classList.remove("verrou");
+  if(window.gInit) window.gInit(sec);
+  if(window.brancher) window.brancher(sec);
+  if(window.reappliquer) window.reappliquer();
+  if(window.majEtats) window.majEtats();
+}
+
+document.addEventListener("DOMContentLoaded", function(){}, false);
+
+window.deverrouiller = function(){
+  var g = document.body.dataset.groupe || "A";
+  document.querySelectorAll("section.exo[data-verrou]").forEach(function(sec){
+    /* « * » : un code pour toute la classe. Sinon, un code par groupe. */
+    var k = sec.getAttribute("data-verrou"), t = VER[k] || {}, o = t[g] || t["*"];
+    if(!o){ sec.classList.remove("verrou"); return; }
+    var memo = null;
+    var mk = IDC+"_"+(t["*"]?"*":g)+"_"+k.split("#")[0];
+    try{ memo = localStorage.getItem(mk); }catch(e){}
+    if(memo){ ouvrir(o, memo).then(function(h){ poser(sec, h); }).catch(function(){}); return; }
+    sec.classList.add("verrou");
+    var c = sec.querySelector(".exo-c");
+    c.innerHTML =
+      '<div class="vbx"><p class="vt">' + (sec.getAttribute("data-vt") || 'Cet exercice s’ouvre avec le code donné par la professeure.') + '</p>'
+      + '<div class="vin"><input type="text" maxlength="5" autocomplete="off" spellcheck="false" placeholder="CODE">'
+      + '<button type="button">Ouvrir</button></div><p class="vm"></p></div>';
+    var inp = c.querySelector("input"), bt = c.querySelector("button"), msg = c.querySelector(".vm");
+    function essai(){
+      var v = (inp.value||"").trim().toUpperCase();
+      if(v.length < 3) return;
+      ouvrir(o, v).then(function(h){
+        try{ localStorage.setItem(mk, v); }catch(e){}
+        poser(sec, h);
+        var base = k.split("#")[0];
+        document.querySelectorAll("section.exo.verrou[data-verrou]").forEach(function(s2){
+          var k2 = s2.getAttribute("data-verrou"), t2 = VER[k2] || {}, o2 = t2[g] || t2["*"];
+          if(s2 === sec || !o2 || k2.split("#")[0] !== base) return;
+          ouvrir(o2, v).then(function(h2){ poser(s2, h2); }).catch(function(){});
+        });
+      }).catch(function(){
+        msg.textContent = "Code refusé."; inp.value = ""; inp.focus();
+      });
+    }
+    bt.addEventListener("click", essai);
+    inp.addEventListener("keydown", function(e){ if(e.key==="Enter") essai(); });
+    inp.addEventListener("input", function(){ msg.textContent=""; });
+  });
+};
+})();
+</script>
+
+<header class="bar"><div class="in"><span class="lg">Terminale bac pro</span><nav class="fil"><span class="sep">&rsaquo;</span><span>Mathématiques</span><span class="sep">&rsaquo;</span><span>Statistiques à deux variables</span><span class="sep">&rsaquo;</span><span>Séance 1</span></nav><span class="qui">Mme Talbaut</span></div></header><header class="tete">
+  <div class="wrap" style="padding-bottom:0">
+    <p class="kick">Terminale bac pro · Mathématiques · M<sup>me</sup> Talbaut · TMCVA2</p>
+    <h1>Méthode et QCM</h1>
+    <p class="sub">Chapitre 1 · Statistiques à deux variables - Séquence 1, séance 1</p>
+    <div class="ident">
+      <div><label for="nom">Nom</label><input type="text" id="nom" autocomplete="off" spellcheck="false"></div>
+      <div><label for="prenom">Prénom</label><input type="text" id="prenom" autocomplete="off" spellcheck="false"></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap"><div class="sban" style="--c:#b8503c"><div class="n"><span class="lib">SÉANCE</span><span class="chiffre">1</span></div><div class="t"><p class="fil">Chapitre 1 &rsaquo; Statistiques à deux variables</p><p class="t1">Méthode et QCM</p></div></div>
+  <section class="pg"><div class="ong cons"><span class="lb">Consignes</span><p class="cons-t">Pour chacune de vos réponses :</p><ul><li><b>Écrire</b> les calculs et les résultats.</li><li><b>Répondre</b> aux questions en écrivant une phrase réponse.</li></ul></div></section>
+<section class="exo retp" data-verrou="s1-1/Ex. 1#ret" data-exo="ret" data-titre="Choisir un modèle adapté pour réaliser un ajustement" data-vt="Cette page s’ouvre avec le code de l’Ex. 1."><div class="exo-h"><span class="exo-t"><span class="ex-n">Fiche méthode</span>Choisir un modèle adapté pour réaliser un ajustement</span><span class="etat"></span></div><div class="exo-c"></div><div class="exo-f"></div></section><section class="exo" data-verrou="s1-1/Ex. 1" data-exo="ex01" data-titre="Ex. 1 - Application de la fiche méthode"><div class="exo-h"><span class="exo-t"><span class="ex-n">Ex. 1</span>Application de la fiche méthode</span><span class="etat">non rendu</span></div><div class="exo-c"></div><div class="exo-f"><div class="aenv"><span class="lb">Envoyer sa copie</span><p class="aenv-i">Enregistrer votre copie, puis l’envoyer par le Nuage.</p><ol><li><b>Cliquer</b> sur <b>Enregistrer votre copie</b>. La copie s’enregistre sur l’ordinateur. Un message affiche le <b>nom du fichier</b>.</li><li>Si la page du Nuage ne s’ouvre pas, <b>cliquer</b> sur <b>Ouvrir la page du Nuage</b> dans le message.</li><li><b>Cliquer</b> sur <b>Téléverser</b>, <b>choisir</b> le fichier qui porte ce nom et <b>envoyer</b>.</li><li>Un grand cadre au milieu de l’écran confirme que l’envoi est passé.</li></ol></div><button class="env" data-env="ex01">Enregistrer votre copie</button><span class="note-env" data-note="ex01"></span></div></section>
+  <nav class="pgnav">
+    <button type="button" id="pgPrec">‹ Page précédente</button>
+    <span class="pgn" id="pgn"></span>
+    <button type="button" id="pgSuiv">Page suivante ›</button>
+  </nav>
+</div>
+
+<footer class="pied"><div class="in"><span>Mathématiques terminale bac pro</span><span class="sep">&middot;</span><b>Mme Talbaut</b><span class="sep">&middot;</span><span>LP Max Joséphine, Cayenne</span></div></footer><footer class="prop-pied">
+  <p class="src">Terminale bac pro · Le Livre Scolaire · Chapitre Statistiques à deux variables</p>
+  <p class="adp">Adaptation numérique Sylvaine Talbaut · LP Max Joséphine · Usage interne - reproduction et diffusion interdites</p>
+</footer>
+<div class="barre-b"><button type="button" id="bSauver">Enregistrer mon travail</button><span class="col-b"><span class="msg-s" id="msgSauve"></span><span class="dos"><span id="nomDossier"></span><button type="button" id="bDossier">changer de dossier</button></span></span></div>
+
+<div class="loupe" id="loupe"><img alt=""></div>
+<script id="copie" type="application/json">null</script>
+<script id="travail" type="application/json">null</script>
+
+
+<script>
+(function(){
+"use strict";
+var ELEVES = [["IRRILO", "Tomy", "A"], ["JASON", "Klayvann'", "A"], ["KONOE", "Anaïs", "A"], ["LENEUVE", "Ludhyvan", "A"], ["LOUISSAINT", "Ismène", "A"], ["MAXWELL", "Lucy", "A"], ["PINHEIRO DO SOUZA", "Marie-Solana", "A"], ["REYNOSO JIMENEZ", "Marianna", "A"], ["ROZE", "Juliana", "A"], ["SIMON", "Bétina", "A"], ["THERMILUS", "Schneider", "A"], ["THOMAS", "Trévon", "A"], ["TORVIC", "Fabiano-Expedito", "A"], ["VAIAGINA", "Taumalie", "A"], ["ALIMAN HE", "Stélla", "B"], ["BALTHAZAR", "Taliane", "B"], ["BATISTA DE OLIVEIRA", "Zaylon", "B"], ["CARPIN", "Taïna", "B"], ["CHATELIER", "Dalenska", "B"], ["DA SILVA SOARES", "Ana Ruthe", "B"], ["DORCE", "Jean-Luc", "B"], ["FABAL FERNANDEZ", "Virnauris", "B"], ["FERNANDEZ DE DIOS", "Andy", "B"], ["FERNANDEZ PEREZ", "José Manuel", "B"], ["GUIRAND", "Ricardo", "B"], ["HAABO", "Kévin", "B"], ["HALAM", "Normann", "B"], ["HERRERA", "Luis Antonio", "B"]], SEL = "TALBAUT-MANUELS-2026", EMP = "50ae79d44fffb15ab04af58620f9d71071959e55b0509687b12dfe0180ae68ca", CLE = "ident_" + "tbp_ch01_s1-1";
+if(!ELEVES.length) { document.body.classList.add("identifie"); return; }
+var $ = function(s){ return document.querySelector(s); };
+
+function pli(t){
+  return (t||"").normalize("NFD").replace(/[̀-ͯ]/g,"")
+    .replace(/[’'`\-.]/g," ").replace(/\s+/g," ").trim().toUpperCase();
+}
+function dist(a,b){
+  /* Damerau-Levenshtein : une lettre en trop, en moins, fausse ou deux lettres
+     interverties comptent chacune pour 1. Les eleves tapent surtout des inversions. */
+  var m=a.length,n=b.length,i,j;
+  if(Math.abs(m-n)>4) return 9;
+  var d=[]; for(i=0;i<=m;i++){ d[i]=[]; d[i][0]=i; }
+  for(j=0;j<=n;j++) d[0][j]=j;
+  for(i=1;i<=m;i++) for(j=1;j<=n;j++){
+    var co = (a[i-1]===b[j-1]) ? 0 : 1;
+    d[i][j] = Math.min(d[i-1][j]+1, d[i][j-1]+1, d[i-1][j-1]+co);
+    if(i>1 && j>1 && a[i-1]===b[j-2] && a[i-2]===b[j-1])
+      d[i][j] = Math.min(d[i][j], d[i-2][j-2]+1);
+  }
+  return d[m][n];
+}
+function mots(t){
+  return (t||"").split(" ").filter(function(x){ return x; });
+}
+function inclus(a,b){
+  /* Chaque mot de a se retrouve dans b, a une lettre pres.
+     Un eleve au nom compose n'en tape souvent qu'une partie : « REYNOSO »
+     pour « REYNOSO JIMENEZ ». C'est la meme personne, et la distance
+     lettre a lettre ne le voit pas (huit lettres d'ecart). */
+  var mb = mots(b);
+  var ma = mots(a);
+  if(!ma.length || !mb.length) return false;
+  return ma.every(function(x){
+    return mb.some(function(y){ return y===x || dist(x,y)<=1; });
+  });
+}
+function memePart(a,b){
+  return a===b || inclus(a,b) || inclus(b,a) || dist(a,b)<=2;
+}
+async function empreinte(code){
+  var d=new TextEncoder().encode(SEL+"|"+code.trim());
+  var h=await crypto.subtle.digest("SHA-256",d);
+  return Array.prototype.map.call(new Uint8Array(h),function(b){return ("0"+b.toString(16)).slice(-2);}).join("");
+}
+function titre(t){
+  return t.split(" ").map(function(m){
+    return m.split("-").map(function(x){ return x ? x[0].toUpperCase()+x.slice(1).toLowerCase() : x; }).join("-");
+  }).join(" ");
+}
+
+/* Un autre eleve sur le meme poste ne doit pas heriter des reponses du precedent. */
+function memeEleve(nom, prenom){
+  try{
+    var c = JSON.parse(localStorage.getItem("copie_" + "tbp_ch01_s1-1") || "null");
+    if(!c || !c.nom) return true;
+    return c.nom === nom && c.prenom === prenom;
+  }catch(e){ return true; }
+}
+
+function valide(nom, prenom, groupe){
+  var neuf = !memeEleve(nom, prenom);
+  try{ localStorage.setItem(CLE, JSON.stringify({n:nom,p:prenom,g:groupe})); }catch(e){}
+  if(neuf){
+    /* Un autre eleve : la page repart a neuf, sans les reponses du precedent.
+       Le nom qu'il vient de taper est garde pour ce rechargement-la seulement :
+       il ne le retape pas deux fois de suite. */
+    try{ localStorage.removeItem("copie_" + "tbp_ch01_s1-1"); }catch(e){}
+    try{ sessionStorage.setItem("nom_" + CLE, "1"); }catch(e){}
+    location.reload();
+    return;
+  }
+  /* Le nom est reconnu. Si la seance porte un code, il vient maintenant :
+     la page ne s'ouvre qu'une fois les deux passes. */
+  if(window.SEANCE && window.SEANCE.arme()){
+    window.SEANCE.memo().then(function(ok){
+      if(ok) finir(nom, prenom, groupe);
+      else demanderCode(nom, prenom, groupe);
+    });
+    return;
+  }
+  finir(nom, prenom, groupe);
+}
+
+function demanderCode(nom, prenom, groupe){
+  if(!document.getElementById("idw")) ecran();
+  /* Deuxieme page : le nom est valide, il n'en est plus question. */
+  var t = document.getElementById("idt"), st = document.getElementById("idst");
+  if(t) t.textContent = "Code de la séance";
+  if(st) st.innerHTML = "<b>Écrire</b> le code donné par la professeure.";
+  var q = document.getElementById("idqui");
+  if(q) q.textContent = prenom + " " + nom;
+  var pm = document.getElementById("idpasmoi");
+  if(pm) pm.onclick = function(){
+    try{ localStorage.removeItem(CLE); }catch(e){}
+    location.reload();
+  };
+  etape("e6");
+  var inp = document.getElementById("idsc"), bt = document.getElementById("idscgo"),
+      msg = document.getElementById("idscm");
+  inp.value = ""; msg.innerHTML = ""; inp.focus();
+  function essai(){
+    msg.innerHTML = "";
+    window.SEANCE.essayer(inp.value).then(function(ok){
+      if(ok){ finir(nom, prenom, groupe); return; }
+      msg.innerHTML = '<div class="msg err">Code refusé.</div>';
+      inp.value = ""; inp.focus();
+    });
+  }
+  bt.onclick = essai;
+  inp.onkeydown = function(e){ if(e.key==="Enter") essai(); };
+  inp.oninput = function(){ msg.innerHTML = ""; };
+}
+
+function finir(nom, prenom, groupe){
+  $("#nom").value = nom; $("#prenom").value = prenom;
+  $("#nom").setAttribute("readonly","readonly"); $("#prenom").setAttribute("readonly","readonly");
+  document.body.dataset.groupe = groupe;
+  document.body.classList.add("identifie");
+  /* Le poste est partage, et un nom peut avoir ete valide par erreur :
+     ce bouton rend la main sans avoir a vider le navigateur. */
+  var z = document.querySelector(".ident");
+  if(z && !document.getElementById("pasmoi")){
+    var a = document.createElement("button");
+    a.type = "button"; a.id = "pasmoi"; a.className = "pasmoi";
+    a.textContent = "Ce n’est pas moi";
+    a.onclick = function(){
+      try{ localStorage.removeItem(CLE); }catch(e){}
+      location.reload();
+    };
+    z.appendChild(a);
+  }
+  /* les exercices sont chiffres par groupe : il faut les reconstruire une fois
+     le groupe connu, sinon l'eleve du groupe B se voit refuser son code. */
+  if(window.deverrouiller) window.deverrouiller();
+  if(window.majEtats) window.majEtats();
+}
+
+function etape(id){
+  ["e1","e2","e3","e4","e5","e6"].forEach(function(k){
+    var n = document.getElementById(k);
+    if(n) n.classList.toggle("on", k===id); });
+}
+
+function ecran(){
+  if(document.getElementById("idw")) return;
+  var w=document.createElement("div"); w.id="idw";
+  w.innerHTML =
+   '<div class="bx">'
+   + '<h2 id="idt">Avant de commencer</h2>'
+   + '<p class="sst" id="idst"><b>Écrire</b> son nom et son prénom. Ils sont vérifiés dans la liste de la classe.</p>'
+   + '<div class="et on" id="e1">'
+   +   '<div class="duo">'
+   +     '<div><label for="idn">Nom</label><input id="idn" type="text" autocomplete="off" spellcheck="false"></div>'
+   +     '<div><label for="idp">Prénom</label><input id="idp" type="text" autocomplete="off" spellcheck="false"></div>'
+   +   '</div>'
+   +   '<button class="pr" id="idgo" type="button">Continuer</button>'
+   +   '<div id="idm"></div>'
+   + '</div>'
+   + '<div class="et" id="e2"><div class="msg" id="e2t"></div><div class="ch" id="e2c"></div></div>'
+   + '<div class="et" id="e3">'
+   +   '<div class="msg">Votre nom ne figure pas dans la liste de la classe.<br>'
+   +     'Si votre nom est composé, l’écrire en entier.<br>Êtes-vous un nouvel élève ?</div>'
+   +   '<div class="ch"><button type="button" id="nvo">Oui, je viens d’arriver</button>'
+   +   '<button type="button" class="no" id="nvn">Non, je recommence</button></div>'
+   + '</div>'
+   + '<div class="et" id="e4">'
+   +   '<div class="msg">Le professeur va saisir le code d’inscription.</div>'
+   +   '<label for="idc" style="margin-top:14px">Code d’inscription</label>'
+   +   '<input id="idc" type="password" autocomplete="off">'
+   +   '<button class="pr" id="idcgo" type="button">Valider</button>'
+   +   '<div id="idcm"></div>'
+   + '</div>'
+   + '<div class="et" id="e5">'
+   +   '<div class="msg">Dans quel groupe travaillez-vous ?</div>'
+   +   '<div class="ch"><button type="button" data-g="A">Groupe A</button>'
+   +   '<button type="button" data-g="B">Groupe B</button></div>'
+   + '</div>'
+   + '<div class="et" id="e6">'
+   +   '<p class="qui">Bonjour <b id="idqui"></b>. '
+   +     '<button type="button" id="idpasmoi">Ce n’est pas moi</button></p>'
+   +   '<input id="idsc" type="text" maxlength="5" autocomplete="off" spellcheck="false" '
+   +     'placeholder="CODE" style="text-transform:uppercase;letter-spacing:.22em;text-align:center">'
+   +   '<button class="pr" id="idscgo" type="button">Ouvrir la séance</button>'
+   +   '<div id="idscm"></div>'
+   + '</div>'
+   + '</div>';
+  document.body.appendChild(w);
+  var saisi = {n:"", p:""};
+
+  document.getElementById("idgo").addEventListener("click", function(){
+    var n=document.getElementById("idn").value, p=document.getElementById("idp").value;
+    document.getElementById("idm").innerHTML="";
+    if(!n.trim() || !p.trim()){
+      document.getElementById("idm").innerHTML='<div class="msg err"><b>Écrire</b> son nom et son prénom.</div>';
+      return; }
+    saisi = {n:n, p:p};
+    var cn=pli(n), cp=pli(p), cible=cn+" "+cp;
+    var exact = ELEVES.filter(function(e){ return pli(e[0])===cn && pli(e[1])===cp; });
+    if(exact.length===1){ valide(exact[0][0], exact[0][1], exact[0][2]); return; }
+    var proches = ELEVES.map(function(e){
+        var en=pli(e[0]), ep=pli(e[1]);
+        var d=Math.min(dist(cible, en+" "+ep), dist(cible, ep+" "+en));
+        /* nom juste et prenom approchant, ou l'inverse : c'est la meme personne */
+        if(cn===en) d=Math.min(d, dist(cp, ep));
+        if(cp===ep) d=Math.min(d, dist(cn, en));
+        /* Nom ou prenom compose dont une seule partie est tapee : les deux
+           champs sont compares mot a mot. Il faut que les DEUX collent, sinon
+           deux eleves qui partagent un morceau de nom se confondraient. */
+        if(memePart(cn,en) && memePart(cp,ep)) d=Math.min(d, 1);
+        if(memePart(cn,ep) && memePart(cp,en)) d=Math.min(d, 1);
+        return {e:e, d:d};
+      }).filter(function(o){ return o.d<=3; }).sort(function(a,b){ return a.d-b.d; });
+    if(proches.length>1){   /* on ne garde que les plus proches, a egalite */
+      var dmin=proches[0].d;
+      proches = proches.filter(function(o){ return o.d===dmin; });
+    }
+    if(proches.length===1){
+      var e=proches[0].e;
+      document.getElementById("e2t").innerHTML="Êtes-vous <b>"+e[0]+" "+e[1]+"</b> ?";
+      var c=document.getElementById("e2c"); c.innerHTML="";
+      var oui=document.createElement("button"); oui.type="button"; oui.textContent="Oui, c’est moi";
+      oui.addEventListener("click", function(){ valide(e[0], e[1], e[2]); });
+      var non=document.createElement("button"); non.type="button"; non.className="no"; non.textContent="Non";
+      non.addEventListener("click", function(){ etape("e1"); });
+      c.appendChild(oui); c.appendChild(non); etape("e2"); return;
+    }
+    if(proches.length>1){
+      document.getElementById("e2t").innerHTML="Plusieurs noms ressemblent au vôtre. Cliquer sur le sien.";
+      var c2=document.getElementById("e2c"); c2.innerHTML="";
+      proches.slice(0,5).forEach(function(o){
+        var b=document.createElement("button"); b.type="button"; b.textContent=o.e[0]+" "+o.e[1];
+        b.addEventListener("click", function(){ valide(o.e[0], o.e[1], o.e[2]); });
+        c2.appendChild(b); });
+      var nn=document.createElement("button"); nn.type="button"; nn.className="no"; nn.textContent="Aucun";
+      nn.addEventListener("click", function(){ etape("e3"); });
+      c2.appendChild(nn); etape("e2"); return;
+    }
+    etape("e3");
+  });
+  document.getElementById("idn").addEventListener("keydown", function(e){
+    if(e.key==="Enter") document.getElementById("idp").focus(); });
+  document.getElementById("idp").addEventListener("keydown", function(e){
+    if(e.key==="Enter") document.getElementById("idgo").click(); });
+  document.getElementById("nvo").addEventListener("click", function(){ etape("e4"); });
+  document.getElementById("nvn").addEventListener("click", function(){ etape("e1"); });
+  document.getElementById("idcgo").addEventListener("click", async function(){
+    var v=document.getElementById("idc").value;
+    if(await empreinte(v) === EMP){ etape("e5"); }
+    else { document.getElementById("idcm").innerHTML='<div class="msg err">Ce n’est pas le code d’inscription.<br>Le code de l’exercice ne s’écrit pas ici.</div>';
+           document.getElementById("idc").value=""; }
+  });
+  document.getElementById("idc").addEventListener("keydown", function(e){
+    if(e.key==="Enter") document.getElementById("idcgo").click(); });
+  Array.prototype.forEach.call(document.querySelectorAll('#e5 button'), function(b){
+    b.addEventListener("click", function(){
+      valide(pli(saisi.n), titre(saisi.p.trim()), b.dataset.g); }); });
+  etape("e1");
+}
+
+var deja=null;
+try{ deja=JSON.parse(localStorage.getItem(CLE)||"null"); }catch(e){}
+/* Fichier de seance : le nom se retape a chaque ouverture. C'est la
+   verification la plus simple qu'un poste a change de main, et une fois
+   par seance cela ne coute rien a l'eleve. Le code, lui, reste retenu. */
+var passe = false;
+try{ passe = sessionStorage.getItem("nom_" + CLE) === "1";
+     if(passe) sessionStorage.removeItem("nom_" + CLE); }catch(e){}
+if(window.SEANCE && window.SEANCE.arme() && !passe) deja = null;
+if(deja && deja.n){ valide(deja.n, deja.p, deja.g); }
+else { ecran(); }
+})();
+</script>
+
+
+<script>
+(function(){
+"use strict";
+
+/* ============================================ constructeur de diagramme */
+var GPAL=["#00A5BF","#7C4BD8","#8FBE1F","#FF6B5B","#FFB627","#2E5266","#e0459e","#1f9d6d"];
+function gEsc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function gNum(s){ s=String(s==null?"":s).replace(",",".").replace(/\s/g,"");
+  if(s==="") return null; var v=parseFloat(s); return isFinite(v)?v:null; }
+function gEtat(box){
+  var plein=0;
+  if(box.getAttribute("data-mode")==="boite"){
+    var cfg={}; try{cfg=JSON.parse(box.getAttribute("data-cgr"))||{};}catch(e){}
+    var ns=(cfg.series||["Série"]).length, S=[];
+    for(var s=0;s<ns;s++) S.push([null,null,null,null,null]);
+    Array.prototype.forEach.call(box.querySelectorAll("input.gv"),function(inp){
+      var v=gNum(inp.value), si=+inp.getAttribute("data-s"), ii=+inp.getAttribute("data-i");
+      S[si][ii]=v; if(v!==null) plein++;
+      inp.classList.toggle("plein", v!==null);
+    });
+    return {mode:"boite", series:S, remplies:plein, type:"boite"};
+  }
+  var vals=[];
+  Array.prototype.forEach.call(box.querySelectorAll("input.gv"),function(inp){
+    var v=gNum(inp.value); vals.push(v); if(v!==null) plein++;
+    inp.classList.toggle("plein", v!==null);
+  });
+  var b=box.querySelector(".gt.on"), ti={};
+  Array.prototype.forEach.call(box.querySelectorAll("input.gti"),function(inp){
+    ti[inp.getAttribute("data-t")]=inp.value.trim();
+    inp.classList.toggle("plein", inp.value.trim()!=="");
+  });
+  return {valeurs:vals, type:b?b.dataset.t:"", remplies:plein,
+          titre:ti.titre||"", xlab:ti.xlab||"", ylab:ti.ylab||""};
+}
+/* ---- boîte à moustaches ---- */
+function gBoite(cfg,S){
+  var noms=cfg.series||["Série"], pretes=[], nn=[], i;
+  for(i=0;i<S.length;i++){
+    var s=S[i];
+    if(s && s.every(function(v){return v!==null;})) { pretes.push(s.slice()); nn.push(noms[i]||("Série "+(i+1))); }
+  }
+  if(!pretes.length) return {svg:"", pb:""};
+  var pb="";
+  for(i=0;i<pretes.length;i++){
+    var v=pretes[i];
+    for(var j=1;j<5;j++) if(v[j]<v[j-1]){
+      pb="Dans « "+nn[i]+" », les valeurs doivent aller en croissant : minimum ≤ Q₁ ≤ médiane ≤ Q₃ ≤ maximum.";
+      break; }
+    if(pb) break;
+  }
+  if(pb) return {svg:"", pb:pb};
+  var tous=[]; pretes.forEach(function(s){ tous=tous.concat(s); });
+  var mn=Math.min.apply(null,tous), mx=Math.max.apply(null,tous);
+  if(mx===mn){ mx=mn+1; }
+  var marge=(mx-mn)*0.12; var xmin=mn-marge, xmax=mx+marge;
+  var W=470, mt=cfg.titre?30:16, ml=Math.max(60,10+8*Math.max.apply(null,nn.map(function(x){return x.length;}))),
+      mb=44, mr=22, lig=66, H=mt+mb+pretes.length*lig, pw=W-ml-mr;
+  function X(v){ return ml+pw*(v-xmin)/(xmax-xmin); }
+  var o=cfg.titre?'<text x="'+(W/2)+'" y="17" text-anchor="middle" font-size="12.5" font-weight="600" fill="#0d1a22">'+gEsc(cfg.titre)+'</text>':"";
+  var pas=(xmax-xmin)/6, ordre=Math.pow(10,Math.floor(Math.log(pas)/Math.LN10));
+  pas=Math.ceil(pas/ordre)*ordre;
+  var d0=Math.ceil(xmin/pas)*pas, yb=mt+pretes.length*lig+6;
+  for(var g=d0; g<=xmax+1e-9; g+=pas){
+    o+='<line x1="'+X(g).toFixed(1)+'" y1="'+mt+'" x2="'+X(g).toFixed(1)+'" y2="'+yb+'" stroke="#dbe4e9"/>'+
+       '<text x="'+X(g).toFixed(1)+'" y="'+(yb+16)+'" text-anchor="middle" font-size="11" fill="#5d707b">'+
+       (Math.round(g*100)/100)+'</text>';
+  }
+  o+='<line x1="'+ml+'" y1="'+yb+'" x2="'+(ml+pw)+'" y2="'+yb+'" stroke="#5d707b" stroke-width="1.5"/>';
+  if(cfg.unite) o+='<text x="'+(ml+pw)+'" y="'+(yb+31)+'" text-anchor="end" font-size="10.5" fill="#5d707b">'+gEsc(cfg.unite)+'</text>';
+  for(i=0;i<pretes.length;i++){
+    var v2=pretes[i], y=mt+lig*i+lig/2, hb=26, c=GPAL[i%GPAL.length];
+    o+='<text x="'+(ml-12)+'" y="'+(y+4)+'" text-anchor="end" font-size="12" font-weight="600" fill="#0d1a22">'+gEsc(nn[i])+'</text>';
+    o+='<line x1="'+X(v2[0]).toFixed(1)+'" y1="'+y+'" x2="'+X(v2[1]).toFixed(1)+'" y2="'+y+'" stroke="'+c+'" stroke-width="1.8"/>';
+    o+='<line x1="'+X(v2[3]).toFixed(1)+'" y1="'+y+'" x2="'+X(v2[4]).toFixed(1)+'" y2="'+y+'" stroke="'+c+'" stroke-width="1.8"/>';
+    [0,4].forEach(function(k){ o+='<line x1="'+X(v2[k]).toFixed(1)+'" y1="'+(y-9)+'" x2="'+X(v2[k]).toFixed(1)+'" y2="'+(y+9)+'" stroke="'+c+'" stroke-width="2.2"/>'; });
+    o+='<rect x="'+X(v2[1]).toFixed(1)+'" y="'+(y-hb/2)+'" width="'+(X(v2[3])-X(v2[1])).toFixed(1)+'" height="'+hb+'" rx="3" fill="'+c+'" fill-opacity="0.18" stroke="'+c+'" stroke-width="2"/>';
+    o+='<line x1="'+X(v2[2]).toFixed(1)+'" y1="'+(y-hb/2)+'" x2="'+X(v2[2]).toFixed(1)+'" y2="'+(y+hb/2)+'" stroke="'+c+'" stroke-width="3"/>';
+    for(var k2=0;k2<5;k2++)
+      o+='<text x="'+X(v2[k2]).toFixed(1)+'" y="'+(y-hb/2-7)+'" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5d707b">'+v2[k2]+'</text>';
+  }
+  return {svg:'<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'">'+o+'</svg>', pb:""};
+}
+function gSvg(cfg,vals,type,ti){
+  var W=430,H=250,i,n=vals.length;
+  ti = ti || {};
+  var ok=[], lb=[], co=[];
+  for(i=0;i<n;i++){ if(vals[i]!==null){ ok.push(vals[i]); lb.push(cfg.labels[i]); co.push(GPAL[i%GPAL.length]); } }
+  if(!ok.length||!type) return "";
+  /* Le titre est celui que l'eleve a ecrit : c'est a lui de nommer ce qu'il
+     represente. Sans titre saisi, le graphique sort sans titre - il verra le
+     manque. */
+  var titre=ti.titre||"";
+  var t=titre?'<text x="'+(W/2)+'" y="18" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0d1a22">'+gEsc(titre)+'</text>':"";
+  var mt=titre?30:12;
+  if(type==="secteurs"){
+    var tot=0; for(i=0;i<ok.length;i++) tot+=ok[i];
+    if(tot<=0) return "";
+    var cx=125,cy=mt+(H-mt)/2,r=Math.min(105,(H-mt)*0.45),a=-90,o="";
+    for(i=0;i<ok.length;i++){
+      var ang=360*ok[i]/tot, a2=a+ang;
+      var x1=cx+r*Math.cos(a*Math.PI/180), y1=cy+r*Math.sin(a*Math.PI/180);
+      var x2=cx+r*Math.cos(a2*Math.PI/180), y2=cy+r*Math.sin(a2*Math.PI/180);
+      o+='<path d="M '+cx.toFixed(1)+' '+cy.toFixed(1)+' L '+x1.toFixed(1)+' '+y1.toFixed(1)+
+         ' A '+r+' '+r+' 0 '+(ang>180?1:0)+' 1 '+x2.toFixed(1)+' '+y2.toFixed(1)+' Z" fill="'+co[i]+'"/>';
+      if(ang>20){
+        var am=(a+ang/2)*Math.PI/180, tx=cx+r*0.62*Math.cos(am), ty=cy+r*0.62*Math.sin(am);
+        o+='<text x="'+tx.toFixed(1)+'" y="'+ty.toFixed(1)+'" text-anchor="middle" dominant-baseline="central" '+
+           'font-size="12" font-weight="700" fill="#fff">'+Math.round(100*ok[i]/tot)+' %</text>';
+      }
+      a=a2;
+    }
+    var lx=cx+r+22, ly=cy-(ok.length*19)/2+9;
+    for(i=0;i<ok.length;i++){
+      o+='<rect x="'+lx+'" y="'+(ly+i*19-9)+'" width="11" height="11" rx="3" fill="'+co[i]+'"/>'+
+         '<text x="'+(lx+18)+'" y="'+(ly+i*19+1)+'" font-size="12" fill="#0d1a22">'+gEsc(lb[i])+'</text>';
+    }
+    return '<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'">'+t+o+'</svg>';
+  }
+  var mx=0; for(i=0;i<ok.length;i++) mx=Math.max(mx,ok[i]);
+  if(mx<=0) mx=1;
+  var pas=Math.pow(10,Math.floor(Math.log(mx)/Math.LN10)), ymax=Math.ceil(mx/pas)*pas;
+  if(ymax<mx*1.05) ymax=mx*1.1;
+  var xl=ti.xlab||"", yl=ti.ylab||"";
+  var ml=46+(yl?16:0), mb=44+(xl?18:0), mr=14, x0=ml, y0=H-mb, pw=W-ml-mr, ph=H-mt-mb, g="";
+  for(i=0;i<=4;i++){
+    var yy=y0-ph*i/4;
+    g+='<line x1="'+x0+'" y1="'+yy.toFixed(1)+'" x2="'+(x0+pw)+'" y2="'+yy.toFixed(1)+'" stroke="#dbe4e9"/>'+
+       '<text x="'+(x0-8)+'" y="'+(yy+4).toFixed(1)+'" text-anchor="end" font-size="11" fill="#5d707b">'+
+       (Math.round(ymax*i/4*100)/100)+'</text>';
+  }
+  g+='<line x1="'+x0+'" y1="'+y0+'" x2="'+(x0+pw)+'" y2="'+y0+'" stroke="#5d707b" stroke-width="1.5"/>';
+  var slot=pw/ok.length;
+  if(type==="lignes"){
+    var pts=[],d="";
+    for(i=0;i<ok.length;i++){ var px=x0+slot*(i+0.5), py=y0-ph*ok[i]/ymax; pts.push([px,py]);
+      d+=(i?" L ":"M ")+px.toFixed(1)+" "+py.toFixed(1); }
+    g+='<path d="'+d+'" fill="none" stroke="'+GPAL[1]+'" stroke-width="2.6" stroke-linejoin="round"/>';
+    for(i=0;i<pts.length;i++) g+='<circle cx="'+pts[i][0].toFixed(1)+'" cy="'+pts[i][1].toFixed(1)+
+      '" r="3.8" fill="#fff" stroke="'+GPAL[1]+'" stroke-width="2.4"/>';
+  } else {
+    var bw=(type==="colonnes")?slot-1:slot*0.42;
+    for(i=0;i<ok.length;i++){
+      var bh=ph*ok[i]/ymax, cxx=x0+slot*(i+0.5);
+      g+='<rect x="'+(cxx-bw/2).toFixed(1)+'" y="'+(y0-bh).toFixed(1)+'" width="'+bw.toFixed(1)+
+         '" height="'+bh.toFixed(1)+'" rx="'+((type==="colonnes")?2:3)+'" fill="'+co[i]+'"/>';
+    }
+  }
+  for(i=0;i<ok.length;i++){
+    var lxx=x0+slot*(i+0.5);
+    g+='<text x="'+lxx.toFixed(1)+'" y="'+(y0+14)+'" text-anchor="middle" font-size="10.5" fill="#5d707b" '+
+       'transform="rotate(-18 '+lxx.toFixed(1)+' '+(y0+14)+')">'+gEsc(lb[i])+'</text>';
+  }
+  if(xl) g+='<text x="'+(x0+pw/2).toFixed(0)+'" y="'+(H-5)+'" text-anchor="middle" '+
+            'font-size="11.5" font-weight="600" fill="#0d1a22">'+gEsc(xl)+'</text>';
+  if(yl){ var yc=(y0-ph/2).toFixed(0);
+    g+='<text x="16" y="'+yc+'" text-anchor="middle" font-size="11.5" font-weight="600" '+
+       'fill="#0d1a22" transform="rotate(-90 16 '+yc+')">'+gEsc(yl)+'</text>'; }
+  return '<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'">'+t+g+'</svg>';
+}
+function gDessine(box){
+  var cfg={}; try{cfg=JSON.parse(box.getAttribute("data-cgr"))||{};}catch(e){}
+  var e=gEtat(box), vue=box.querySelector(".cgr-vue"), msg=box.querySelector(".cgr-msg");
+  if(e.mode==="boite"){
+    var r=gBoite(cfg,e.series);
+    vue.innerHTML = r.svg || ('<p class="cgr-vide'+(r.pb?" pb":"")+'">'+
+      (r.pb || "La boîte apparaîtra ici dès que les cinq indicateurs seront saisis.")+'</p>');
+    if(msg) msg.textContent = e.remplies ? (e.remplies+" valeur"+(e.remplies>1?"s":"")+" saisie"+
+      (e.remplies>1?"s":"")) : "";
+    return e;
+  }
+  /* Les deux cases restent, quel que soit le type : elles ne nomment pas des
+     axes, elles nomment les DEUX LIGNES du tableau. Pour un diagramme en
+     secteurs, qui n'a pas d'axes, l'eleve y ecrit quand meme ce qu'il compte -
+     « Nombre d'articles » et « Frequences en % ». */
+  var s=gSvg(cfg,e.valeurs,e.type,e);
+  if(s){ vue.innerHTML=s; } else {
+    vue.innerHTML='<p class="cgr-vide">'+(e.remplies?"Choisissez le type de diagramme.":
+      "Le diagramme apparaîtra ici dès que vous aurez saisi des valeurs et choisi un type.")+'</p>';
+  }
+  if(msg) msg.textContent=e.remplies?(e.remplies+" valeur"+(e.remplies>1?"s":"")+" saisie"+
+    (e.remplies>1?"s":"")):"";
+  return e;
+}
+/* Le module est enferme dans sa fonction : on expose gDessine pour qu'un
+   bouton exterieur - la remise a zero du fichier d'essai - puisse redessiner. */
+try{ window.gDessine = gDessine; }catch(e){}
+function gInit(racine){
+  var l=(racine||document).querySelectorAll(".cgr");
+  Array.prototype.forEach.call(l,function(box){ if(box.dataset.pret) return;
+    box.dataset.pret="1"; gDessine(box); });
+}
+document.addEventListener("input",function(ev){
+  var i=ev.target.closest?ev.target.closest("input.gv,input.gti"):null; if(!i) return;
+  /* Les cases de valeurs n'acceptent qu'un nombre : on nettoie AVANT de
+     redessiner, sinon le graphique se construirait sur une saisie refusee. */
+  if(i.classList.contains("nb") && window.nbFiltre) window.nbFiltre(i);
+  var box=i.closest(".cgr"); if(box){ gDessine(box); if(window.gApres) window.gApres(box); }
+});
+document.addEventListener("click",function(ev){
+  var b=ev.target.closest?ev.target.closest(".gt"):null; if(!b) return;
+  var box=b.closest(".cgr"); if(!box) return;
+  Array.prototype.forEach.call(box.querySelectorAll(".gt"),function(x){x.classList.remove("on");});
+  b.classList.add("on"); gDessine(box); if(window.gApres) window.gApres(box);
+});
+/* affichage d'une réponse déjà rendue (console de correction, copie corrigée) */
+function gRendu(cfg,rep){
+  if(rep.mode==="boite"||cfg.mode==="boite"){
+    var rb=gBoite(cfg,rep.series||[]);
+    return rb.svg||'<p class="vide">boîte à moustaches non construite</p>';
+  }
+  var s=gSvg(cfg,rep.valeurs||[],rep.type||"",rep);
+  var noms={secteurs:"secteurs",batons:"bâtons",colonnes:"colonnes",lignes:"lignes brisées"};
+  var t='<p class="gr-t">Type choisi : <b>'+(noms[rep.type]||"aucun")+'</b></p>';
+  return t+(s||'<p class="vide">diagramme non construit</p>');
+}
+
+var PG=[], ipg=0;   /* pagination : declaree avant tout usage */
+var $=function(s,c){return (c||document).querySelector(s);};
+var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
+var ID="tbp_ch01_s1-1", COEF={}, rendus={}, zoneActive=null;
+
+function sansAcc(s){return (s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^A-Za-z0-9]+/g,"");}
+
+/* ---------- captures d'écran ---------- */
+function poser(z,url){
+  z.dataset.val=url;
+  z.innerHTML='<img src="'+url+'" alt="capture de l’élève">';
+  z.classList.add("pleine");
+}
+function lire(f,z){var fr=new FileReader();fr.onload=function(){poser(z,fr.result);auto();};fr.readAsDataURL(f);}
+function brancher(racine){
+  (racine||document).querySelectorAll("[data-img]").forEach(function(z){
+    if(z.dataset.br) return; z.dataset.br="1";
+    z.addEventListener("click",function(){
+      zoneActive=z;
+      if(z.classList.contains("pleine")){var i=$("img",z); if(i){$("#loupe img").src=i.src;$("#loupe").classList.add("on");}}
+    });
+    z.addEventListener("focus",function(){zoneActive=z;});
+  });
+}
+window.brancher=brancher;
+brancher(document);
+document.addEventListener("paste",function(e){
+  if(!zoneActive)return;
+  var it=e.clipboardData&&e.clipboardData.items; if(!it)return;
+  for(var i=0;i<it.length;i++) if(it[i].type.indexOf("image")===0){
+    e.preventDefault(); lire(it[i].getAsFile(),zoneActive); return; }
+});
+$("#loupe").onclick=function(){this.classList.remove("on");};
+
+/* ---------- QCM : la reponse se clique ---------- */
+document.addEventListener("click",function(e){
+  var t=e.target; if(!t||!t.closest) return;
+  var b=t.closest(".chx .ch-e");
+  if(b){
+    var u=b.closest(".chx");
+    $$(".ch-e",u).forEach(function(x){x.classList.remove("on");});
+    b.classList.add("on"); u.classList.add("plein");
+    return;
+  }
+  /* ---------- coup de pouce : un clic dessus le referme ----------
+     Il est long : une fois lu, l'eleve ne doit pas remonter jusqu'au titre
+     pour le fermer. Un clic n'importe ou dessus suffit. Le titre garde son
+     fonctionnement normal : c'est lui qui ouvre. */
+  var d=t.closest("details.cdp-t");
+  if(d&&d.open&&!t.closest("summary")){ d.open=false; }
+});
+
+/* ---------- état ---------- */
+function repExo(ex){
+  var o={}, sec=$('[data-exo="'+ex+'"]');
+  $$("[data-r]",sec).forEach(function(t){
+    var k=t.getAttribute("data-r");
+    if(t.classList.contains("chx")){
+      var b=$(".ch-e.on",t);
+      o[k]={type:"choix",valeur:b?b.getAttribute("data-v"):"",coef:COEF[k]||1};
+      return; }
+    o[k]={type:"texte",valeur:t.value,coef:COEF[k]||1};});
+  /* la grille d'un QCM qui demande aussi un calcul : sa cle est a part,
+     l'encadre reste la reponse principale de la question */
+  $$("[data-rc]",sec).forEach(function(u){
+    var k=u.getAttribute("data-rc"), b=$(".ch-e.on",u);
+    o[k]={type:"choix",valeur:b?b.getAttribute("data-v"):"",coef:COEF[k]||1};});
+  $$("[data-img]",sec).forEach(function(z){
+    var k=z.getAttribute("data-img");
+    o[k]={type:"image",valeur:z.dataset.val||"",coef:COEF[k]||1};});
+  $$("[data-tab]",sec).forEach(function(d){
+    var k=d.getAttribute("data-tab"), lignes=[];
+    $$("tr",d).forEach(function(tr){
+      var l=[], utile=false;
+      $$("th,td",tr).forEach(function(c){
+        var inp=$("input.tc",c);
+        if(inp){ l.push(inp.value); utile=true; }
+        else l.push(c.textContent.trim());
+      });
+      if(l.length) lignes.push({c:l, saisie:utile});
+    });
+    o[k]={type:"tableau",valeur:lignes,coef:COEF[k]||1};});
+  $$(".cgr[data-k]",sec).forEach(function(g){
+    var k=g.getAttribute("data-k"), e=gEtat(g), cfg={};
+    try{cfg=JSON.parse(g.getAttribute("data-cgr"))||{};}catch(err){}
+    var val = (e.mode==="boite")
+      ? {mode:"boite",series:e.series,titre:cfg.titre||"",unite:cfg.unite||"",
+         libelles:cfg.series||[]}
+      : {valeurs:e.valeurs,type:e.type,labels:cfg.labels||[],
+         titre:e.titre||"",xlab:e.xlab||"",ylab:e.ylab||""};
+    o[k]={type:"graphe",valeur:val,coef:COEF[k]||1};});
+  return o;
+}
+function etat(){
+  var o={fichier:ID,nom:$("#nom").value.trim(),prenom:$("#prenom").value.trim(),
+         rendus:rendus,exercices:{}};
+  $$(".exo").forEach(function(s){var e=s.getAttribute("data-exo");
+    o.exercices[e]={titre:s.getAttribute("data-titre"),reponses:repExo(e)};});
+  return o;
+}
+function restaurer(d){
+  if(!d)return;
+  if(!$("#nom").readOnly){ $("#nom").value=d.nom||""; $("#prenom").value=d.prenom||""; } rendus=d.rendus||{};
+  Object.keys(d.exercices||{}).forEach(function(e){
+    var r=(d.exercices[e]||{}).reponses||{};
+    Object.keys(r).forEach(function(k){
+      var v=r[k];
+      if(v.type==="choix"&&v.valeur){
+        var u=$('.chx[data-r="'+k+'"]')||$('.chx[data-rc="'+k+'"]'); if(!u)return;
+        var bt=$('.ch-e[data-v="'+v.valeur+'"]',u);
+        if(bt){ bt.classList.add("on"); u.classList.add("plein"); } }
+      else if(v.type==="texte"&&v.valeur){var t=$('[data-r="'+k+'"]'); if(t){t.value=v.valeur;t.classList.add("plein");}}
+      else if(v.type==="image"&&v.valeur){var z=$('[data-img="'+k+'"]'); if(z)poser(z,v.valeur);}
+      else if(v.type==="graphe"&&v.valeur){
+        var g=$('.cgr[data-k="'+k+'"]'); if(!g)return;
+        if(v.valeur.mode==="boite"){
+          (v.valeur.series||[]).forEach(function(ligne,si){
+            (ligne||[]).forEach(function(x,ii){
+              var inp=$('input.gv[data-s="'+si+'"][data-i="'+ii+'"]',g);
+              if(inp&&x!==null&&x!==undefined){ inp.value=x; inp.classList.add("plein"); } }); });
+        } else {
+          (v.valeur.valeurs||[]).forEach(function(x,i){
+            var inp=$('input.gv[data-i="'+i+'"]',g);
+            if(inp&&x!==null&&x!==undefined){ inp.value=x; inp.classList.add("plein"); } });
+          if(v.valeur.type){ var bt=$('.gt[data-t="'+v.valeur.type+'"]',g); if(bt) bt.classList.add("on"); }
+          ["titre","xlab","ylab"].forEach(function(nom){
+            var inp=$('input.gti[data-t="'+nom+'"]',g);
+            if(inp&&v.valeur[nom]){ inp.value=v.valeur[nom]; inp.classList.add("plein"); } });
+        }
+        gDessine(g);
+      }
+      else if(v.type==="tableau"&&v.valeur){
+        var d2=$('[data-tab="'+k+'"]'); if(!d2)return;
+        var inp=$$("input.tc",d2), n=0;
+        v.valeur.forEach(function(l){ l.c.forEach(function(c){}); });
+        var plat=[]; v.valeur.forEach(function(l){ if(l.saisie) l.c.forEach(function(c,i){ plat.push(c); }); });
+        // on réinjecte cellule par cellule dans l'ordre des inputs
+        var seq=[]; v.valeur.forEach(function(l){ if(l.saisie) seq=seq.concat(l.c); });
+        var j=0;
+        $$("tr",d2).forEach(function(tr,ri){
+          $$("th,td",tr).forEach(function(c,ci){
+            var i2=$("input.tc",c);
+            if(i2){ var L=v.valeur[ri]; if(L&&L.c[ci]!=null){ i2.value=L.c[ci];
+              if(i2.value) i2.classList.add("plein"); } }
+          });
+        });
+      }
+    });
+  });
+  majEtats();
+}
+window.majEtats=majEtats;
+function majEtats(){
+  $$(".exo").forEach(function(s){
+    var e=s.getAttribute("data-exo"), b=$(".etat",s), n=$('[data-note="'+e+'"]');
+    if(rendus[e]){ b.textContent="rendu le "+rendus[e]; b.classList.add("ok");
+      if(n&&!n.textContent) n.textContent="Vous pouvez le rendre à nouveau si vous le complétez."; }
+    else { b.textContent="non rendu"; b.classList.remove("ok"); }
+  });
+}
+var tm=null;
+/* ---------- enregistrer son travail en cours ----------
+   Le fichier complet, avec toutes les réponses déjà écrites. L'élève le range
+   dans son espace et le rouvre au cours suivant pour continuer. */
+function fichierTravail(){
+  var d=etat();
+  var clone=document.documentElement.cloneNode(true);
+  clone.querySelectorAll(".zone").forEach(function(z){
+    z.innerHTML='<p>Capture insérée par l’élève</p>'; z.className="zone"; });
+  var t=clone.querySelector("#travail"); if(t) t.textContent=JSON.stringify(d);
+  var c=clone.querySelector("#copie"); if(c) c.textContent="null";
+  return "<!doctype html>\n"+clone.outerHTML;
+}
+function nomTravail(){
+  var n=sansAcc($("#nom").value.trim()).toUpperCase(), p=sansAcc($("#prenom").value.trim());
+  return ID+(n?"_"+n:"")+(p?"_"+p:"")+".html";
+}
+/* Rien ne sort du fichier tant que l'identification n'est pas validee :
+   la classe .identifie est posee par valide(), et elle seule. */
+function identifieOK(){
+  if(!document.body.classList.contains("identifie")) return false;
+  var n=($("#nom")||{}).value||"", p=($("#prenom")||{}).value||"";
+  return !!(n.trim() && p.trim());
+}
+
+function sauverTravail(){
+  var b=$("#bSauver");
+  if(!identifieOK()){
+    var m0=$("#msgSauve"); if(m0) m0.textContent="";
+    alert("Écrire son nom et son prénom avant d’enregistrer.");
+    return;
+  }
+  var nf=nomTravail(), contenu=fichierTravail();
+  function tel(){
+    var l=document.createElement("a");
+    l.href=URL.createObjectURL(new Blob([contenu],{type:"text/html;charset=utf-8"}));
+    l.download=nf; document.body.appendChild(l); l.click();
+    setTimeout(function(){URL.revokeObjectURL(l.href);l.remove();},2000);
+    return Promise.resolve("telechargements");
+  }
+  b.disabled=true; $("#msgSauve").textContent="enregistrement…";
+  /* Dans le dossier deja designe, sans fenetre. La toute premiere fois,
+     l'eleve montre son dossier ; ensuite plus jamais. */
+  var suite = dossierPret(true).then(function(d){
+    if(d) return ecrireDans(d, nf, contenu).then(function(){ return "dossier"; });
+    if(window.showSaveFilePicker){
+      return window.showSaveFilePicker({suggestedName:nf,
+               types:[{description:"Page web",accept:{"text/html":[".html"]}}]})
+        .then(function(h){
+          return h.createWritable().then(function(w){
+            return w.write(new Blob([contenu],{type:"text/html;charset=utf-8"}))
+                    .then(function(){ return w.close(); });
+          }).then(function(){ return "choisi"; });
+        }).catch(function(e){
+          if(e && e.name==="AbortError") return "annule";
+          return tel();
+        });
+    }
+    return tel();
+  }).catch(function(){ return tel(); });
+  suite.then(function(ou){
+    b.disabled=false;
+    var m=$("#msgSauve");
+    if(ou==="annule") m.textContent="enregistrement annulé";
+    else if(ou==="dossier") m.textContent="travail enregistré : "+nf;
+    else if(ou==="choisi") m.textContent="travail enregistré : "+nf;
+    else m.textContent="enregistré dans Téléchargements : "+nf;
+  });
+}
+
+function garder(){ try{localStorage.setItem("copie_"+ID,JSON.stringify(etat()));}catch(e){} }
+function auto(){clearTimeout(tm);tm=setTimeout(garder,500);}
+/* Frappe continue, onglet ferme d'un coup, ordinateur eteint : on ecrit aussi
+   quand la page se ferme ou passe en arriere-plan, sinon les dernieres
+   secondes de travail sont perdues. */
+window.addEventListener("beforeunload", garder);
+window.addEventListener("pagehide", garder);
+document.addEventListener("visibilitychange", function(){ if(document.hidden) garder(); });
+/* Une case de tableau qui attend un nombre n'accepte qu'un nombre decimal.
+   On ne bloque pas la frappe touche par touche : on nettoie ce qui est dans la
+   case apres coup, ce qui laisse passer le copier-coller et la dictee vocale
+   tout en refusant les lettres. La virgule est la separatrice : le point du
+   pave numerique devient une virgule, comme on l'ecrit en francais. */
+function nbFiltre(el){
+  var v = el.value, p = el.selectionStart;
+  var n = v.replace(/\./g, ",").replace(/[^0-9,−-]/g, "");
+  n = n.replace(/−/g, "-");
+  /* un seul signe moins, et seulement en tete */
+  var neg = n.charAt(0) === "-";
+  n = (neg ? "-" : "") + n.replace(/-/g, "");
+  /* une seule virgule */
+  var i = n.indexOf(",");
+  if(i > -1) n = n.slice(0, i + 1) + n.slice(i + 1).replace(/,/g, "");
+  if(n !== v){
+    el.value = n;
+    var d = v.length - n.length;
+    try{ el.setSelectionRange(Math.max(0, p - d), Math.max(0, p - d)); }catch(_){}
+  }
+}
+window.nbFiltre = nbFiltre;
+document.addEventListener("input",function(e){
+  var t=e.target;
+  if(t.matches("input.nb")) nbFiltre(t);
+  if(t.matches("textarea")) t.classList.toggle("plein",!!t.value.trim());
+  if(t.matches("input.tc")) t.classList.toggle("plein",!!t.value.trim());
+  auto();
+});
+var DEPOT_LIEN = "https://nuage09.apps.education.fr/index.php/s/G3xMXFDmwyZBsZM", DEPOT_JETON = "G3xMXFDmwyZBsZM";
+
+/* Le dossier de travail de l'eleve : celui ou il a range son manuel.
+   Il le designe une seule fois ; ensuite tout s'y enregistre sans aucune fenetre. */
+function dbDossier(){
+  return new Promise(function(ok,ko){
+    var rq=indexedDB.open("copies_"+ID,1);
+    rq.onupgradeneeded=function(){ if(!rq.result.objectStoreNames.contains("h")) rq.result.createObjectStore("h"); };
+    rq.onsuccess=function(){ok(rq.result);}; rq.onerror=function(){ko();};
+  });
+}
+function dossierRetenu(){
+  return dbDossier().then(function(db){
+    return new Promise(function(ok){
+      var r=db.transaction("h","readonly").objectStore("h").get("dossier");
+      r.onsuccess=function(){ok(r.result||null);}; r.onerror=function(){ok(null);};
+    });
+  }).catch(function(){ return null; });
+}
+function retenirDossier(d){
+  if(!d) return Promise.resolve();
+  return dbDossier().then(function(db){
+    db.transaction("h","readwrite").objectStore("h").put(d,"dossier");
+  }).catch(function(){});
+}
+function permDossier(d){
+  if(!d || !d.queryPermission) return Promise.resolve(false);
+  return d.queryPermission({mode:"readwrite"}).then(function(p){
+    if(p==="granted") return true;
+    return d.requestPermission({mode:"readwrite"}).then(function(q){ return q==="granted"; });
+  }).catch(function(){ return false; });
+}
+/* Renvoie le dossier pret a l'ecriture, ou null. `demander` autorise
+   l'ouverture du selecteur quand aucun dossier n'est encore designe. */
+function dossierPret(demander){
+  if(!window.showDirectoryPicker) return Promise.resolve(null);
+  return dossierRetenu().then(function(d){
+    if(d) return permDossier(d).then(function(ok){ return ok ? d : (demander ? choisirDossier() : null); });
+    return demander ? choisirDossier() : null;
+  });
+}
+function choisirDossier(){
+  if(!window.showDirectoryPicker) return Promise.resolve(null);
+  return window.showDirectoryPicker({mode:"readwrite", id:"travail_eleve"})
+    .then(function(d){ return retenirDossier(d).then(function(){ montrerDossier(d); return d; }); })
+    .catch(function(){ return null; });
+}
+function ecrireDans(d, nom, contenu){
+  return d.getFileHandle(nom,{create:true}).then(function(fh){
+    return fh.createWritable().then(function(w){
+      return w.write(new Blob([contenu],{type:"text/html;charset=utf-8"}))
+              .then(function(){ return w.close(); });
+    });
+  });
+}
+function montrerDossier(d){
+  var e=document.getElementById("nomDossier");
+  if(e) e.textContent = d ? ("dossier : "+d.name) : "";
+}
+document.addEventListener("change",auto);
+
+/* ---------- rendre l'exercice ---------- */
+/* Une seance ouverte par son code arrive apres le chargement : son bouton
+   d'envoi doit etre branche a ce moment-la, d'ou la fonction. */
+function brancherEnvoi(racine){
+$$("[data-env]", racine||document).forEach(function(btn){
+  if(btn.dataset.br) return; btn.dataset.br="1";
+  btn.onclick=function(){
+    var ex=btn.getAttribute("data-env");
+    var nom=$("#nom").value.trim(), prenom=$("#prenom").value.trim();
+    if(!identifieOK()){alert("Écrire son nom et son prénom avant de rendre un exercice.");$("#nom").focus();return;}
+    var j=new Date();
+    rendus[ex]=j.toLocaleDateString("fr-FR")+" à "+j.toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"});
+    majEtats(); auto();
+    var d={fichier:ID,exercice:ex,titre:$('[data-exo="'+ex+'"]').getAttribute("data-titre"),
+           nom:nom,prenom:prenom,rendu:rendus[ex],enregistre:j.toISOString(),reponses:repExo(ex)};
+    var clone=document.documentElement.cloneNode(true);
+    clone.querySelectorAll(".exo").forEach(function(s){ if(s.getAttribute("data-exo")!==ex) s.remove(); });
+    clone.querySelectorAll(".zone").forEach(function(z){
+      z.innerHTML='<p>Capture insérée par l’élève</p>'; z.className="zone"; });
+    var a=clone.querySelector("#auto"); if(a) a.remove();
+    var c=clone.querySelector(".cons"); if(c) c.remove();
+    clone.querySelectorAll(".exo-f").forEach(function(x){x.remove();});
+    clone.querySelector("#copie").textContent=JSON.stringify(d);
+    var mm=("0"+(j.getMonth()+1)).slice(-2), jj=("0"+j.getDate()).slice(-2);
+    var nf=ID+"_"+ex+"_"+sansAcc(nom).toUpperCase()+"_"+sansAcc(prenom)+"_"+j.getFullYear()+"-"+mm+"-"+jj+".html";
+    var contenu="<!doctype html>\n"+clone.outerHTML;
+    var note=$('[data-note="'+ex+'"]');
+
+    /* Enregistrement : on ouvre une vraie fenetre « Enregistrer sous » quand le
+       navigateur le permet, pour que l'eleve depose sa copie dans SON espace,
+       a cote de son manuel, et non dans Telechargements. Le dossier choisi la
+       premiere fois est retenu : les fois suivantes, la fenetre s'y ouvre deja. */
+    function telecharger(){
+      var lien=document.createElement("a");
+      lien.href=URL.createObjectURL(new Blob([contenu],{type:"text/html;charset=utf-8"}));
+      lien.download=nf; document.body.appendChild(lien); lien.click();
+      setTimeout(function(){URL.revokeObjectURL(lien.href);lien.remove();},2000);
+      return Promise.resolve("telechargements");
+    }
+
+    function enregistrerSous(){
+      return dossierPret(true).then(function(d){
+        if(d) return ecrireDans(d, nf, contenu).then(function(){ return "choisi"; });
+        if(!window.showSaveFilePicker) return telecharger();
+        return window.showSaveFilePicker({suggestedName:nf,
+                 types:[{description:"Page web",accept:{"text/html":[".html"]}}]})
+          .then(function(h){
+            return h.createWritable().then(function(w){
+              return w.write(new Blob([contenu],{type:"text/html;charset=utf-8"}))
+                      .then(function(){ return w.close(); });
+            }).then(function(){ return "choisi"; });
+          }).catch(function(e){
+            if(e && e.name==="AbortError") return "annule";
+            return telecharger();
+          });
+      }).catch(function(){ return telecharger(); });
+    }
+
+    function enregistrer(){ return enregistrerSous(); }
+
+    /* Dépôt direct sur le Nuage de la classe. Si le navigateur refuse
+       (page ouverte en local, filtrage du réseau), on retombe sur
+       l'enregistrement du fichier et l'ouverture de la page de dépôt. */
+    function deposer(){
+      if(!DEPOT_JETON){ secours("aucun dépôt configuré"); return; }
+      note.className="note-env encours"; note.textContent="Envoi en cours…";
+      btn.disabled=true;
+      fetch("https://nuage09.apps.education.fr/public.php/webdav/"+encodeURIComponent(nf),{
+        method:"PUT",
+        headers:{"Authorization":"Basic "+btoa(DEPOT_JETON+":"),
+                 "X-Requested-With":"XMLHttpRequest",
+                 "Content-Type":"text/html;charset=utf-8"},
+        body:contenu
+      }).then(function(r){
+        btn.disabled=false;
+        if(r.ok||r.status===201||r.status===204){
+          note.className="note-env ok";
+          note.textContent="Copie envoyée à votre professeure. Vous pouvez fermer.";
+        } else { secours("le Nuage a refusé l’envoi (code "+r.status+")"); }
+      }).catch(function(){ btn.disabled=false; secours("l’envoi direct n’a pas abouti"); });
+    }
+
+    function secours(raison){
+      note.className="note-env att";
+      note.innerHTML="Enregistrez votre copie sous le nom <b>"+nf+"</b>.";
+      enregistrer().then(function(ou){
+        if(ou==="annule"){
+          note.innerHTML="Enregistrement annulé. <b>Recliquer</b> sur le bouton pour recommencer.";
+          return;
+        }
+        var place = (ou==="choisi")
+          ? "Votre copie est enregistrée dans le dossier choisi, sous le nom <b>"+nf+"</b>."
+          : "Votre copie est dans le dossier <b>Téléchargements</b>, sous le nom <b>"+nf+"</b>.";
+        note.innerHTML = place + "<br>La page du Nuage s’ouvre : <b>cliquer</b> sur "
+          + "<b>Téléverser</b>, <b>choisir</b> ce fichier à la date du jour, puis <b>envoyer</b>."
+          + (DEPOT_LIEN ? '<br><a class="lien-depot" href="'+DEPOT_LIEN+'" target="_blank" rel="noopener">Ouvrir la page du Nuage</a>' : "");
+        if(DEPOT_LIEN) setTimeout(function(){ window.open(DEPOT_LIEN,"_blank","noopener"); }, 700);
+      });
+    }
+
+    deposer();
+  };
+});
+}
+window.brancherEnvoi=brancherEnvoi;
+brancherEnvoi(document);
+
+/* ---------- ouverture d'une copie rendue ---------- */
+var emb=null; try{emb=JSON.parse($("#copie").textContent);}catch(e){}
+if(emb && emb.exercice){
+  var o={nom:emb.nom,prenom:emb.prenom,rendus:{},exercices:{}};
+  o.rendus[emb.exercice]=emb.rendu; o.exercices[emb.exercice]={reponses:emb.reponses};
+  restaurer(o);
+  document.body.classList.add("copie");
+  var a2=$("#auto"); if(a2) a2.remove();
+}else{
+  var trav=null; try{trav=JSON.parse($("#travail").textContent);}catch(e){}
+  if(!(trav && trav.exercices)){
+    try{var l=localStorage.getItem("copie_"+ID); if(l) trav=JSON.parse(l);}catch(e){}
+  }
+  if(trav && trav.exercices){ restaurer(trav); }
+  /* Un exercice déverrouillé plus tard reconstruit son contenu : il faut alors
+     y remettre les réponses déjà écrites, sinon elles disparaissent. */
+  window.reappliquer=function(){ if(trav && trav.exercices) restaurer(trav); };
+  var bs=$("#bSauver"); if(bs) bs.onclick=sauverTravail;
+  var bd=$("#bDossier"); if(bd) bd.onclick=function(){ choisirDossier(); };
+  if(!window.showDirectoryPicker){ var dz=$(".dos"); if(dz) dz.style.display="none"; }
+  dossierRetenu().then(function(d){ if(d) montrerDossier(d); });
+  gInit(document); window.gInit=gInit;
+  window.gApres=function(){ auto(); };
+  majEtats();
+  pagesInit();
+  if(window.deverrouiller) window.deverrouiller();
+}
+
+/* ---------- une page a la fois ---------- */
+/* La page d'ouverture porte le mode d'emploi ; ensuite une page par seance.
+   L'eleve ouvre toujours sur la premiere page : il ne voit jamais la suite
+   du chapitre d'un seul coup. Les autres pages restent dans le document,
+   seulement masquees, pour que l'enregistrement et l'impression les gardent. */
+function montrerPage(i){
+  if(!PG.length) return;
+  ipg = Math.max(0, Math.min(i, PG.length-1));
+  PG.forEach(function(s,k){ s.classList.toggle("on", k===ipg); });
+  var n=$("#pgn"); if(n) n.textContent="Page "+(ipg+1)+" sur "+PG.length;
+  var a=$("#pgPrec"), b=$("#pgSuiv");
+  if(a) a.disabled = (ipg===0);
+  if(b) b.disabled = (ipg===PG.length-1);
+  window.scrollTo(0,0);
+}
+function pagesInit(){
+  PG = Array.prototype.slice.call(document.querySelectorAll(".pg"));
+  var nav=$(".pgnav");
+  if(PG.length<2){ if(nav) nav.style.display="none"; if(PG[0]) PG[0].classList.add("on"); return; }
+  var a=$("#pgPrec"), b=$("#pgSuiv");
+  if(a) a.onclick=function(){ montrerPage(ipg-1); };
+  if(b) b.onclick=function(){ montrerPage(ipg+1); };
+  montrerPage(0);
+}
+})();
+</script>
+
+
+<script>
+(function(){
+"use strict";
+if(!document.getElementById("bCalc")) return;
+/* Une calculatrice simple, pour les petits calculs d'une fiche : quatre
+   operations, le pourcentage, et rien d'autre. Elle s'ouvre par le bouton en
+   bas a gauche et se range d'un clic. Elle ne touche a aucune reponse : ce que
+   l'eleve ecrit, il l'ecrit lui-meme. */
+var boite = document.getElementById("calc"), ecr = document.getElementById("cEcran");
+var bOuvre = document.getElementById("bCalc"), bFerme = document.getElementById("cFerme");
+if(!boite || !ecr) return;
+var a = "0", op = null, prec = null, neuf = true;
+
+function montre(){ ecr.textContent = a.replace(".", ","); }
+function nb(t){ return parseFloat(String(t).replace(",", ".")); }
+function fait(){
+  if(op === null || prec === null) return;
+  var x = nb(prec), y = nb(a), r;
+  if(op === "+") r = x + y;
+  else if(op === "-") r = x - y;
+  else if(op === "*") r = x * y;
+  else r = (y === 0 ? NaN : x / y);
+  a = isNaN(r) ? "Erreur" : String(Math.round(r * 1e10) / 1e10);
+  prec = null; op = null; neuf = true;
+}
+function touche(c){
+  if(c >= "0" && c <= "9"){
+    a = (neuf || a === "0") ? c : a + c; neuf = false;
+  } else if(c === ","){
+    if(neuf){ a = "0."; neuf = false; }
+    else if(a.indexOf(".") < 0) a += ".";
+  } else if(c === "C"){ a = "0"; op = null; prec = null; neuf = true;
+  } else if(c === "back"){
+    a = (a.length > 1) ? a.slice(0, -1) : "0"; if(a === "0") neuf = true;
+  } else if(c === "%"){ a = String(nb(a) / 100); neuf = true;
+  } else if(c === "="){ fait();
+  } else { fait(); prec = a; op = c; neuf = true; }
+  montre();
+}
+var SIGNES = {"÷":"/", "×":"*", "−":"-", "+":"+", "←":"back"};
+boite.addEventListener("click", function(e){
+  var b = e.target.closest("button[data-c]");
+  if(!b) return;
+  var c = b.getAttribute("data-c");
+  touche(SIGNES[c] !== undefined ? SIGNES[c] : c);
+});
+bOuvre.addEventListener("click", function(){
+  boite.hidden = !boite.hidden;
+  bOuvre.classList.toggle("on", !boite.hidden);
+});
+if(bFerme) bFerme.addEventListener("click", function(){
+  boite.hidden = true; bOuvre.classList.remove("on");
+});
+
+/* Le pave numerique et le clavier tapent dans la calculatrice quand elle est
+   ouverte. Tant que le curseur est dans une reponse, le clavier ecrit la
+   reponse : on ne lui prend jamais ses touches. */
+function eclaire(c){
+  var b = boite.querySelector('button[data-c="' + c + '"]');
+  if(!b) return;
+  b.classList.add("frappe");
+  setTimeout(function(){ b.classList.remove("frappe"); }, 130);
+}
+var TOUCHES = {"+":"+", "-":"-", "*":"*", "/":"/",
+               "Enter":"=", "=":"=", "Backspace":"back", "Delete":"C",
+               "Escape":"C", "%":"%", ",":",", ".":","};
+var SIGNE = {"+":"+", "-":"−", "*":"×", "/":"÷",
+             "=":"=", "back":"←", "C":"C", "%":"%", ",":","};
+document.addEventListener("keydown", function(e){
+  if(boite.hidden) return;
+  var a = document.activeElement;
+  if(a && a.matches && a.matches("input,textarea,[contenteditable]")) return;
+  if(e.ctrlKey || e.altKey || e.metaKey) return;
+  /* On lit d'abord la TOUCHE PHYSIQUE : selon le verrouillage numerique, le
+     pave envoie « 5 » ou « ArrowLeft » pour la meme touche. Le code, lui, ne
+     change pas. */
+  var c = null, code = e.code || "";
+  if(/^Numpad[0-9]$/.test(code)) c = code.slice(6);
+  else if(code === "NumpadDecimal" || code === "NumpadComma") c = ",";
+  else if(code === "NumpadAdd") c = "+";
+  else if(code === "NumpadSubtract") c = "-";
+  else if(code === "NumpadMultiply") c = "*";
+  else if(code === "NumpadDivide") c = "/";
+  else if(code === "NumpadEnter") c = "=";
+  else if(e.key >= "0" && e.key <= "9") c = e.key;
+  else if(TOUCHES[e.key] !== undefined) c = TOUCHES[e.key];
+  if(c === null) return;
+  e.preventDefault();
+  eclaire(SIGNE[c] !== undefined ? SIGNE[c] : c);
+  touche(c);
+});
+/* Ouvrir la calculatrice donne le clavier a la calculatrice : le curseur sort
+   de la zone de reponse ou il se trouvait. */
+bOuvre.addEventListener("click", function(){
+  if(!boite.hidden && document.activeElement && document.activeElement.blur)
+    document.activeElement.blur();
+});
+montre();
+})();
+</script>
+
+<script>
+(function(){
+"use strict";
+/* L'encadre de reponse grandit avec la reponse : l'eleve voit tout ce qu'il a
+   ecrit d'un seul coup, sans avoir a faire defiler dans un petit cadre. La
+   hauteur de depart reste celle que la question demande. */
+function ajuste(t){
+  if(!t) return;
+  if(!t.dataset.hmin) t.dataset.hmin = t.offsetHeight || 56;
+  t.style.height = "auto";
+  /* En box-sizing:border-box, la hauteur demandee doit inclure les bordures,
+     sinon les dernieres lignes restent coupees. */
+  var cs = getComputedStyle(t);
+  var bord = (parseFloat(cs.borderTopWidth) || 0) + (parseFloat(cs.borderBottomWidth) || 0);
+  var h = t.scrollHeight + (cs.boxSizing === "border-box" ? bord : 0);
+  t.style.height = Math.max(h, +t.dataset.hmin) + "px";
+}
+function toutes(){
+  Array.prototype.forEach.call(document.querySelectorAll("textarea"), ajuste);
+}
+document.addEventListener("input", function(e){
+  if(e.target && e.target.tagName === "TEXTAREA") ajuste(e.target);
+});
+// au chargement, puis apres la restauration de la copie gardee
+toutes();
+setTimeout(toutes, 300);
+setTimeout(toutes, 1200);
+window.addEventListener("load", toutes);
+})();
+</script>
+
+<div class="ap-bas">
+  <span class="ap-bg"></span>
+  <span class="ap-bi"></span>
+  <span class="ap-bd">
+    <button type="button" class="ap-nb ap-bp">&larr; Précédent</button>
+    <button type="button" class="ap-nb ap-bs">Suivant &rarr;</button>
+  </span>
+</div>
+
+<script>
+(function(){
+"use strict";
+/* Une page par exercice. Quand la séance est fermée par un code, les
+   exercices n'existent qu'après la saisie du code : on attend qu'ils
+   arrivent, sans rien toucher avant. */
+function monte(){
+  var ex=[].slice.call(document.querySelectorAll("section.exo"));
+  if(!ex.length) return false;
+  if(document.querySelector(".ap-fil")) return true;
+  var avant=[].slice.call(document.querySelectorAll(".ong.cons,.ong.cck"));
+  var fil=document.createElement("nav"); fil.className="ap-fil";
+  ex.forEach(function(s,i){
+    s.classList.add("ecp");
+    var n=s.querySelector(".exo-t .ex-n"), t=s.querySelector(".exo-t"),
+        lb=n?n.textContent:(t?t.textContent:"Exercice "+(i+1)).split(" - ")[0];
+    var b=document.createElement("button"); b.type="button"; b.className="ap-ft"; b.textContent=lb;
+    b.addEventListener("click",function(){ va(i); }); fil.appendChild(b);
+  });
+  var ban=document.querySelector(".sban");
+  if(ban && ban.parentNode) ban.parentNode.insertBefore(fil, ban.nextSibling);
+  else ex[0].parentNode.insertBefore(fil, ex[0]);
+  var bas=document.querySelector(".ap-bas"), bi=bas.querySelector(".ap-bi"),
+      bp=bas.querySelector(".ap-bp"), bs=bas.querySelector(".ap-bs"), n0=0;
+  var ong=[].slice.call(fil.children);
+  function va(n){
+    n=Math.max(0,Math.min(ex.length-1,n)); n0=n;
+    ex.forEach(function(s,i){ s.classList.toggle("on",i===n); });
+    ong.forEach(function(b,i){ b.classList.toggle("on",i===n); });
+    avant.forEach(function(a){ a.classList.toggle("ecp-cache",n!==0); });
+    bi.textContent=(n+1)+" / "+ex.length; bp.disabled=(n===0); bs.disabled=(n===ex.length-1);
+    window.scrollTo(0,0);
+  }
+  bp.addEventListener("click",function(){ va(n0-1); });
+  bs.addEventListener("click",function(){ va(n0+1); });
+  va(0);
+  return true;
+}
+/* la calculatrice et « Enregistrer mon travail » rejoignent la barre */
+function range(){
+  var bas=document.querySelector(".ap-bas"); if(!bas) return;
+  var c=document.getElementById("bCalc"); if(c && c.parentNode!==bas.querySelector(".ap-bg")) bas.querySelector(".ap-bg").appendChild(c);
+  var s=document.querySelector(".barre-b"); if(s && s.parentNode!==bas.querySelector(".ap-bd")) bas.querySelector(".ap-bd").insertBefore(s, bas.querySelector(".ap-bp"));
+}
+range();
+if(!monte()){
+  var mo=new MutationObserver(function(){ if(monte()){ mo.disconnect(); range(); } });
+  mo.observe(document.body,{childList:true,subtree:true});
+}
+})();
+</script>
+</body>
+</html>
