@@ -570,6 +570,25 @@ body{padding-bottom:96px}
   border:1px solid #cfe0cf;border-radius:14px}
 .rep.qcm-r .rr p{margin:0;font-size:16.5px;line-height:1.75;color:#28343a}
 .rep.qcm-r .rr p + p{margin-top:9px}
+
+/* La reponse commence sur la ligne de la pastille REPONSE, sur fond blanc.
+   Les QCM et les reponses en tableau gardent leur mise en page : elles ont
+   deja la leur. Le selecteur ne depend pas de .on, pour que l'impression
+   presente la reponse de la meme facon que l'ecran. */
+.rep:not(.qcm-r):not(.tab){display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.rep:not(.qcm-r):not(.tab)>.lb{margin:5px 0 0;flex:none}
+.rep:not(.qcm-r):not(.tab)>.rc{flex:1 1 300px;min-width:0;background:#fff;
+  border:1px solid #cfe0cf;border-radius:12px;padding:9px 14px}
+.rep .rc p{color:#6B3FA0}
+
+/* QCM : le numero garde son encadre, le libelle se lit a cote, en mauve.
+   Le gros numero qui le repetait est retire. */
+.rep.qcm-r{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.rep.qcm-r>.rh{margin:0;flex:none}
+.rep.qcm-r .rv{display:none}
+.rep.qcm-r>.rc{flex:1 1 260px;min-width:0}
+.rep.qcm-r .rr{margin:0;padding:9px 14px}
+.rep.qcm-r .rr p{color:#6B3FA0}
 @media print{
   .qcm li:not(.bon){opacity:.45}
   .qcm li.bon{background:#eaf7ec;border-color:#2f7f3d}
@@ -1149,6 +1168,87 @@ table.fill input.tc:focus{outline:2px solid #00778a;outline-offset:-2px}
   .ecp-cache{display:block!important}}
 </style>
 <style>section.exo{--f:#eaf2f2;--c:#2b7a78}</style><style>
+/* le texte des exercices à 18 px, comme l'Ex. 1 de la séance 1 (Mme Talbaut,
+   09/11/2026) ; les étiquettes des cadres gardent leur taille */
+section.exo .exo-c p.en,section.exo .q-n,section.exo .q-n>b,section.exo .q-n>span:not(.eqn),
+section.exo .q-n p.note,section.exo .ong p,section.exo .ong li,section.exo p.pb,section.exo .exm p,
+section.exo .exm li,section.exo .ch-e span,section.exo .cxn,section.exo .q4 .hd .l,section.exo .cdp-t p,
+section.exo .cdp-t li,section.exo textarea,section.exo .tw th,section.exo .tw td,section.exo p.ttab,
+section.exo .zone p,section.exo .cdp p,section.exo .appel span{font-size:18px!important}
+section.exo .tw-o,section.exo .outn li,section.exo .outn a{font-size:18px!important}
+/* les boutons À retenir / Rappel aux couleurs du coup de pouce (Mme Talbaut,
+   09/11/2026) : jaune orangé, fond crème, texte brun */
+.tw-o[data-tw="cours"]{color:#8a5c05;-webkit-text-fill-color:#8a5c05;background:#fff8e6;
+  border-color:#FFB627;border-left-color:#FFB627}
+.tw-o[data-tw="cours"]:hover{background:#ffefc6;border-color:#f0a30a}
+.tw-o[data-tw="cours"]:before{background:#FFB627}
+section.exo .exo-c p b,section.exo .exo-c li b{font-size:inherit}
+section.exo .eqn{white-space:nowrap}
+/* l'appel au professeur : un cadre, la cloche à la taille du texte (le moteur
+   ne lui donnait aucun style : la cloche prenait toute la largeur) */
+.appel{display:flex;gap:12px;align-items:flex-start;background:#fff7ed;border:1.6px solid #c2410c;
+  border-left:7px solid #c2410c;border-radius:14px;padding:12px 16px;margin:14px 0 6px}
+.appel .ic{flex:none;display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;
+  background:#c2410c;color:#fff}
+.appel .ic svg{width:20px;height:20px;display:block}
+.appel>span:last-child>b{display:block;color:#c2410c;margin:0 0 2px}
+section.exo .eqn i{font-family:Cambria,Georgia,"Times New Roman",serif;font-size:1.08em}
+svg.gv{display:block;width:100%;max-width:540px;height:auto;margin:6px auto 12px}
+.gx{background:#fff;border:1.5px solid #9fc3cf;border-radius:16px;max-width:540px;margin:6px auto 12px;padding:12px 0 0}
+.gx .gx-eq{margin:0 16px 2px;font-size:18px!important;line-height:1.5;color:#22323b}
+.gx .gx-eq i{font-family:Cambria,Georgia,"Times New Roman",serif;font-size:1.08em}
+.gx svg.gv{margin:0 auto!important}
+section.exo svg.nm{max-width:300px!important}
+/* les tableaux : bordures foncées, en-têtes centrés, cellules centrées en hauteur */
+section.exo .tw th,section.exo .tw td{vertical-align:middle;border-color:#22323b!important}
+section.exo .tw thead th,section.exo .tw tbody th{text-align:center!important}
+/* les tableaux à compléter (Mme Talbaut, 09/11/2026 : « tes tableaux sont
+   étranges ») : cases blanches, une case à écrire bien marquée, les titres
+   de lignes de la même couleur */
+section.exo .tw tbody th{background:#e8f4f8!important}
+/* une même mise en page pour tous les tableaux de valeurs : la colonne des
+   titres au tiers de la largeur, puis des colonnes de valeurs égales */
+section.exo .tw table.num{table-layout:fixed;width:100%}
+section.exo .tw table.num tr>:first-child{width:32%}
+section.exo .tw table.num:not(:has(tr>:nth-child(4))) tr>:first-child{width:62%}
+section.exo .tw td.v{background:#fff!important;padding:6px!important}
+section.exo .tw td.v input.tc{width:100%;min-width:0;box-sizing:border-box;border:1.5px solid #7fb8c8!important;
+  border-radius:8px;background:#fff!important;padding:9px 4px;font-size:18px;text-align:center}
+section.exo .tw td.v input.tc.plein{background:#f2fbfd!important;border-color:#00A5BF!important}
+section.exo .tw td.v input.tc:focus{outline:2px solid #00A5BF;outline-offset:0}
+/* Activité B, question 4 : les quatre ajustements à cliquer, quatre par
+   ligne, deux au téléphone ; le nom en haut, le nuage en bas, alignés */
+ul.chx:has(svg.nm),ul.prop:has(svg.nm){display:grid!important;grid-template-columns:repeat(4,1fr);gap:12px;
+  list-style:none;padding:0;margin:4px 0 14px}
+ul.chx:has(svg.nm)>li,ul.prop:has(svg.nm)>li{min-width:0;margin:0!important}
+ul.prop:has(svg.nm)>li{display:flex;flex-wrap:wrap;align-content:space-between;gap:4px;
+  background:#fbfdfe;border:1px solid #9fc3cf;border-radius:12px;padding:10px}
+ul.prop:has(svg.nm)>li>svg{flex:0 0 100%}
+ul.chx:has(svg.nm) .ch-e{width:100%;height:100%;display:flex!important;flex-direction:column;align-items:center;
+  justify-content:space-between;gap:6px;padding:10px 8px!important}
+ul.chx:has(svg.nm) .ch-e>span{display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+  flex:1;gap:6px;width:100%}
+.cxn{font-weight:700;text-align:center;line-height:1.25}
+ul.chx:has(svg.nm) svg.nm,ul.prop:has(svg.nm) svg.nm{margin:0 auto!important;max-width:200px!important}
+@media (max-width:760px){ul.chx:has(svg.nm),ul.prop:has(svg.nm){grid-template-columns:1fr 1fr}}
+</style><style>
+@media (max-width:640px){
+ section.exo .tw:has(table.num[style*="--n"]){overflow:visible!important;border:0!important;border-radius:0!important}
+ section.exo .tw table.num[style*="--n"]{display:grid!important;grid-auto-flow:column;
+  grid-template-rows:repeat(var(--n),auto);grid-auto-columns:minmax(0,1fr);width:100%!important;
+  min-width:0!important;border:2px solid #22323b;border-radius:12px;overflow:hidden}
+ section.exo .tw table.num[style*="--n"] thead,section.exo .tw table.num[style*="--n"] tbody,
+ section.exo .tw table.num[style*="--n"] tr{display:contents}
+ section.exo .tw table.num[style*="--n"] th,section.exo .tw table.num[style*="--n"] td{display:block;
+  align-content:center;text-align:center;border:0!important;
+  border-bottom:1.5px solid #22323b!important;border-right:1.5px solid #22323b!important;
+  padding:7px 6px!important;white-space:normal!important;min-width:0;width:auto!important}
+}
+</style><style>.ap-fil{display:none!important}</style><style>
+.rep .rc p,.rep .rc li,.rep .rr p,.rep .rr li{font-size:18px!important}
+.rep .rc p b,.rep .rr p b{font-size:inherit}
+section.exo ul.prop li,section.exo .tw-o{font-size:18px!important}
+</style><style>.mdl,.prev,.crs,.dte{display:none!important}</style><style>.rep td.v,.rep td.v b{color:#6b3fa0!important}</style><style>
 body{padding-bottom:0!important}
 .rep .lb{cursor:default}
 .rep .lb::before{content:none!important}
@@ -1166,11 +1266,13 @@ section.exo .exo-c{padding-left:12px!important;padding-right:12px!important}}
 <header class="bar"><div class="in"><span class="lg">Terminale bac pro</span><nav class="fil"><span class="sep">&rsaquo;</span><a href="../../index.html">Mathématiques</a><span class="sep">&rsaquo;</span><a href="../index.html">Révision statistiques de 1re</a><span class="sep">&rsaquo;</span><span>Séance 1 · Correction</span></nav><span class="qui">Mme Talbaut</span></div></header>
 
 <div class="wrap"><div class="sban" style="--c:#2b7a78"><div class="n"><span class="lib">SÉANCE</span><span class="chiffre">1</span></div><div class="t"><p class="fil">Chapitre 0 &rsaquo; Révision statistiques de 1re</p><p class="t1">Vocabulaire et validation des acquis</p></div></div>
-<section class="exo" data-exo="ex00" data-titre="Ex. 0 - Validation des acquis de première"><div class="exo-h"><span class="exo-t"><span class="ex-n">Ex. 0</span>Validation des acquis de première</span><span class="etat cor">corrigé</span></div><div class="exo-c"><p class="en">Le tableau suivant montre l’évolution du nombre d’adhérents d’un club de tennis de 2016 à 2020.</p><p class="ttab">Nombre d’adhérents du club de tennis, de 2016 à 2020</p><div class="tw"><table class="num"><thead><tr><th>Année</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th><th>2020</th></tr></thead><tbody><tr><th>Rang (<i>x</i><sub>i</sub>)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>Nombre d’adhérents (<i>y</i><sub>i</sub>)</th><td>46</td><td>64</td><td>73</td><td>82</td><td>90</td></tr></tbody></table></div><p class="en">L’équation réduite de la droite d’ajustement obtenue avec un logiciel, pour cette série statistique, est <b class='nb'>y = 10,6x + 39,2</b>.</p><div class="q rvl"><div class="q-h"><span class="q-n"><span class="qn">1.</span> <span class="cmp">S’approprier</span> <b>Indiquer</b> l’année qui correspond au rang 8.</span></div><ul class="qcm"><li><span class="l">a</span><span class="t">2022</span></li><li class="bon"><span class="l">b</span><span class="t">2023</span></li><li><span class="l">c</span><span class="t">2024</span></li><li><span class="l">d</span><span class="t">2025</span></li></ul><div class="rep qcm-r on"><p class="rh"><span class="lb">Réponse</span><span class="rq"><span class="rl">b</span><span class="rv">2023</span></span></p><div class="rc"><div class="rr"><p>Le rang 1 correspond à 2016. Le rang 8 correspond donc à 2016 + 7 = <b>2023</b>.</p></div></div></div></div><div class="q rvl"><div class="q-h"><span class="q-n"><span class="qn">2.</span> <span class="cmp">S’approprier</span> <b>Indiquer</b> le rang qui correspond à l’année 2028.</span></div><ul class="qcm"><li><span class="l">a</span><span class="t">12</span></li><li class="bon"><span class="l">b</span><span class="t">13</span></li><li><span class="l">c</span><span class="t">14</span></li><li><span class="l">d</span><span class="t">15</span></li></ul><div class="rep qcm-r on"><p class="rh"><span class="lb">Réponse</span><span class="rq"><span class="rl">b</span><span class="rv">13</span></span></p><div class="rc"><div class="rr"><p>2028 - 2016 = 12 années après 2016. Comme 2016 porte le rang 1, l’année 2028 porte le rang <b>13</b>.</p></div></div></div></div><div class="q rvl"><div class="q-h"><span class="q-n"><span class="qn">3.</span> <span class="cmp">Réaliser</span> <b>Prévoir</b>, à l’unité près, le nombre d’adhérents en 2026.</span></div><ul class="qcm"><li><span class="l">a</span><span class="t">145</span></li><li><span class="l">b</span><span class="t">155</span></li><li class="bon"><span class="l">c</span><span class="t">156</span></li><li><span class="l">d</span><span class="t">166</span></li></ul><div class="rep qcm-r on"><p class="rh"><span class="lb">Réponse</span><span class="rq"><span class="rl">c</span><span class="rv">156</span></span></p><div class="rc"><div class="rr"><p>L’année 2026 porte le rang 11. En remplaçant x par 11 dans l’équation y = 10,6x + 39,2 : y = 10,6 × 11 + 39,2 = 155,8, soit <b>156 adhérents</b> à l’unité près.</p></div></div></div></div><div class="q rvl"><div class="q-h"><span class="q-n"><span class="qn">4.</span> <span class="cmp">Analyser / Raisonner</span> <b>Déterminer</b> l’année à partir de laquelle le nombre d’adhérents dépassera 200.</span></div><ul class="qcm"><li><span class="l">a</span><span class="t">2027</span></li><li><span class="l">b</span><span class="t">2029</span></li><li class="bon"><span class="l">c</span><span class="t">2031</span></li><li><span class="l">d</span><span class="t">2033</span></li></ul><div class="rep qcm-r on"><p class="rh"><span class="lb">Réponse</span><span class="rq"><span class="rl">c</span><span class="rv">2031</span></span></p><div class="rc"><div class="rr"><p>On résout 10,6x + 39,2 &gt; 200, soit 10,6x &gt; 160,8, donc x &gt; 15,2. Le premier rang entier est 16, soit l’année <b>2031</b>.</p></div></div></div></div></div></section>
+<section class="exo" data-exo="ex00" data-titre="Ex. 0 - Validation des acquis de première"><div class="exo-h"><span class="exo-t"><span class="ex-n">Ex. 0</span>Validation des acquis de première</span><span class="etat cor">corrigé</span></div><div class="exo-c"><p class="en">Le tableau suivant montre l’évolution du nombre d’adhérents d’un club de tennis de 2016 à 2020.</p><p class="ttab">Nombre d’adhérents du club de tennis, de 2016 à 2020</p><div class="tw"><table class="num" style="--n:6"><thead><tr><th>Année</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th><th>2020</th></tr></thead><tbody><tr><th>Rang (<i><span class="eqn"><i>x</i></span></i><sub>i</sub>)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>Nombre d’adhérents (<i><span class="eqn"><i>y</i></span></i><sub>i</sub>)</th><td>46</td><td>64</td><td>73</td><td>82</td><td>90</td></tr></tbody></table></div><p class="en">L’équation réduite de la droite d’ajustement obtenue avec un logiciel, pour cette série statistique, est <b class='nb'><span class="eqn"><i>y</i> = 10,6<i>x</i> + 39,2</span></b>.</p><div class="q rvl"><div class="q-h"><span class="q-n"><span class="qn">1.</span> <span class="cmp">S’approprier</span> <b>Indiquer</b> l’année qui correspond au rang 8.</span></div><ul class="qcm"><li><span class="l">a</span><span class="t">2022</span></li><li class="bon"><span class="l">b</span><span class="t">2023</span></li><li><span class="l">c</span><span class="t">2024</span></li><li><span class="l">d</span><span class="t">2025</span></li></ul><div class="rep qcm-r on"><p class="rh"><span class="lb">Réponse</span><span class="rq"><span class="rl">b</span><span class="rv">2023</span></span></p><div class="rc"><div class="rr"><p>Le rang 1 correspond à 2016. Le rang 8 correspond donc à 2016 + 7 = <b>2023</b>.</p></div></div></div></div><div class="q rvl"><div class="q-h"><span class="q-n"><span class="qn">2.</span> <span class="cmp">S’approprier</span> <b>Indiquer</b> le rang qui correspond à l’année 2028.</span></div><ul class="qcm"><li><span class="l">a</span><span class="t">12</span></li><li class="bon"><span class="l">b</span><span class="t">13</span></li><li><span class="l">c</span><span class="t">14</span></li><li><span class="l">d</span><span class="t">15</span></li></ul><div class="rep qcm-r on"><p class="rh"><span class="lb">Réponse</span><span class="rq"><span class="rl">b</span><span class="rv">13</span></span></p><div class="rc"><div class="rr"><p><span class="eqn">2028 - 2016 = 12</span> années après 2016. Comme 2016 porte le rang 1, l’année 2028 porte le rang <b>13</b>.</p></div></div></div></div><div class="q rvl"><div class="q-h"><span class="q-n"><span class="qn">3.</span> <span class="cmp">Réaliser</span> <b>Prévoir</b>, à l’unité près, le nombre d’adhérents en 2026.</span></div><ul class="qcm"><li><span class="l">a</span><span class="t">145</span></li><li><span class="l">b</span><span class="t">155</span></li><li class="bon"><span class="l">c</span><span class="t">156</span></li><li><span class="l">d</span><span class="t">166</span></li></ul><div class="rep qcm-r on"><p class="rh"><span class="lb">Réponse</span><span class="rq"><span class="rl">c</span><span class="rv">156</span></span></p><div class="rc"><div class="rr"><p>L’année 2026 porte le rang 11. En remplaçant <span class="eqn"><i>x</i></span> par 11 dans l’équation <span class="eqn"><i>y</i> = 10,6<i>x</i> + 39,2</span> : <span class="eqn"><i>y</i> = 10,6 × 11 + 39,2 = 155,8</span>, soit <b>156 adhérents</b> à l’unité près.</p></div></div></div></div><div class="q rvl"><div class="q-h"><span class="q-n"><span class="qn">4.</span> <span class="cmp">Analyser / Raisonner</span> <b>Déterminer</b> l’année à partir de laquelle le nombre d’adhérents dépassera 200.</span></div><ul class="qcm"><li><span class="l">a</span><span class="t">2027</span></li><li><span class="l">b</span><span class="t">2029</span></li><li class="bon"><span class="l">c</span><span class="t">2031</span></li><li><span class="l">d</span><span class="t">2033</span></li></ul><div class="rep qcm-r on"><p class="rh"><span class="lb">Réponse</span><span class="rq"><span class="rl">c</span><span class="rv">2031</span></span></p><div class="rc"><div class="rr"><p>On résout <span class="eqn">10,6<i>x</i> + 39,2 &gt; 200</span>, soit <span class="eqn">10,6<i>x</i> &gt; 160,8</span>, donc <span class="eqn"><i>x</i> &gt; 15,2</span>. Le premier rang entier est 16, soit l’année <b>2031</b>.</p></div></div></div></div></div></section>
 </div>
 
 
 <footer class="pied"><div class="in"><span>Mathématiques terminale bac pro</span><span class="sep">&middot;</span><b>Mme Talbaut</b><span class="sep">&middot;</span><span>LP Max Joséphine, Cayenne</span></div></footer>
+
+
 
 
 
