@@ -1013,8 +1013,8 @@ section.retp .exm>.et{display:inline-flex;align-items:center;background:#2E5266;
   padding:4px 12px;margin:0 0 10px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.16em;
   text-transform:uppercase}
 section.retp .exm svg{max-width:min(100%,460px);height:auto;display:block;margin:10px auto}
-section.retp .ex-g{display:flex;gap:22px;align-items:center}
-section.retp .ex-g>svg{flex:0 0 52%;max-width:52%!important;margin:0!important}
+section.retp .ex-g{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+section.retp .ex-g>svg{flex:none;max-width:min(100%,460px)!important;margin:0 auto!important}
 section.retp .ex-t p{margin:0 0 10px}
 b.nb{white-space:nowrap}
 @media (max-width:760px){section.retp .ex-g{flex-direction:column;align-items:stretch}section.retp .ex-g>svg{max-width:100%!important;flex-basis:auto}}
@@ -1168,6 +1168,9 @@ table.fill input.tc:focus{outline:2px solid #00778a;outline-offset:-2px}
   .ecp-cache{display:block!important}}
 </style>
 <style>section.exo{--f:#eaf2f2;--c:#2b7a78}</style><style>
+/* sur grand écran, la page grossit au plus ×1,2 (environ 1 200 px de large) :
+   à ×1,45 et ×1,8 elle était trop large (Mme Talbaut, 09/11/2026, toutes les fiches TBP ; en tête de la feuille : le ch00 en coupe la fin) */
+@media (min-width:1500px){body{zoom:1.2!important}}
 /* le texte des exercices à 18 px, comme l'Ex. 1 de la séance 1 (Mme Talbaut,
    09/11/2026) ; les étiquettes des cadres gardent leur taille */
 section.exo .exo-c p.en,section.exo .q-n,section.exo .q-n>b,section.exo .q-n>span:not(.eqn),
@@ -1244,7 +1247,14 @@ ul.chx:has(svg.nm) svg.nm,ul.prop:has(svg.nm) svg.nm{margin:0 auto!important;max
   border-bottom:1.5px solid #22323b!important;border-right:1.5px solid #22323b!important;
   padding:7px 6px!important;white-space:normal!important;min-width:0;width:auto!important}
 }
-</style><style>.ap-fil{display:none!important}</style><style>
+</style><style>
+.ap-bas.haut{position:static!important;left:auto!important;right:auto!important;bottom:auto!important;
+  width:auto!important;box-shadow:none!important;background:none!important;border:0!important;
+  padding:0!important;margin:10px 0 14px!important;justify-content:flex-end!important}
+.ap-bas.haut .ap-bd,.ap-bas.haut .ap-bi{display:none!important}
+body{padding-bottom:24px!important}
+</style>
+<style>.ap-fil{display:none!important}</style><style>
 .rep .rc p,.rep .rc li,.rep .rr p,.rep .rr li{font-size:18px!important}
 .rep .rc p b,.rep .rr p b{font-size:inherit}
 section.exo ul.prop li,section.exo .tw-o{font-size:18px!important}
