@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Suites arithmétiques - Terminale bac pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  color:#0d1a22;background:#f6f4fb;line-height:1.55}
+a{color:inherit}
+.bar{background:#fff;border-bottom:2.5px solid #22323b}
+.bar .in{max-width:1000px;margin:0 auto;padding:12px 20px;display:flex;
+  align-items:center;gap:14px;flex-wrap:wrap}
+.bar .lg{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:18px;
+  text-decoration:none}
+.bar .fil{font-size:15px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bar .fil a{color:#3b5ba5;font-weight:600}
+.bar .qui{margin-left:auto;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;
+  font-size:14px;white-space:nowrap}
+main{max-width:1000px;margin:0 auto;padding:30px 20px 60px}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:34px;
+  letter-spacing:-.02em;margin:0 0 6px}
+.kick{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:#3b5ba5;font-weight:700;margin:0 0 8px}
+.sub{font-size:17px;margin:0 0 30px}
+.carte{display:block;background:#fff;border:2.5px solid #22323b;border-radius:18px;
+  padding:20px 24px;text-decoration:none;box-shadow:0 14px 30px -24px rgba(13,26,34,.7)}
+.carte:hover{border-color:var(--c);box-shadow:0 18px 34px -22px rgba(13,26,34,.55)}
+.carte h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px;
+  margin:0 0 4px;color:var(--c)}
+.carte p{margin:0;font-size:15.5px}
+.gr{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center;
+  margin:0 0 34px}
+.hero svg{width:100%;height:auto;max-width:100%;display:block}
+.doc{background:#fff;border:2.5px solid #22323b;border-radius:18px;padding:22px 24px;
+  margin:0 0 18px}
+.doc h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;
+  margin:0 0 6px;color:var(--c)}
+.doc p{margin:0 0 16px;font-size:15.5px}
+.bt{display:inline-flex;align-items:center;gap:9px;font-family:"Bricolage Grotesque",sans-serif;
+  font-weight:800;font-size:16px;text-decoration:none;color:#fff;background:var(--c);
+  border-radius:12px;padding:11px 20px;margin:0 10px 10px 0}
+.bt.sec{background:#fff;color:var(--c);border:2.5px solid var(--c)}
+.bt:hover{filter:brightness(1.08)}
+.vide{background:#fff;border:2.5px dashed #22323b;border-radius:18px;padding:20px 24px;
+  font-size:15.5px}
+.vide h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px;
+  margin:0 0 4px;color:#5a6b74}
+.vide p{margin:0}
+.gr.ch3{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.carte.ch{padding:16px 16px 18px}
+.carte .ill{display:block;width:100%;height:auto;border:2.5px solid #22323b;
+  border-radius:12px;margin:0 0 12px}
+.carte.ch .no{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;font-weight:700;color:#5a6b74;margin:0 0 2px}
+.carte.ch h2{font-size:19px;line-height:1.2;margin:0 0 4px}
+.carte.ch p{font-size:14.5px}
+.carte.ch.off{border-style:dashed;box-shadow:none;background:#fbfbfd}
+.carte.ch.off .ill{filter:grayscale(1);opacity:.45}
+.carte.ch.off h2{color:#5a6b74}
+.carte.ch.off p{color:#5a6b74}
+.carte.dis{padding:16px 16px 18px}
+.carte.dis h2{margin:0 0 6px}
+footer.pied{border-top:2.5px solid #22323b;background:#fff}
+footer.pied .in{max-width:1000px;margin:0 auto;padding:14px 20px;display:flex;
+  flex-wrap:wrap;gap:6px 16px;align-items:center;
+  font-family:"Bricolage Grotesque",sans-serif;font-size:14px}
+footer.pied .sep{color:#3b5ba5;font-weight:800}
+footer.pied b{font-weight:800}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr}
+  h1{font-size:27px}
+  .bar .qui{margin-left:0;width:100%}}
+
+.ttm{margin:4px 0 18px;padding:16px 24px;border:3.5px solid #12202a;border-radius:18px;color:#fff;
+  background:var(--c);box-shadow:0 14px 30px -24px rgba(13,26,34,.75);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ttm .tx{flex:1 1 300px;min-width:0}
+.ttm .l1{display:block;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:23px;line-height:1.2;
+  text-transform:uppercase}
+.ttm .l2{display:block;margin:3px 0 0;font-size:16px}
+.tch{margin:0}
+.tch>summary{list-style:none;cursor:pointer}
+.tch>summary::-webkit-details-marker{display:none}
+.tch>summary:hover{filter:brightness(1.07)}
+.tch .fl{flex:none;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:14px;background:#fff;
+  color:var(--c);border:2.5px solid #12202a;border-radius:999px;padding:6px 14px}
+.tch .fl::after{content:" ▾"}
+.tch[open] .fl::after{content:" ▴"}
+.tch[open]>summary{margin-bottom:8px}
+.tch-l{display:flex;flex-direction:column;gap:8px;margin:0 0 18px}
+.tch-l a{display:block;text-decoration:none;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:17px;
+  color:var(--c2);background:#fff;border:3px solid var(--c2);border-radius:14px;padding:12px 18px}
+.tch-l a:hover{background:var(--c2);color:#fff}
+.enc{margin:0 0 18px;border:3.5px solid #12202a;border-radius:18px;background:#fff;padding:0 22px 22px;
+  box-shadow:0 14px 30px -24px rgba(13,26,34,.75)}
+.enc>h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;margin:0;padding:18px 0 14px;color:var(--c)}
+/* la fiche de cours : l'aperçu à gauche, le texte et le bouton à droite */
+.fcrs{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:22px;align-items:center;background:var(--f);
+  border:3.5px solid #12202a;border-top:14px solid var(--c);border-radius:18px;padding:18px 22px 20px}
+.fcrs .ap{display:block;line-height:0}
+.fcrs .ap img{width:100%;aspect-ratio:210/140;object-fit:cover;object-position:top;border:2px solid #12202a;
+  border-radius:10px;background:#fff;display:block}
+.fcrs .t{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;line-height:1.2;margin:0 0 8px;color:#0d1a22}
+.fcrs p{margin:0 0 14px;font-size:17px}
+.b1,.b2{display:block;text-align:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:15px;
+  border-radius:12px;padding:9px 10px;text-decoration:none;white-space:nowrap}
+.b1{background:#fff;color:var(--c);border:2.5px solid var(--c)}
+.b1:hover{background:var(--c);color:#fff}
+.b2{background:#1D7A33;color:#fff;border:2.5px solid #1D7A33}
+.b2:hover{filter:brightness(1.1)}
+.b2.off{background:#e9edef;color:#7a8a93;border-color:#c9d2d7}
+.fcrs .b1{display:inline-block;padding:9px 26px}
+/* une carte par séance */
+.crt{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.crt .k{display:flex;flex-direction:column;background:var(--f);border:3.5px solid #12202a;border-radius:18px;overflow:hidden;
+  box-shadow:0 14px 30px -26px rgba(13,26,34,.7)}
+.crt .ba{display:block;height:14px;background:var(--c);border-bottom:3.5px solid #12202a}
+.crt .in{display:flex;flex-direction:column;gap:10px;padding:14px 18px 18px;flex:1}
+.crt .no{align-self:flex-start;font-family:"Bricolage Grotesque",sans-serif;font-size:17px;letter-spacing:.06em;
+  text-transform:uppercase;font-weight:800;color:#fff;background:var(--c);border-radius:999px;padding:5px 16px;margin:0}
+.crt .no.r{background:#b8503c}
+.crt .t{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:19px;line-height:1.2;margin:0;color:#0d1a22;
+  min-height:2.4em}
+.crt .ap{display:block;line-height:0}
+.crt .ap img{width:100%;aspect-ratio:210/105;object-fit:cover;object-position:top;border:2px solid #12202a;border-radius:10px;
+  display:block;background:#fff}
+.crt .et{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:14.5px;color:var(--c);margin:0}
+.crt .et.ok{color:#137A3A}
+.crt .bts{display:flex;gap:8px;margin-top:auto}
+.crt .bts>*{flex:1}
+@media (max-width:700px){.fcrs{grid-template-columns:minmax(0,1fr);padding:14px 12px 16px}}
+@media (max-width:600px){.enc{padding:0 12px 14px}.ttm .l1{font-size:20px}}
+
+.cours2{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:24px;align-items:start;
+  background:var(--f);border:3.5px solid #12202a;border-top:14px solid var(--c);border-radius:18px;
+  padding:18px 22px 22px;box-shadow:0 14px 30px -26px rgba(13,26,34,.7)}
+.cours2 h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;margin:0 0 10px;color:var(--c)}
+.cours2 .g{display:flex;flex-direction:column;gap:10px;min-width:0}
+.cours2 .ap{display:block;line-height:0}
+/* la page 1 entière de la fiche de cours : la colonne des séances est longue (12/11/2026) */
+.cours2 .ap img{width:100%;aspect-ratio:210/297;object-fit:contain;object-position:top;
+  border:2px solid #12202a;border-radius:10px;background:#fff;display:block}
+.cours2 .fc-t{margin:0;font-size:16px}
+.cours2 .cd{margin:-4px 0 12px;font-size:16px}
+.cours2 .b1{display:block;text-align:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;
+  font-size:15px;border-radius:12px;padding:9px 16px;text-decoration:none;background:#fff;
+  color:var(--c);border:2.5px solid var(--c);white-space:normal}
+.cours2 .b1:hover{background:var(--c);color:#fff}
+.cours2 .d{min-width:0}
+.cours2 .pls{display:flex;flex-direction:column;gap:10px}
+.cours2 .pl{display:flex;align-items:center;gap:12px;text-decoration:none;background:#fff;color:#0d1a22;
+  border:2.5px solid #12202a;border-radius:14px;padding:10px 14px;
+  font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:16px;line-height:1.25}
+.cours2 a.pl:hover{border-color:var(--c)}
+.cours2 .pl .n{flex:none;background:var(--c);color:#fff;border-radius:999px;padding:4px 12px;font-size:14px}
+.cours2 .pl .tt{flex:1;min-width:0}
+.cours2 .pl .v{flex:none;background:#fff;color:var(--c);border:2.5px solid var(--c);border-radius:10px;
+  padding:5px 12px;font-size:14px}
+.cours2 .pl .bv{flex:none;display:flex;gap:8px}
+.cours2 .pl a.v{text-decoration:none}
+.cours2 .pl a.v:hover{background:var(--c);color:#fff}
+.cours2 .pl .v.vc{background:#1D7A33;color:#fff;border-color:#1D7A33}
+.cours2 .pl a.v.vc:hover{filter:brightness(1.1)}
+.cours2 .pl .v.off{background:#e9edef;color:#7a8a93;border-color:#c9d2d7;cursor:default}
+.cours2 .pl.off{border-style:dashed}
+.cours2 .pl.off .n{background:#7a8a93}
+.cours2 .pl.off .v{background:#e9edef;color:#7a8a93;border-color:#c9d2d7}
+@media (max-width:700px){.cours2{grid-template-columns:minmax(0,1fr);padding:14px 12px 16px}
+  .cours2 .pl{flex-wrap:wrap;gap:8px 12px}
+  .cours2 .pl .tt{order:2;flex-basis:100%}.cours2 .pl .bv{order:3}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="in"><a class="lg" href="../../index.html">Terminale bac pro</a><nav class="fil"><span class="sep">&rsaquo;</span><a href="../index.html">Mathématiques</a><span class="sep">&rsaquo;</span><span>Chapitre 2</span></nav><span class="qui">Mme Talbaut</span></div></header>
+<main>
+<details class="tch" style="--c:#3b5ba5;--c2:#b8503c"><summary class="ttm"><span class="tx"><span class="l1">Chapitre 2 · Suites arithmétiques</span><span class="l2">Calculer des termes et leur somme, modéliser une évolution.</span></span><span class="fl">Changer de chapitre</span></summary><nav class="tch-l"><a href="../ch00-revision-statistiques/index.html">Chapitre 0 : Révision statistiques de 1re</a><a href="../ch01-statistiques-deux-variables/index.html">Chapitre 1 : Statistiques à deux variables</a></nav></details><div class="cours2" style="--c:#3b5ba5;--f:#ebeff6"><div class="g"><h2>La fiche de cours</h2><a class="ap" href="fiche-de-cours/TBP%20ch02%20-%20Fiche%20de%20cours.pdf" target="_blank" rel="noopener"><img src="apercus/fiche-de-cours.png" alt="Première page de la fiche de cours"></a><p class="fc-t">Le plan du chapitre et les À retenir, à imprimer et à compléter pendant les séances.</p><a class="b1" href="fiche-de-cours/TBP%20ch02%20-%20Fiche%20de%20cours.pdf" target="_blank" rel="noopener">La fiche de cours</a></div><div class="d"><h2>Les séances</h2><p class="cd">Chaque fiche s’ouvre avec le code donné en classe.</p><div class="pls"><div class="pl"><span class="n">Séance 1</span><span class="tt">Rappels et validation des acquis</span><span class="bv"><a class="v" href="fiches/Ch2%20-%20Seance1%20-%20Rappels-et-validation-des-acquis.html" target="_blank" rel="noopener">Exercice</a><span class="v vc off" title="Correction après la séance">Correction</span></span></div><div class="pl"><span class="n">Séance 2</span><span class="tt">Exercice type CCF · Le chiffre d’affaires de Tropi’Style</span><span class="bv"><a class="v" href="fiches/Ch2%20-%20Seance2%20-%20Exercice-type-CCF-Le-chiffre-d-affaires-de-Tropi-Sty.html" target="_blank" rel="noopener">Exercice</a><span class="v vc off" title="Correction après la séance">Correction</span></span></div><div class="pl"><span class="n">Séance 3</span><span class="tt">Activité A · La production d’une usine</span><span class="bv"><a class="v" href="fiches/Ch2%20-%20Seance3%20-%20Activite-A-La-production-d-une-usine.html" target="_blank" rel="noopener">Exercice</a><span class="v vc off" title="Correction après la séance">Correction</span></span></div></div></div></div>
+</main>
+<footer class="pied"><div class="in"><span>Mathématiques terminale bac pro</span><span class="sep">&middot;</span><b>Mme Talbaut</b><span class="sep">&middot;</span><span>LP Max Joséphine, Cayenne</span></div></footer>
+</body>
+</html>
